@@ -25,6 +25,15 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
-		}
+
+			this._initModel("displayState");
+
+		},
+		_initModel: function (sModelName) {
+			var sPath = jQuery.sap.getModulePath("promos/exad/EXAD2/model/" + sModelName, ".model.json");
+			var oModel = new sap.ui.model.json.JSONModel();
+			oModel.loadData(sPath);
+			this.setModel(oModel, sModelName);
+		},
 	});
 });

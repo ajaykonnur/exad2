@@ -1,11 +1,94 @@
-<mvc:View controllerName="promos.exad.EXAD2.controller.main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<Shell id="shell">
-		<App id="app">
-			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content></content>
-				</Page>
-			</pages>
-		</App>
-	</Shell>
+<mvc:View controllerName="promos.exad.EXAD2.controller.main" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" height="100%"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<tnt:ToolPage id="idToolPage" class="sapUiSizeCompact">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="idFunctionsToggleButton" icon="sap-icon://menu2" type="Transparent" press=".onFunctionsToggleButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<ToolbarSpacer width="20px"/>
+				<Button text="File" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<Button text="Edit" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<Button text="View" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<Button text="Navigate" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<Button text="Code" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<Button text="Refactor" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<Button text="Run" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<Button text="Tools" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<tnt:ToolHeaderUtilitySeparator/>
+				<ToolbarSpacer>
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px"/>
+					</layoutData>
+				</ToolbarSpacer>
+				<Button id="idSidebarToggleButton" icon="sap-icon://notes" type="Transparent" press=".onSidebarToggleButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="Item1" icon="sap-icon://alert">
+						<tnt:NavigationListItem text="Item1" icon="sap-icon://alert"/>
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList>
+						<tnt:NavigationListItem text="Item1" icon="sap-icon://alert"/>
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<l:Splitter >
+				<mvc:View id="idWorkArea">
+					<mvc:layoutData>
+						<l:SplitterLayoutData minSize="500"/>
+					</mvc:layoutData>
+				</mvc:View>
+				<mvc:View id="idSideBarArea">
+					<mvc:layoutData>
+						<l:SplitterLayoutData minSize="200" size="0%" resizable="false"/>
+					</mvc:layoutData>
+				</mvc:View>
+			</l:Splitter>
+		</tnt:mainContents>
+	</tnt:ToolPage>
 </mvc:View>
