@@ -5,18 +5,7 @@
 			<core:Fragment fragmentName="promos.exad.EXAD2.view.main_shellbar" type="XML"/>
 		</tnt:header>
 		<tnt:sideContent>
-			<tnt:SideNavigation expanded="true">
-				<tnt:NavigationList>
-					<tnt:NavigationListItem text="Item1" icon="sap-icon://alert">
-						<tnt:NavigationListItem text="Item1" icon="sap-icon://alert"/>
-					</tnt:NavigationListItem>
-				</tnt:NavigationList>
-				<tnt:fixedItem>
-					<tnt:NavigationList>
-						<tnt:NavigationListItem text="Item1" icon="sap-icon://alert"/>
-					</tnt:NavigationList>
-				</tnt:fixedItem>
-			</tnt:SideNavigation>
+			<core:Fragment fragmentName="promos.exad.EXAD2.view.main_functionsbar" type="XML"/>
 		</tnt:sideContent>
 		<tnt:mainContents>
 			<l:Splitter >
