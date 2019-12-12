@@ -27,6 +27,7 @@ sap.ui.define([
 			this.setModel(models.createDeviceModel(), "device");
 
 			this._initModel("displayState");
+			this._initModel("mockdata");
 
 		},
 		_initModel: function (sModelName) {

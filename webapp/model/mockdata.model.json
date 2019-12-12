@@ -1,0 +1,28 @@
+{
+	"listItems": [{
+		"text": "Apple"
+	}, {
+		"text": "Orange"
+	}, {
+		"text": "Pear"
+	}],
+	"treeListItems": [{
+		"text": "Apple",
+		"nodes": [{
+			"text": "red"
+		}, {
+			"text": "green"
+		}, {
+			"text": "blue"
+		}]
+	}, {
+		"text": "Orange",
+		"nodes": [{
+			"text": "red"
+		}, {
+			"text": "green"
+		}, {
+			"text": "blue"
+		}]
+	}]
+}
