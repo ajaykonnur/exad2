@@ -25,13 +25,13 @@ sap.ui.define([
 			if (bActive) {
 				oSidebarArea.getLayoutData().setResizable(false);
 				oSidebarArea.getLayoutData().setSize("0%");
-				oToggleButton.setType("Transparent");
+				oToggleButton.setPressed(false);
 
 				this.superSetModelProperty("displayState", sActivePath, false);
 			} else {
 				oSidebarArea.getLayoutData().setResizable(true);
 				oSidebarArea.getLayoutData().setSize("20%");
-				oToggleButton.setType("Emphasized");
+				oToggleButton.setPressed(true);
 
 				this.superSetModelProperty("displayState", sActivePath, true);
 			}
@@ -41,17 +41,17 @@ sap.ui.define([
 		toggleFunctionsArea: function () {
 			var sActivePath = "/functionsbar/active";
 			var bActive = this.superGetModelProperty("displayState", sActivePath);
-			var oSidebarArea = this.byIdView("idFunctionsBar");
+			var oToolPage = this.byIdView("idToolPage");
 			var oToggleButton = this.byIdView("idFunctionsToggleButton");
 
 			if (bActive) {
-				oSidebarArea.setExpanded(false);
-				oToggleButton.setType("Transparent");
+				oToolPage.setSideExpanded(false);
+				oToggleButton.setPressed(false);
 
 				this.superSetModelProperty("displayState", sActivePath, false);
 			} else {
-				oSidebarArea.setExpanded(true);
-				oToggleButton.setType("Emphasized");
+				oToolPage.setSideExpanded(true);
+				oToggleButton.setPressed(true);
 
 				this.superSetModelProperty("displayState", sActivePath, true);
 			}

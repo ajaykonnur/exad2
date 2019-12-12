@@ -1,38 +1,38 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core">
 	<tnt:ToolHeader>
-		<Button id="idFunctionsToggleButton" icon="sap-icon://menu2" type="Emphasized" press=".onFunctionsToggleButtonPress">
+		<ToggleButton id="idFunctionsToggleButton" icon="sap-icon://menu2" pressed="true" type="Transparent" press=".onFunctionsToggleButtonPress">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="NeverOverflow"/>
 			</layoutData>
-		</Button>
+		</ToggleButton>
 		<ToolbarSeparator/>
 		<Image src="resources/main_logo.png" height="100%"/>
 		<ToolbarSpacer/>
-		<Button text="Home" type="Transparent" icon="">
+		<Button type="Transparent" icon="sap-icon://home">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="Low"/>
 			</layoutData>
 		</Button>
-		<Button text="Historie" type="Transparent" icon="">
+		<Button type="Transparent" icon="sap-icon://activity-items">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="Low"/>
 			</layoutData>
 		</Button>
-		<Button text="Favoriten" type="Transparent" icon="sap-icon://favorite">
+		<Button type="Transparent" icon="sap-icon://favorite">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="Low"/>
 			</layoutData>
 		</Button>
-		<Button text="Ausloggen" type="Transparent" icon="">
+		<Button type="Transparent" icon="sap-icon://log">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="Low"/>
 			</layoutData>
 		</Button>
 		<ToolbarSeparator/>
-		<Button id="idSidebarToggleButton" icon="sap-icon://notes" type="Emphasized" press=".onSidebarToggleButtonPress">
+		<ToggleButton id="idSidebarToggleButton" icon="sap-icon://notes" pressed="true" type="Transparent" press=".onSidebarToggleButtonPress">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="NeverOverflow"/>
 			</layoutData>
-		</Button>
+		</ToggleButton>
 	</tnt:ToolHeader>
 </core:FragmentDefinition>

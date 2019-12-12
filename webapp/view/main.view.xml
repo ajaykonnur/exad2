@@ -1,6 +1,6 @@
 <mvc:View controllerName="promos.exad.EXAD2.controller.main" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" height="100%"
 	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
-	<tnt:ToolPage id="idToolPage" class="sapUiSizeCompact">
+	<tnt:ToolPage id="idToolPage" class="sapUiSizeCompact" sideExpanded="true">
 		<tnt:header>
 			<core:Fragment fragmentName="promos.exad.EXAD2.view.main_shellbar" type="XML"/>
 		</tnt:header>

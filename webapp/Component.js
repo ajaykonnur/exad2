@@ -27,6 +27,7 @@ sap.ui.define([
 			this.setModel(models.createDeviceModel(), "device");
 
 			this._initModel("displayState");
+			this._initModel("mockdata");
 
 		},
 		_initModel: function (sModelName) {
@@ -35,5 +36,15 @@ sap.ui.define([
 			oModel.loadData(sPath);
 			this.setModel(oModel, sModelName);
 		},
+		getContentDensityClass: function () {
+			if (!this._sContentDensityClass) {
+				if (!Device.support.touch) {
+					this._sContentDensityClass = "sapUiSizeCompact";
+				} else {
+					this._sContentDensityClass = "sapUiSizeCozy";
+				}
+			}
+			return this._sContentDensityClass;
+		}
 	});
 });
