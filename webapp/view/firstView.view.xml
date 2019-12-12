@@ -1,7 +1,34 @@
-<mvc:View controllerName="promos.exad.EXAD2.controller.firstView" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt"
-	height="100%" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
-	<Text text="ABCDEFGHIJLL"/>
-	<!--<mvc:layoutData>-->
-	<!--	<l:SplitterLayoutData minSize="500"/>-->
-	<!--</mvc:layoutData>-->
+<mvc:View controllerName="promos.exad.EXAD2.controller.firstView" 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:tnt="sap.tnt"
+	height="100%" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:core="sap.ui.core">
+
+
+	
+		<Wizard
+		id="BranchingWizard"
+		enableBranching="true"
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
+		<WizardStep validated="true" id="A" title="A" >
+
+			<RadioButtonGroup id="PathSelection" select="discardAndApplyPath">
+				<buttons>
+					<RadioButton text="A->B1->C->D->E->F1->F2->G"/> 
+					<RadioButton text="A->B2->C->D->E->F1->G" />
+					<RadioButton text="A->B1->B2->C->D->E" />
+				</buttons>
+			</RadioButtonGroup>
+
+		</WizardStep>
+		<WizardStep validated="true" id="B1" title="B1" />
+		<WizardStep validated="true" id="B2" title="B2" />
+		<WizardStep validated="true" id="C" title="C" />
+		<WizardStep validated="true" id="D" title="D" />
+		<WizardStep validated="true" id="E" title="E" />
+
+	</Wizard>
+
 </mvc:View>
