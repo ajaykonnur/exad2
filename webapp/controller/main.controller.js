@@ -13,28 +13,48 @@ sap.ui.define([
 		},
 
 		onFunctionsToggleButtonPress: function (oEvent) {
-
+			this.toggleFunctionsArea();
 		},
 
 		toggleSidebarArea: function () {
-			var bActive = this.superGetModelProperty("displayState", "/sidebar/active");
+			var sActivePath = "/sidebar/active";
+			var bActive = this.superGetModelProperty("displayState", sActivePath);
 			var oSidebarArea = this.byIdView("idSideBarArea");
+			var oToggleButton = this.byIdView("idSidebarToggleButton");
 
 			if (bActive) {
 				oSidebarArea.getLayoutData().setResizable(false);
 				oSidebarArea.getLayoutData().setSize("0%");
+				oToggleButton.setType("Transparent");
 
-				this.superSetModelProperty("displayState", "/sidebar/active", false);
+				this.superSetModelProperty("displayState", sActivePath, false);
 			} else {
 				oSidebarArea.getLayoutData().setResizable(true);
 				oSidebarArea.getLayoutData().setSize("20%");
-				this.superSetModelProperty("displayState", "/sidebar/active", true);
+				oToggleButton.setType("Emphasized");
+
+				this.superSetModelProperty("displayState", sActivePath, true);
 			}
 
 		},
 
 		toggleFunctionsArea: function () {
+			var sActivePath = "/functionsbar/active";
+			var bActive = this.superGetModelProperty("displayState", sActivePath);
+			var oSidebarArea = this.byIdView("idFunctionsBar");
+			var oToggleButton = this.byIdView("idFunctionsToggleButton");
 
+			if (bActive) {
+				oSidebarArea.setExpanded(false);
+				oToggleButton.setType("Transparent");
+
+				this.superSetModelProperty("displayState", sActivePath, false);
+			} else {
+				oSidebarArea.setExpanded(true);
+				oToggleButton.setType("Emphasized");
+
+				this.superSetModelProperty("displayState", sActivePath, true);
+			}
 		}
 	});
 });

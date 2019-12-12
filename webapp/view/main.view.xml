@@ -12,11 +12,11 @@
 				<Shell id="shellContainer" appWidthLimited="false">
 					<App id="appContainer"></App>
 				</Shell>
-				<mvc:View id="idSideBarArea">
+				<mvc:XMLView viewName="promos.exad.EXAD2.view.main_sidebar" id="idSideBarArea">
 					<mvc:layoutData>
-						<l:SplitterLayoutData minSize="200" size="0%" resizable="false"/>
+						<l:SplitterLayoutData minSize="200" size="20%" resizable="true"/>
 					</mvc:layoutData>
-				</mvc:View>
+				</mvc:XMLView>
 			</l:Splitter>
 		</tnt:mainContents>
 	</tnt:ToolPage>

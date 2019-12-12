@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core">
 	<tnt:ToolHeader>
-		<Button id="idFunctionsToggleButton" icon="sap-icon://menu2" type="Transparent" press=".onFunctionsToggleButtonPress">
+		<Button id="idFunctionsToggleButton" icon="sap-icon://menu2" type="Emphasized" press=".onFunctionsToggleButtonPress">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="NeverOverflow"/>
 			</layoutData>
@@ -29,7 +29,7 @@
 			</layoutData>
 		</Button>
 		<ToolbarSeparator/>
-		<Button id="idSidebarToggleButton" icon="sap-icon://notes" type="Transparent" press=".onSidebarToggleButtonPress">
+		<Button id="idSidebarToggleButton" icon="sap-icon://notes" type="Emphasized" press=".onSidebarToggleButtonPress">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="NeverOverflow"/>
 			</layoutData>
