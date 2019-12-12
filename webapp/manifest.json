@@ -72,21 +72,21 @@
 				"async": true,
 				"viewPath": "promos.exad.EXAD2.view",
 				"controlAggregation": "pages",
-				"controlId": "app",
+				"controlId": "appContainer",
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "Routemain",
-				"pattern": "Routemain",
-				"target": ["Targetmain"]
+				"name": "RoutefirstView",
+				"pattern": "RoutefirstView",
+				"target": ["TargetfirstView"]
 			}],
 			"targets": {
-				"Targetmain": {
+				"TargetfirstView": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "main",
-					"viewName": "main"
+					"viewId": "firstView",
+					"viewName": "firstView"
 				}
 			}
 		}

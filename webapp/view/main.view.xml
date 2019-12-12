@@ -2,65 +2,7 @@
 	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
 	<tnt:ToolPage id="idToolPage" class="sapUiSizeCompact">
 		<tnt:header>
-			<tnt:ToolHeader>
-				<Button id="idFunctionsToggleButton" icon="sap-icon://menu2" type="Transparent" press=".onFunctionsToggleButtonPress">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="NeverOverflow"/>
-					</layoutData>
-				</Button>
-				<ToolbarSpacer width="20px"/>
-				<Button text="File" type="Transparent">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low"/>
-					</layoutData>
-				</Button>
-				<Button text="Edit" type="Transparent">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low"/>
-					</layoutData>
-				</Button>
-				<Button text="View" type="Transparent">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low"/>
-					</layoutData>
-				</Button>
-				<Button text="Navigate" type="Transparent">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low"/>
-					</layoutData>
-				</Button>
-				<Button text="Code" type="Transparent">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low"/>
-					</layoutData>
-				</Button>
-				<Button text="Refactor" type="Transparent">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low"/>
-					</layoutData>
-				</Button>
-				<Button text="Run" type="Transparent">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low"/>
-					</layoutData>
-				</Button>
-				<Button text="Tools" type="Transparent">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low"/>
-					</layoutData>
-				</Button>
-				<tnt:ToolHeaderUtilitySeparator/>
-				<ToolbarSpacer>
-					<layoutData>
-						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px"/>
-					</layoutData>
-				</ToolbarSpacer>
-				<Button id="idSidebarToggleButton" icon="sap-icon://notes" type="Transparent" press=".onSidebarToggleButtonPress">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="NeverOverflow"/>
-					</layoutData>
-				</Button>
-			</tnt:ToolHeader>
+			<core:Fragment fragmentName="promos.exad.EXAD2.view.main_shellbar" type="XML"/>
 		</tnt:header>
 		<tnt:sideContent>
 			<tnt:SideNavigation expanded="true">
@@ -78,11 +20,9 @@
 		</tnt:sideContent>
 		<tnt:mainContents>
 			<l:Splitter >
-				<mvc:View id="idWorkArea">
-					<mvc:layoutData>
-						<l:SplitterLayoutData minSize="500"/>
-					</mvc:layoutData>
-				</mvc:View>
+				<Shell id="shellContainer" appWidthLimited="false">
+					<App id="appContainer"></App>
+				</Shell>
 				<mvc:View id="idSideBarArea">
 					<mvc:layoutData>
 						<l:SplitterLayoutData minSize="200" size="0%" resizable="false"/>

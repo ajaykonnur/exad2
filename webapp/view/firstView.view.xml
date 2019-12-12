@@ -1,0 +1,7 @@
+<mvc:View controllerName="promos.exad.EXAD2.controller.firstView" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt"
+	height="100%" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Text text="ABCDEFGHIJLL"/>
+	<!--<mvc:layoutData>-->
+	<!--	<l:SplitterLayoutData minSize="500"/>-->
+	<!--</mvc:layoutData>-->
+</mvc:View>

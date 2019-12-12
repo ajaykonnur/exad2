@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core">
+	<tnt:ToolHeader>
+		<Button id="idFunctionsToggleButton" icon="sap-icon://menu2" type="Transparent" press=".onFunctionsToggleButtonPress">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow"/>
+			</layoutData>
+		</Button>
+		<ToolbarSpacer width="20px"/>
+		<Button text="File" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low"/>
+			</layoutData>
+		</Button>
+		<Button text="Edit" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low"/>
+			</layoutData>
+		</Button>
+		<Button text="View" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low"/>
+			</layoutData>
+		</Button>
+		<Button text="Navigate" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low"/>
+			</layoutData>
+		</Button>
+		<Button text="Code" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low"/>
+			</layoutData>
+		</Button>
+		<Button text="Refactor" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low"/>
+			</layoutData>
+		</Button>
+		<Button text="Run" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low"/>
+			</layoutData>
+		</Button>
+		<Button text="Tools" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low"/>
+			</layoutData>
+		</Button>
+		<tnt:ToolHeaderUtilitySeparator/>
+		<ToolbarSpacer>
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px"/>
+			</layoutData>
+		</ToolbarSpacer>
+		<Button id="idSidebarToggleButton" icon="sap-icon://notes" type="Transparent" press=".onSidebarToggleButtonPress">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow"/>
+			</layoutData>
+		</Button>
+	</tnt:ToolHeader>
+</core:FragmentDefinition>

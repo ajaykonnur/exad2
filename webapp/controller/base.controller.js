@@ -14,7 +14,7 @@ sap.ui.define([
 			var oView = this.getView();
 			var oModel = oView.getModel(sModelname);
 			if (!oModel) {
-				this.superLogError("Model " + sModelName + " was not found!")
+				this.superLogError("Model " + sModelname + " was not found!");
 			}
 			return oModel;
 		},
@@ -23,7 +23,7 @@ sap.ui.define([
 			var oModel = this.getModelView(sModelname);
 			var oProperty = oModel.getProperty(sPropertypath);
 			if (oProperty === undefined) {
-				this.superLogError("Property " + sPropertypath + " was not found in Model " + sModelname + "!")
+				this.superLogError("Property " + sPropertypath + " was not found in Model " + sModelname + "!");
 			}
 			return oProperty;
 		},

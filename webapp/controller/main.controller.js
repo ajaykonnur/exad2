@@ -5,7 +5,7 @@ sap.ui.define([
 
 	return baseController.extend("promos.exad.EXAD2.controller.main", {
 		onInit: function () {
-
+			this.getOwnerComponent().getRouter().navTo("RoutefirstView", {});
 		},
 
 		onSidebarToggleButtonPress: function (oEvent) {
@@ -18,7 +18,7 @@ sap.ui.define([
 
 		toggleSidebarArea: function () {
 			var bActive = this.superGetModelProperty("displayState", "/sidebar/active");
-			var oSidebarArea = this.byIdView("idSideBarArea")
+			var oSidebarArea = this.byIdView("idSideBarArea");
 
 			if (bActive) {
 				oSidebarArea.getLayoutData().setResizable(false);
