@@ -1,53 +1,51 @@
 sap.ui.define([
-	"promos/exad/EXAD2/controller/base.controller"
-], function (baseController) {
+	"promos/exad/EXAD2/controller/base.controller",
+	'sap/ui/model/json/JSONModel', 
+	'sap/m/MessageToast', 
+	'sap/m/TabContainerItem', 
+	'sap/m/MessageBox'
+], function (baseController, JSONModel, MessageToast, TabContainerItem, MessageBox) {
 	"use strict";
 
 	return baseController.extend("promos.exad.EXAD2.controller.firstView", {
 		onInit: function () {
-			this.branchingWizard = this.byId("BranchingWizard");
-			this.radioBtnGroup = this.byId("PathSelection");
-		},
-
-		onAfterRendering: function () {
-			this.applyPath(0);
-		},
-
-		discardAndApplyPath: function (event) {
-			var index = event.getParameter("selectedIndex");
-			this.branchingWizard.discardProgress(this.branchingWizard.getSteps()[0]);
-			this._findParentView().byId("selectBranchingCurrentStep").setSelectedKey(this.branchingWizard.getCurrentStep());
-			this.applyPath(index);
-		},
-
-		/**
-		 * This simulates some kind of user interraction.
-		 * Normally we would have a wizard with some inputs inside the steps, and event listeners on the inputs, that should set the nextStep() association given some condition.
-		 * Here we set it predeterminted (from the UI)
-		 */
-		applyPath: function (index) {
-			this._lastPathApplied = index;
-			var pathIds = this.radioBtnGroup.getButtons()[index].getText().split("->");
-			 for (var i = 0; i < pathIds.length - 1; i++) {
-			 	var step = this.byId(pathIds[i]);
-			 	var nextStep = this.byId(pathIds[i + 1]);
-			 	step.setNextStep(nextStep);
-			 }
-
-			this.byId(pathIds[pathIds.length - 1]).setNextStep(null);
-		},
-
-		reapplyLastPath: function () {
-			this.applyPath(this._lastPathApplied);
-		},
-
-		_findParentView: function () {
-			var parent = this.getView().getParent();
-			while (parent.getMetadata().getName() !== "sap.ui.core.mvc.XMLView") {
-				parent = parent.getParent();
+				var oModel = new JSONModel();
+				oModel.setData({
+					dienst: [
+						{
+							title: "Liegenschaft"
+						},
+						{
+							title: "Mietstruktur"
+						},
+						{
+							title: "Versogungsstruktur"
+						},
+						{
+							title: "Kosten & Brennstoffe"
+						},
+						{
+							title: "Abrechnung"
+						},
+						{
+							title: "Ergebnisse"
+						},
+						{
+							title: "Archiv"
+						}
+					]
+				});
+				this.getView().setModel(oModel);
+			
+			
+			},
+			onItemSelected: function(oEvent) {
+				var oItem = oEvent.getSource();
+				MessageToast.show(
+					'Item ' + oItem.getName() + " was selected"
+				);
+			},
+			itemCloseHandler: function(oEvent) {
 			}
-
-			return parent;
-		}
 	});
 });
