@@ -5,8 +5,8 @@
 			<tnt:NavigationListItem text="{i18n>billingProcess}" icon="sap-icon://checklist"/>
 			<tnt:NavigationListItem text="{i18n>dataExchange}" icon="sap-icon://sort"/>
 			<tnt:NavigationListItem text="{i18n>analysis}" icon="sap-icon://bar-chart"/>
-			<tnt:NavigationListItem text="{i18n>deviceManagement}" icon=""/>
-			<tnt:NavigationListItem text="{i18n>parameters}" icon=""/>
+			<tnt:NavigationListItem text="{i18n>deviceManagement}" icon="sap-icon://responsive"/>
+			<tnt:NavigationListItem text="{i18n>parameters}" icon="sap-icon://provision"/>
 		</tnt:NavigationList>
 		<!--			<tnt:fixedItem>
 			<tnt:NavigationList>

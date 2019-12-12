@@ -5,7 +5,7 @@ sap.ui.define([
 
 	return baseController.extend("promos.exad.EXAD2.controller.main_sidebar", {
 		onInit: function () {
-
+			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 		}
 	});
 });

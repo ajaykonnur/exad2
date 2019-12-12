@@ -8,22 +8,22 @@
 		<ToolbarSeparator/>
 		<Image src="resources/main_logo.png" height="100%"/>
 		<ToolbarSpacer/>
-		<Button text="Home" type="Transparent" icon="">
+		<Button type="Transparent" icon="sap-icon://home">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="Low"/>
 			</layoutData>
 		</Button>
-		<Button text="Historie" type="Transparent" icon="">
+		<Button type="Transparent" icon="sap-icon://activity-items">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="Low"/>
 			</layoutData>
 		</Button>
-		<Button text="Favoriten" type="Transparent" icon="sap-icon://favorite">
+		<Button type="Transparent" icon="sap-icon://favorite">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="Low"/>
 			</layoutData>
 		</Button>
-		<Button text="Ausloggen" type="Transparent" icon="">
+		<Button type="Transparent" icon="sap-icon://log">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="Low"/>
 			</layoutData>

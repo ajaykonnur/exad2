@@ -1,18 +1,20 @@
 <mvc:View controllerName="promos.exad.EXAD2.controller.main_sidebar" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt"
 	height="100%" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
-	<Panel width="100%" class="sapUiTinyMargin">
+	<Panel width="100%" expandable="true">
 		<headerToolbar>
 			<Toolbar height="3rem">
 				<SearchField/>
 			</Toolbar>
 		</headerToolbar>
 		<content>
-			<Tree id="Tree" items="{path: 'mockdata>/treeListItems'}" mode="SingleSelectMaster" includeItemInSelection="true">
-				<StandardTreeItem title="{mockdata>text}"/>
-			</Tree>
+			<ScrollContainer>
+				<Tree id="Tree" items="{path: 'mockdata>/treeListItems'}" mode="SingleSelectMaster" includeItemInSelection="true">
+					<StandardTreeItem title="{mockdata>text}"/>
+				</Tree>
+			</ScrollContainer>
 		</content>
 	</Panel>
-	<Panel width="100%" class="sapUiTinyMargin">
+	<Panel width="100%" expandable="true">
 		<headerToolbar>
 			<Toolbar height="3rem">
 				<core:Icon src="sap-icon://lightbulb"/>
@@ -27,7 +29,7 @@
 				text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat"/>
 		</content>
 	</Panel>
-	<Panel width="100%" class="sapUiTinyMargin">
+	<Panel width="100%" expandable="true">
 		<headerToolbar>
 			<Toolbar height="3rem">
 				<core:Icon src="sap-icon://notes"/>
