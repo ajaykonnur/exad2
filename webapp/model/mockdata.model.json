@@ -23,6 +23,27 @@
 			"text": "green"
 		}, {
 			"text": "blue"
+		}, {
+			"text": "green"
+		}, {
+			"text": "blue"
+		}, {
+			"text": "green"
+		}, {
+			"text": "blue"
 		}]
+	}],
+	"noteItems": [{
+		"text": "Hier muss noch ein Feld gefüllt werden.",
+		"author": "Tobias Koops",
+		"date": "01.12.2019"
+	}, {
+		"text": "Aber erst später.",
+		"author": "Toni Schuster",
+		"date": "04.12.2019"
+	}, {
+		"text": "Ich kann das dann übernehmen.",
+		"author": "Housseyn Kaouane",
+		"date": "06.12.2019"
 	}]
 }
