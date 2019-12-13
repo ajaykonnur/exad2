@@ -6,6 +6,12 @@ sap.ui.define([
 	return baseController.extend("promos.exad.EXAD2.controller.main", {
 		onInit: function () {
 			this.getOwnerComponent().getRouter().navTo("RoutefirstView", {});
+			this.subscribeEventBus();
+		},
+
+		subscribeEventBus: function (oEvent) {
+			var oEventBus = sap.ui.getCore().getEventBus();
+			oEventBus.subscribe("main_sidebar", "eventSidebarExpand", this.handleEventBus, this);
 		},
 
 		onSidebarToggleButtonPress: function (oEvent) {
@@ -16,26 +22,12 @@ sap.ui.define([
 			this.toggleFunctionsArea();
 		},
 
-		toggleSidebarArea: function () {
-			var sActivePath = "/sidebar/active";
-			var bActive = this.superGetModelProperty("displayState", sActivePath);
-			var oSidebarArea = this.byIdView("idSideBarArea");
-			var oToggleButton = this.byIdView("idSidebarToggleButton");
-
-			if (bActive) {
-				oSidebarArea.getLayoutData().setResizable(false);
-				oSidebarArea.getLayoutData().setSize("0%");
-				oToggleButton.setPressed(false);
-
-				this.superSetModelProperty("displayState", sActivePath, false);
-			} else {
-				oSidebarArea.getLayoutData().setResizable(true);
-				oSidebarArea.getLayoutData().setSize("20%");
-				oToggleButton.setPressed(true);
-
-				this.superSetModelProperty("displayState", sActivePath, true);
+		handleEventBus: function (sChannel, sEvent, oData) {
+			switch (sEvent) {
+			case "eventSidebarExpand":
+				this.setSidebarExpanded(true);
+				break;
 			}
-
 		},
 
 		toggleFunctionsArea: function () {
@@ -55,6 +47,39 @@ sap.ui.define([
 
 				this.superSetModelProperty("displayState", sActivePath, true);
 			}
+		},
+
+		toggleSidebarArea: function () {
+			var sActivePath = "/sidebar/active";
+			var bActive = this.superGetModelProperty("displayState", sActivePath);
+
+			this.setSidebarExpanded(!bActive);
+
+		},
+
+		setSidebarExpanded: function (bExpanded) {
+			var oEventBus = sap.ui.getCore().getEventBus();
+			oEventBus.publish("main", "eventSidebarExpand", {
+				Expanded: bExpanded
+			});
+
+			var sActivePath = "/sidebar/active";
+			var oSidebarArea = this.byIdView("idSideBarArea");
+			var oToggleButton = this.byIdView("idSidebarToggleButton");
+			if (bExpanded) {
+				oSidebarArea.getLayoutData().setResizable(true);
+				oSidebarArea.getLayoutData().setSize("20%");
+				oToggleButton.setPressed(true);
+
+				this.superSetModelProperty("displayState", sActivePath, true);
+			} else {
+				oSidebarArea.getLayoutData().setResizable(false);
+				oSidebarArea.getLayoutData().setSize("5%");
+				oToggleButton.setPressed(false);
+
+				this.superSetModelProperty("displayState", sActivePath, false);
+			}
 		}
+
 	});
 });

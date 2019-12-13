@@ -8,10 +8,5 @@
 			<tnt:NavigationListItem text="{i18n>deviceManagement}" icon="sap-icon://responsive"/>
 			<tnt:NavigationListItem text="{i18n>parameters}" icon="sap-icon://provision"/>
 		</tnt:NavigationList>
-		<!--			<tnt:fixedItem>
-			<tnt:NavigationList>
-				<tnt:NavigationListItem text="Item1" icon="sap-icon://alert"/>
-			</tnt:NavigationList>
-		</tnt:fixedItem>-->
 	</tnt:SideNavigation>
 </core:FragmentDefinition>
