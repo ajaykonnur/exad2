@@ -1,11 +1,12 @@
 sap.ui.define([
-	"promos/exad/EXAD2/controller/base.controller"
-], function (baseController) {
+	"promos/exad/EXAD2/controller/base.controller",
+	"sap/ui/core/routing/HashChanger"
+], function (baseController, HashChanger) {
 	"use strict";
 
 	return baseController.extend("promos.exad.EXAD2.controller.main.main", {
 		onInit: function () {
-			this.superNavTo("homeRoute");
+			this.handleHash();
 			this.subscribeEventBus();
 		},
 
@@ -15,11 +16,11 @@ sap.ui.define([
 		},
 
 		onSideNavigationItemSelect: function (oEvent) {
-			var sTarget = oEvent.getSource().data("route");
-			if (sTarget === undefined) {
+			var sKey = oEvent.getSource().getSelectedKey();
+			if (sKey === undefined) {
 				this.superLogError("Route not defined");
 			}
-			this.superNavTo(sTarget);
+			this.superNavTo(sKey + "Route");
 		},
 
 		onSidebarToggleButtonPress: function (oEvent) {
@@ -35,6 +36,18 @@ sap.ui.define([
 			case "eventSidebarExpand":
 				this.setSidebarExpanded(true);
 				break;
+			}
+		},
+
+		handleHash: function () {
+			var oHashChanger = new HashChanger();
+			var sHash = oHashChanger.getHash();
+
+			var oFunctionsBar = this.byIdView("idFunctionsBar");
+			if (sHash !== "") {
+				oFunctionsBar.setSelectedKey(sHash);
+			} else {
+				oFunctionsBar.setSelectedKey("billingProcess");
 			}
 		},
 
