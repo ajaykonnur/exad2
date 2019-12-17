@@ -10,11 +10,11 @@
 			selectionMode="MultiToggle"
 			visibleRowCount="5"
 			paste="onPaste">
-			
 			<t:columns>
 				<t:Column>
+						<Label text="{columnName}" />
 						<t:template>
-							<Text text="{/columnName}" wrapping="false" />
+								<Text text="{/tableDetails}" wrapping="false" />
 						</t:template>
 				</t:Column>
 			</t:columns>
