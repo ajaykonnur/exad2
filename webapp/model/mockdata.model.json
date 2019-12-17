@@ -76,5 +76,62 @@
 	}, {
 		"text": "Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquya",
 		"title": "Tipp 2"
+	}],
+	"dienst": [{
+		"title": "Liegenschaft"
+	},{
+		"title": "Mietstruktur"
+	},{
+		"title": "Versogungsstruktur"
+	},{
+		"title": "Kosten & Brennstoffe"
+	},{
+		"title": "Abrechnung"
+	},{
+		"title": "Ergebnisse"
+	},{
+		"title": "Archiv"
+	}],
+	"columnData":[{
+		"columnName":"Typ"
+	},{
+		"columnName":"LINR"
+	},{
+		"columnName":"Adresse"
+	},{
+		"columnName":"Medium"
+	},{
+		"columnName":"Letzter Abr-Ztr"
+	}],
+	"tableDetails": [{
+		"Typ": "Liegenschaft",
+		"LINR": "5120013",
+		"Adresse": "Dohnanyistr. 24 in 04103 Leipzig",
+		"Medium": "",
+		"Letzter Abr-Ztr": "01.01. - 31.12.2017"
+	}, {
+		"Typ": "Abrechnungsvereinbarung",
+		"LINR": "5120013",
+		"Adresse": "Dohnanyistr. 24 in 04103 Leipzig",
+		"Medium": "",
+		"Letzter Abr-Ztr": "01.01. - 31.12.2017"
+	}, {
+		"Typ": "Abrechnungsmedium",
+		"LINR": "5120013",
+		"Adresse": "Dohnanyistr. 24 in 04103 Leipzig",
+		"Medium": "H",
+		"Letzter Abr-Ztr": "01.01. - 31.12.2017"
+	}, {
+		"Typ": "Abrechnungsmedium",
+		"LINR": "5120013",
+		"Adresse": "Dohnanyistr. 24 in 04103 Leipzig",
+		"Medium": "W",
+		"Letzter Abr-Ztr": "01.01. - 31.12.2017"
+	}, {
+		"Typ": "Abrechnungsmedium",
+		"LINR": "5120013",
+		"Adresse": "Dohnanyistr. 24 in 04103 Leipzig",
+		"Medium": "K",
+		"Letzter Abr-Ztr": "01.01. - 31.12.2017"
 	}]
 }

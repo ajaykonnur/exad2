@@ -82,6 +82,11 @@
 					"target": [
 						"TargetfirstView"
 					]
+				},
+				{
+					"pattern": "",
+					"name": "homeRoute",
+					"target": "homeTarget"
 				}
 			],
 			"targets": {
@@ -91,6 +96,10 @@
 					"clearControlAggregation": false,
 					"viewId": "firstView",
 					"viewName": "firstView"
+				},
+					"homeTarget": {
+					"viewName": "firstView",
+					"viewId": "firstView"
 				},
 				"AbrechnungsprozessCurrentStep": {
 					"viewType": "XML",
