@@ -5,7 +5,7 @@ sap.ui.define([
 
 	return baseController.extend("promos.exad.EXAD2.controller.main.main", {
 		onInit: function () {
-			this.getOwnerComponent().getRouter().navTo("RoutefirstView", {});
+			this.getOwnerComponent().getRouter().navTo("homeRoute", {});
 			this.subscribeEventBus();
 		},
 

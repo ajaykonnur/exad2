@@ -75,43 +75,16 @@
 				"controlId": "appContainer",
 				"clearControlAggregation": false
 			},
-			"routes": [
+		"routes": [
 				{
-					"name": "RoutefirstView",
-					"pattern": "RoutefirstView",
-					"target": [
-						"TargetfirstView"
-					]
-				},
-				{
-					"pattern": "",
-					"name": "homeRoute",
-					"target": "homeTarget"
-				}
-			],
-			"targets": {
-				"TargetfirstView": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "firstView",
-					"viewName": "targets/firstView"
-				},
-					"homeTarget": {
-					"viewName": "firstView",
-					"viewId": "firstView"
-				},
-				"AbrechnungsprozessCurrentStep": {
-					"viewType": "XML",
-					"viewName": "AbrechnungsprozessCurrentStep"
-				},
-				"AbrechnungsprozessBranching": {
-					"viewType": "XML",
-					"viewName": "AbrechnungsprozessBranching"
-				},
-				"AbrechnungsprozessLinear": {
-					"viewType": "XML",
-					"viewName": "AbrechnungsprozessLinear"
+				"pattern": "",
+				"name": "homeRoute",
+				"target": "billingProcess"
+				}],
+		"targets":{
+			"billingProcess":{
+				"viewName": "targets/billingProcess",
+				"viewId": "billingProcess"
 				}
 			}
 		}
