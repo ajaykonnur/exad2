@@ -45,5 +45,36 @@
 		"text": "Ich kann das dann übernehmen.",
 		"author": "Housseyn Kaouane",
 		"date": "06.12.2019"
+	}, {
+		"text": "Hier muss noch ein Feld gefüllt werden.",
+		"author": "Tobias Koops",
+		"date": "01.12.2019"
+	}, {
+		"text": "Aber erst später.",
+		"author": "Toni Schuster",
+		"date": "04.12.2019"
+	}, {
+		"text": "Ich kann das dann übernehmen.",
+		"author": "Housseyn Kaouane",
+		"date": "06.12.2019"
+	}, {
+		"text": "Hier muss noch ein Feld gefüllt werden.",
+		"author": "Tobias Koops",
+		"date": "01.12.2019"
+	}, {
+		"text": "Aber erst später.",
+		"author": "Toni Schuster",
+		"date": "04.12.2019"
+	}, {
+		"text": "Ich kann das dann übernehmen.",
+		"author": "Housseyn Kaouane",
+		"date": "06.12.2019"
+	}],
+	"hintItems": [{
+		"text": "Hier muss noch ein Feld gefüllt werden.",
+		"title": "Tipp 1"
+	}, {
+		"text": "Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquya",
+		"title": "Tipp 2"
 	}]
 }

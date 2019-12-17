@@ -46,14 +46,18 @@ sap.ui.define([
 
 			if (sIdButton.endsWith("Search")) {
 				oPanelToOpen = this.byIdView("idPanelSearch");
-			} else if (sIdButton.endsWith("Tips")) {
-				oPanelToOpen = this.byIdView("idPanelTips");
+			} else if (sIdButton.endsWith("Hints")) {
+				oPanelToOpen = this.byIdView("idPanelHints");
 			} else if (sIdButton.endsWith("Notes")) {
 				oPanelToOpen = this.byIdView("idPanelNotes");
 			} else {
 				this.superLogError("Unknown ID for Button in Sidebar: " + sIdButton);
 			}
 			oPanelToOpen.setExpanded(true);
+		},
+
+		createHintItem: function (sId, oContext) {
+
 		}
 
 	});
