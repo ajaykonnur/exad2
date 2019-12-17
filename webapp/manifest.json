@@ -75,17 +75,16 @@
 				"controlId": "appContainer",
 				"clearControlAggregation": false
 			},
-			"routes": [
+		"routes": [
 				{
-					"pattern": "",
-					"name": "homeRoute",
-					"target": "billingProcess"
-				}
-			],
-			"targets": {
-					"billingProcess": {
-					"viewName": "targets/billingProcess",
-					"viewId": "billingProcess"
+				"pattern": "",
+				"name": "homeRoute",
+				"target": "billingProcess"
+				}],
+		"targets":{
+			"billingProcess":{
+				"viewName": "targets/billingProcess",
+				"viewId": "billingProcess"
 				}
 			}
 		}

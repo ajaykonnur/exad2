@@ -1,4 +1,4 @@
-<mvc:View controllerName="promos.exad.EXAD2.controller.targets.firstView" 
+<mvc:View controllerName="promos.exad.EXAD2.controller.targets.billingProcess"	
 	xmlns="sap.m" 
 	xmlns:t="sap.ui.table"
 	xmlns:mvc="sap.ui.core.mvc" 
@@ -39,4 +39,5 @@
 				</items>
 			</IconTabBar>
 	</Panel>
+	
 </mvc:View>
