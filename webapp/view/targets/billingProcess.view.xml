@@ -19,6 +19,7 @@
 		</headerToolbar>
 		<IconTabBar
 				items="{path: '/dienst' }"
+				bindingContexts=""
 				id="iconTabBar"
 				enableTabReordering="true"
 				headerBackgroundDesign="Translucent"
@@ -26,15 +27,7 @@
 				class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter	text="{title}">
-						<t:Table	rows="{path: '/tableDetails'}"
-									selectionMode="MultiToggle"
-									visibleRowCount="5"
-									paste="onPaste">
-							<t:columns name="{path: '/columnData' }" >
-						
-							
-							</t:columns>
-						</t:Table>
+						<mvc:XMLView id="PropertyView" viewName="promos.exad.EXAD2.view.targets.property"/> 
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
