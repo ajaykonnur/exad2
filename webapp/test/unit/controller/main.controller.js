@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"promos/exad/EXAD2/controller/main.controller"
+	"promos/exad/EXAD2/controller/main/main.controller"
 ], function (Controller) {
 	"use strict";
 

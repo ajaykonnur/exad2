@@ -33,7 +33,7 @@
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
-			"viewName": "promos.exad.EXAD2.view.main",
+			"viewName": "promos.exad.EXAD2.view.main.main",
 			"type": "XML",
 			"async": true,
 			"id": "main"
@@ -95,7 +95,7 @@
 					"transition": "slide",
 					"clearControlAggregation": false,
 					"viewId": "firstView",
-					"viewName": "firstView"
+					"viewName": "targets/firstView"
 				},
 					"homeTarget": {
 					"viewName": "firstView",
