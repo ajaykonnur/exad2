@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (baseController, factory) {
 	"use strict";
 
-	return baseController.extend("promos.exad.EXAD2.controller.main_sidebar", {
+	return baseController.extend("promos.exad.EXAD2.controller.sidebar", {
 
 		factory: factory,
 
@@ -44,7 +44,7 @@ sap.ui.define([
 		expandSidebarPanelByButton: function (sIdButton) {
 
 			var oEventBus = sap.ui.getCore().getEventBus();
-			oEventBus.publish("main_sidebar", "eventSidebarExpand");
+			oEventBus.publish("sidebar", "eventSidebarExpand");
 
 			var oPanelToOpen;
 

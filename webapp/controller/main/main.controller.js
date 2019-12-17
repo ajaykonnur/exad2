@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (baseController) {
 	"use strict";
 
-	return baseController.extend("promos.exad.EXAD2.controller.main", {
+	return baseController.extend("promos.exad.EXAD2.controller.main.main", {
 		onInit: function () {
 			this.getOwnerComponent().getRouter().navTo("RoutefirstView", {});
 			this.subscribeEventBus();
@@ -11,7 +11,7 @@ sap.ui.define([
 
 		subscribeEventBus: function (oEvent) {
 			var oEventBus = sap.ui.getCore().getEventBus();
-			oEventBus.subscribe("main_sidebar", "eventSidebarExpand", this.handleEventBus, this);
+			oEventBus.subscribe("sidebar", "eventSidebarExpand", this.handleEventBus, this);
 		},
 
 		onSidebarToggleButtonPress: function (oEvent) {
