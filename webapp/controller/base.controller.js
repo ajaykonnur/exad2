@@ -35,7 +35,10 @@ sap.ui.define([
 
 		superLogError: function (sMessage) {
 			Log.error(sMessage, "", this.getView());
-		}
+		},
 
+		superNavTo: function (sRoute) {
+			this.getOwnerComponent().getRouter().navTo(sRoute, {});
+		}
 	});
 });

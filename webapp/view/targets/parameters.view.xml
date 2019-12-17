@@ -1,2 +1,4 @@
 <mvc:View controllerName="promos.exad.EXAD2.controller.targets.parameters" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"></mvc:View>
+	xmlns:core="sap.ui.core">
+	<Text text="parameters"></Text>
+</mvc:View>

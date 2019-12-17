@@ -77,14 +77,58 @@
 			},
 		"routes": [
 				{
-				"pattern": "",
-				"name": "homeRoute",
-				"target": "billingProcess"
+					"pattern": "",
+					"name": "homeRoute",
+					"target": "billingProcess"
+				},{
+					"pattern": "billingProcess",
+					"name": "billingProcessRoute",
+					"target": "billingProcess"
+				},{
+					"pattern": "dataSet",
+					"name": "dataSetRoute",
+					"target": "dataSet"
+				},{
+					"pattern": "dataExchange",
+					"name": "dataExchangeRoute",
+					"target": "dataExchange"
+				},{
+					"pattern": "analysis",
+					"name": "analysisRoute",
+					"target": "analysis"
+				},{
+					"pattern": "deviceManagement",
+					"name": "deviceManagementRoute",
+					"target": "deviceManagement"
+				},{
+					"pattern": "parameters",
+					"name": "parametersRoute",
+					"target": "parameters"
 				}],
 		"targets":{
 			"billingProcess":{
 				"viewName": "targets/billingProcess",
 				"viewId": "billingProcess"
+				},
+			"dataSet":{
+					"viewName": "targets/dataSet",
+					"viewId": "dataSet"
+				},
+			"dataExchange":{
+					"viewName": "targets/dataExchange",
+					"viewId": "dataExchange"
+				},
+			"analysis":{
+					"viewName": "targets/analysis",
+					"viewId": "analysis"
+				},
+			"deviceManagement":{
+					"viewName": "targets/deviceManagement",
+					"viewId": "deviceManagement"
+				},
+			"parameters":{
+					"viewName": "targets/parameters",
+					"viewId": "parameters"
 				}
 			}
 		}

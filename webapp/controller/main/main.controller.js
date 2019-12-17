@@ -5,13 +5,21 @@ sap.ui.define([
 
 	return baseController.extend("promos.exad.EXAD2.controller.main.main", {
 		onInit: function () {
-			this.getOwnerComponent().getRouter().navTo("homeRoute", {});
+			this.superNavTo("homeRoute");
 			this.subscribeEventBus();
 		},
 
 		subscribeEventBus: function (oEvent) {
 			var oEventBus = sap.ui.getCore().getEventBus();
 			oEventBus.subscribe("sidebar", "eventSidebarExpand", this.handleEventBus, this);
+		},
+
+		onSideNavigationItemSelect: function (oEvent) {
+			var sTarget = oEvent.getSource().data("route");
+			if (sTarget === undefined) {
+				this.superLogError("Route not defined");
+			}
+			this.superNavTo(sTarget);
 		},
 
 		onSidebarToggleButtonPress: function (oEvent) {
