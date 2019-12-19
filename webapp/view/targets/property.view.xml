@@ -1,8 +1,7 @@
 <mvc:View controllerName="promos.exad.EXAD2.controller.targets.billingProcess" xmlns="sap.m" xmlns:t="sap.ui.table"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
 	<Panel id="PropertyView" width="100%" height="100%">
-		<t:Table columns="{path: '/columnData'}" rows="{/tableDetails}" selectionMode="MultiToggle" visibleRowCount="5" paste="onPaste"
-			enableCellFilter="true" showColumnVisibilityMenu="true" alternateRowColors="true">
+		<t:Table id="dataTable" columns="{/columnData}" rows="{/tableDetails}" selectionMode="MultiToggle" visibleRowCount="5" paste="onPaste">
 			<t:columns>
 				<t:Column>
 					<Label text="{columnName}"/>
