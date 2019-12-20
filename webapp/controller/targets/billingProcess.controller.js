@@ -67,6 +67,40 @@ sap.ui.define([
 							"Letzter Abr-Ztr": "01.01. - 31.12.2017"
 						}
 						],
+					statusColumnData: [
+							{
+								columnName:"Status"
+							},
+							{
+								columnName:"Bezeichner"
+							},
+							{
+								columnName:"Abr-Ztr"
+							},
+							{
+								columnName:"Medium"
+							}
+							],
+				 	statusTableDetails: [
+						{
+							Status: "001",
+							Bezeichner: "",
+							"Abr-Ztr": "01.01. - 31.12.2017",
+							Medium: ""
+						}, 
+						{
+							Status: "512",
+							Bezeichner: "",
+							"Abr-Ztr": "01.01. - 31.12.2017",
+							Medium: "H"
+						}, 
+						{
+							Status: "699",
+							Bezeichner: "",
+							"Abr-Ztr": "01.01. - 31.12.2017",
+							Medium: ""
+						}
+						],
 					dienst: [
 				 		{
 				 			title: "Liegenschaft",
