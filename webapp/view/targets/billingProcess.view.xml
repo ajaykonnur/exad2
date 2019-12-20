@@ -17,8 +17,7 @@
 				</l:HorizontalLayout>
 			</OverflowToolbar>
 		</headerToolbar>
-		<IconTabBar
-				items="{path: '/dienst' }"
+	<IconTabBar
 				bindingContexts=""
 				id="iconTabBar"
 				enableTabReordering="true"
@@ -26,8 +25,26 @@
 				expandable="false"
 				class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter	text="{title}">
+					<IconTabFilter	text="Liegenschaft">
 						<mvc:XMLView id="PropertyView" viewName="promos.exad.EXAD2.view.targets.property"/> 
+					</IconTabFilter>
+					<IconTabFilter	text="Mietstruktur">
+						<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.fragment.tenantStructure" type="XML" />
+					</IconTabFilter>
+					<IconTabFilter	text="Versorgungsstruktur">
+						<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.fragment.supplyStructure" type="XML" />
+					</IconTabFilter>
+					<IconTabFilter	text="Kosten und Brennstoffe">
+						<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.fragment.CostsAndFuels" type="XML" />
+					</IconTabFilter>
+					<IconTabFilter	text="Abrechnung">
+						<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.fragment.acounting" type="XML" />
+					</IconTabFilter>
+					<IconTabFilter	text="Ergebnisse">
+						<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.fragment.results" type="XML" />
+					</IconTabFilter>
+					<IconTabFilter	text="Archiv">
+						<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.fragment.archive" type="XML" />
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
