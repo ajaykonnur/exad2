@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap" controllerName="promos.exad.EXAD2.controller.targets.billingProcess" >
-   <uxap:ObjectPageLayout id="ObjectPageLayout" height="900px" showAnchorBarPopover="false" >
+<core:FragmentDefinition  xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap">
+   <uxap:ObjectPageLayout id="ObjectPageLayoutProperty" height="900px" showAnchorBarPopover="false" >
       <uxap:sections>
          <uxap:ObjectPageSection title="Abrechnungsinformationen">
             <uxap:subSections>
                <uxap:ObjectPageSubSection>
                		<Panel id="PropertyView" width="100%">
-                     <t:Table id="dataTable" columns="{/columnData}" rows="{/tableDetails}" selectionMode="MultiToggle" visibleRowCount="5" paste="onPaste">
+                     <t:Table id="dataTable" columns="{/columnData}" rows="{/tableDetails}" selectionMode="MultiToggle" 
+                    			visibleRowCount="7" paste="onPaste">
                         <t:columns>
                            <t:Column>
                              
@@ -23,10 +24,10 @@
                               <Button text="Funktion" />
                               <ToolbarSpacer />
                               <Label text="bearbeiten" />
-                              <Switch />
-                              <Button tooltip="Neu" icon="sap-icon://add" type="Accept" />
-                              <Button tooltip="Kopieren" icon="sap-icon://copy" />
-                              <Button tooltip="Löschen" icon="sap-icon://delete" type="Reject" />
+                              <Switch id="billInfoTableEdit" change =".onTableEditButtonPress" />
+                              <Button id="Neu" tooltip="Neu" icon="sap-icon://add" type="Accept"  enabled="false" press=".onPressAddRow" />
+                              <Button id="Kopieren" tooltip="Kopieren" icon="sap-icon://copy"  enabled="false" press=".onPressCopyRow" />
+                              <Button id="Loeschen" tooltip="Löschen" icon="sap-icon://delete" type="Reject" enabled="false" press=".onPressDeleteRow"/>
                            </Toolbar>
                         </t:extension>
                      </t:Table>
@@ -58,10 +59,10 @@
                               <Button text="Funktion" />
                               <ToolbarSpacer />
                               <Label text="bearbeiten" />
-                              <Switch />
-                              <Button tooltip="Neu" icon="sap-icon://add" type="Accept" />
-                              <Button tooltip="Kopieren" icon="sap-icon://copy" />
-                              <Button tooltip="Löschen" icon="sap-icon://delete" type="Reject" />
+                              <Switch id="billStatTableEdit" change =".onTableEditButtonPress_" />
+                              <Button id="Neu_" tooltip="Neu" icon="sap-icon://add" type="Accept"  enabled="false" />
+                              <Button id="Kopieren_" tooltip="Kopieren" icon="sap-icon://copy"  enabled="false" />
+                              <Button id="Loeschen_" tooltip="Löschen" icon="sap-icon://delete" type="Reject" enabled="false" />
                            </Toolbar>
                         </t:extension>
                      </t:Table>
@@ -84,4 +85,4 @@
          </uxap:ObjectPageSection>
       </uxap:sections>
    </uxap:ObjectPageLayout>
-</mvc:View>
+</core:FragmentDefinition>

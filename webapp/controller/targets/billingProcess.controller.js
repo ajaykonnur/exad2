@@ -1,10 +1,11 @@
 sap.ui.define([
 	"promos/exad/EXAD2/controller/base.controller",
-	'sap/ui/model/json/JSONModel', 
-	'sap/ui/table/Table',
+	"sap/ui/model/json/JSONModel", 
+	"sap/ui/table/Table",
+	"sap/m/MessageToast",
 	"promos/exad/EXAD2/controller/factory",
 	"promos/exad/EXAD2/controller/exadTable"
-], function (baseController, JSONModel, Table, factory, exadTable) {
+], function (baseController, JSONModel, Table, MessageToast, factory, exadTable) {
 	"use strict";
 
 	return baseController.extend("promos.exad.EXAD2.controller.targets.billingProcess", {
@@ -104,7 +105,7 @@ sap.ui.define([
 					dienst: [
 				 		{
 				 			title: "Liegenschaft",
-				 			view: "promos.exad.EXAD2.view.targets.property"
+				 			view: "property"
 				 		},
 						{
 				 			title: "Mietstruktur",
@@ -143,5 +144,68 @@ sap.ui.define([
 			getRouter: function() {
 			return sap.ui.core.UIComponent.getRouterFor(this);
 		},
+		
+	onTableEditButtonPress: function (oEvent) {
+		var oSource = oEvent.getSource();
+        var bPressed = oSource.getState('state');
+    	this.getView().byId("Neu").setEnabled(bPressed);
+    	this.getView().byId("Kopieren").setEnabled(bPressed);
+    	this.getView().byId("Loeschen").setEnabled(bPressed);
+	},
+		
+	onPressAddRow: function() {
+		var oModel = this.getView().getModel();
+		oModel.oData.tableDetails.push({Typ: " ", LINR: " ", Adresse: " ", Medium: " ", "Letzter Abr-Ztr":" "}); // Push data to Model
+		oModel.refresh();
+	//	var rowCount = oModel.oData.tableDetails.length;
+	//	rowCount = rowCount + 1;
+		},
+		
+	onPressCopyRow: function() {
+		var oTable = this.getView().byId("dataTable");
+		var line_ = oTable.getSelectedIndices();
+		var line;
+		if ( line_.length === 0 ){
+			var oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			var sTxt = oResourceBundle.getText("TableSelectedRowError");
+			MessageToast.show(sTxt);
+		}else{
+			var oModel = this.getView().getModel();
+			for(var i=0;i<line_.length;i++){ 
+				line = oModel.oData.tableDetails[line_[i]]; 
+				oModel.oData.tableDetails.push(line); //Just add to the end of the table
+			}
+		oModel.refresh();
+		}
+	},
+	
+	onPressDeleteRow: function() {
+		var oTable = this.getView().byId("dataTable");
+		var line =  oTable.getSelectedIndices();
+			if ( line.length === 0 ){
+			var oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			var sTxt = oResourceBundle.getText("TableSelectedRowError");
+			MessageToast.show(sTxt);
+		}else{
+			var oModel = this.getView().getModel();
+			for(var i=0;i<line.length;i++){ 
+				oModel.oData.tableDetails.splice(line, 1);
+			}
+			oModel.refresh();
+		}
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	});
 });

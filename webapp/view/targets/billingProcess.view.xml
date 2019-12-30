@@ -26,7 +26,7 @@
 				class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter	text="Liegenschaft">
-						<mvc:XMLView id="PropertyView" viewName="promos.exad.EXAD2.view.targets.property"/> 
+						<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.fragment.property" type="XML" />
 					</IconTabFilter>
 					<IconTabFilter	text="Mietstruktur">
 						<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.fragment.tenantStructure" type="XML" />

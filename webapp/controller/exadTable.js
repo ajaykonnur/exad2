@@ -15,7 +15,7 @@ sap.ui.define([
 				  
 				  return new sap.ui.table.Column({  
 				    label: columnName , 
-				    template: new sap.ui.commons.TextField ({value: { path: "/tableDetails" + "/" +  index.slice(-1)  + "/" + columnName } }) 
+				    template: new sap.ui.commons.TextField ({value: { path: "/tableDetails" + "/" +  index.slice(-1)  + "/" + columnName }, editable: false }) 
 		
 				  });  
 				}); 

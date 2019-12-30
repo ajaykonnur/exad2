@@ -9,7 +9,7 @@
             <uxap:subSections>
                <uxap:ObjectPageSubSection>
                		<Panel id="Mietobjekte" width="100%" height="100%">
-                     <t:Table id="dataTable" columns="{/columnData}" rows="{/tableDetails}" selectionMode="MultiToggle" visibleRowCount="5" paste="onPaste">
+                     <t:Table id="dataTable3" columns="{/columnData}" rows="{/tableDetails}" selectionMode="MultiToggle" visibleRowCount="5" paste="onPaste">
                         <t:columns>
                            <t:Column>
                              
