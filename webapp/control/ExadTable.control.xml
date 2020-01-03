@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table">
+	<t:Table columns="{/columnData}" rows="{/tableDetails}" selectionMode="MultiToggle" visibleRowCount="7" paste="onPaste">
+		<t:columns>
+			<t:Column></t:Column>
+		</t:columns>
+		<t:extension>
+			<Toolbar class="sapMTBHeader-CTX">
+				<Title text="{$this>title}"/>
+				<ComboBox selectedKey="default">
+					<items>
+						<core:Item key="default" text="Standard"/>
+					</items>
+				</ComboBox>
+				<Button text="Funktion"/>
+				<ToolbarSpacer/>
+				<Label text="bearbeiten"/>
+				<Switch change=".onEditChange"/>
+				<Button tooltip="Neu" icon="sap-icon://add" type="Accept" enabled="false" press=".onAddRowPress"/>
+				<Button tooltip="Kopieren" icon="sap-icon://copy" enabled="false" press=".onCopyRowPress"/>
+				<Button tooltip="Löschen" icon="sap-icon://delete" type="Reject" enabled="false" press=".onDeleteRowPress"/>
+			</Toolbar>
+		</t:extension>
+	</t:Table>
+</core:FragmentDefinition>
