@@ -1,0 +1,41 @@
+<mvc:View controllerName="promos.exad.EXAD2.controller.targets.billingProcess" xmlns="sap.m" xmlns:t="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Panel id="gridLayout" width="100%" height="100%">
+		<headerToolbar>
+			<OverflowToolbar height="5rem">
+				<l:HorizontalLayout class="sapUiContentPadding">
+					<Input id="KundeSearch" type="Text" class="sapUiSmallMarginBottom" placeholder="Kunde"/>
+					<Input id="LiegenschaftSearch" type="Tel" class="sapUiSmallMarginBottom" placeholder="Liegenschaft"/>
+					<DateRangeSelection id="DateRangeSearch" change="handleChange"/>
+					<Button text="Auswahl laden" type="Emphasized" press="onPress"/>
+				</l:HorizontalLayout>
+			</OverflowToolbar>
+		</headerToolbar>
+		<IconTabBar bindingContexts="" id="iconTabBar" enableTabReordering="true" headerBackgroundDesign="Translucent" expandable="false"
+			class="sapUiResponsiveContentPadding">
+			<items>
+				<IconTabFilter text="Liegenschaft">
+					<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.property" type="XML"/>
+				</IconTabFilter>
+				<IconTabFilter text="Mietstruktur">
+					<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.tenantStructure" type="XML"/>
+				</IconTabFilter>
+				<IconTabFilter text="Versorgungsstruktur">
+					<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.supplyStructure" type="XML"/>
+				</IconTabFilter>
+				<IconTabFilter text="Kosten und Brennstoffe">
+					<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.costsAndFuels" type="XML"/>
+				</IconTabFilter>
+				<IconTabFilter text="Abrechnung">
+					<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.acounting" type="XML"/>
+				</IconTabFilter>
+				<IconTabFilter text="Ergebnisse">
+					<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.results" type="XML"/>
+				</IconTabFilter>
+				<IconTabFilter text="Archiv">
+					<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.archive" type="XML"/>
+				</IconTabFilter>
+			</items>
+		</IconTabBar>
+	</Panel>
+</mvc:View>

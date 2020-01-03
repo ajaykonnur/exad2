@@ -107,7 +107,7 @@
 				}],
 		"targets":{
 			"billingProcess":{
-				"viewName": "targets/billingProcess",
+				"viewName": "targets/billingProcess/billingProcess",
 				"viewId": "billingProcess"
 				},
 			"dataSet":{
