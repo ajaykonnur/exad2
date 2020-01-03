@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap">
-	<uxap:ObjectPageLayout id="ObjectPageLayoutProperty" showAnchorBarPopover="false" isChildPage="true">
+	<uxap:ObjectPageLayout id="ObjectPageLayoutProperty" showAnchorBarPopover="false" isChildPage="true" upperCaseAnchorBar="false">
 		<uxap:sections>
-			<uxap:ObjectPageSection title="Abrechnungsinformationen">
+			<uxap:ObjectPageSection title="Abrechnungsinformationen" showTitle="false">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<Panel id="PropertyView" width="100%">
@@ -31,7 +31,7 @@
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
-			<uxap:ObjectPageSection title="Abrechnungsstatus">
+			<uxap:ObjectPageSection title="Abrechnungsstatus" showTitle="false">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<Panel id="Abrechnungsstatus" width="100%">
@@ -67,7 +67,7 @@
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
-			<uxap:ObjectPageSection title="Kommentare">
+			<uxap:ObjectPageSection title="Kommentare" showTitle="false">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<Panel id="Kommentare">
