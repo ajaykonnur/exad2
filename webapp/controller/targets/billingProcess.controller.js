@@ -84,13 +84,13 @@ sap.ui.define([
 					view: "property"
 				}, {
 					title: "Mietstruktur",
-					view: "Tenant Structure"
+					view: "Tenant_Structure"
 				}, {
 					title: "Versogungsstruktur",
-					view: "Supply Structure"
+					view: "Supply_Structure"
 				}, {
 					title: "Kosten & Brennstoffe",
-					view: "Costs & fuels"
+					view: "Costs_&_fuels"
 				}, {
 					title: "Abrechnung",
 					view: "Accounting"
@@ -100,6 +100,67 @@ sap.ui.define([
 				}, {
 					title: "Archiv",
 					view: "Archive"
+				}],
+				Kunden: [{
+					text: "PROMOS",
+					key: "PR",
+					liegenschafts: [{
+								title:"liegenschaft_1"
+							},{
+								title:"liegenschaft_2"
+							},{
+								title:"liegenschaft_3"
+							},{
+								title:"liegenschaft_4"
+							}]
+				}, {
+					text: "ProPotsdam",
+					key: "PDM",
+					liegenschafts: [{
+								title:"liegenschaft_2"
+							},{
+								title:"liegenschaft_3"
+							},{
+								title:"liegenschaft_4"
+							},{
+								title:"liegenschaft_6"
+							}]
+				}, {
+					text: "TAG",
+					key: "TG",
+					liegenschafts: [{
+								title:"liegenschaft_1"
+							},{
+								title:"liegenschaft_4"
+							},{
+								title:"liegenschaft_5"
+							},{
+								title:"liegenschaft_6"
+							}]
+				}, {
+					text: "Dogewo",
+					key: "DG",
+					liegenschafts: [{
+								title:"liegenschaft_0"
+							},{
+								title:"liegenschaft_2"
+							},{
+								title:"liegenschaft_3"
+							},{
+								title:"liegenschaft_6"
+							}]
+				}, {
+					text: "VBW",
+					key: "VB",
+					liegenschafts: [{
+								title:"liegenschaft_1"
+							},{
+								title:"liegenschaft_4"
+							},{
+								title:"liegenschaft_5"
+							},{
+								title:"liegenschaft_6"
+							}]
 				}]
 			});
 			this.getView().setModel(oModel);
@@ -110,7 +171,7 @@ sap.ui.define([
 
 			var oTable2 = this.byIdView("properties");
 
-			oTable2.bindColumns("/columnData", oModel);
+		//	oTable2.bindColumns("/columnData", oModel);
 
 		},
 
