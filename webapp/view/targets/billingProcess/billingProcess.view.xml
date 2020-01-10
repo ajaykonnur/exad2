@@ -7,25 +7,15 @@
                <uxap:expandedHeading>
                   <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
                      <Title text="Abrechnungsprozess" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
-                     <FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
-                        <ObjectMarker type="Favorite" class="sapUiTinyMarginEnd" />
-                        <ObjectMarker type="Flagged" class="sapUiTinyMarginEnd" />
-                        <Button icon="sap-icon://private" type="Transparent" tooltip="private" class="sapUiTinyMarginEnd" />
-                        <Button icon="sap-icon://arrow-down" type="Transparent" tooltip="arrow-down" />
-                     </FlexBox>
+                 
                   </FlexBox>
                </uxap:expandedHeading>
                <uxap:snappedHeading>
                   <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-                     <FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+                     <FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd" width="50px">
                         <Title text="Abrechnungsprozess" wrapping="true" class="sapUiTinyMarginEnd" />
                      </FlexBox>
-                     <FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
-                        <ObjectMarker type="Favorite" class="sapUiTinyMarginEnd" />
-                        <ObjectMarker type="Flagged" class="sapUiTinyMarginEnd" />
-                        <Button icon="sap-icon://private" type="Transparent" tooltip="private" class="sapUiTinyMarginEnd" />
-                        <Button icon="sap-icon://arrow-down" type="Transparent" tooltip="arrow-down" />
-                     </FlexBox>
+                     
                   </FlexBox>
                </uxap:snappedHeading>
                <uxap:expandedContent>
@@ -37,40 +27,31 @@
                   <Button text="Auswahl laden" type="Emphasized" press="onPress" />
                </uxap:expandedContent>
                <uxap:snappedContent>
-                  <Input id="KundeSearch_" type="Text" placeholder="Kunde" width="20%" />
-                  <Input id="LiegenschaftSearch_" type="Tel" placeholder="Liegenschaft" width="20%" />
+                  <ComboBox id="KundeSearch_" showSecondaryValues= "true" width="20%" tooltip="Kunde" placeholder="Kunde" items="{ path: '/Kunden', sorter: { path: 'text' }}">
+						<core:ListItem key="{key}" text="{text}" additionalText = "{key}"/>
+				</ComboBox><Input id="LiegenschaftSearch_" type="Tel" placeholder="Liegenschaft" width="20%" />
                   <DateRangeSelection id="DateRangeSearch_" change="onDateRangeSearchChange" width="20%" />
                   <Button text="Auswahl laden" type="Emphasized" press="onPress" />
                </uxap:snappedContent>
-               <uxap:snappedTitleOnMobile />
-               <uxap:actions>
-                  <OverflowToolbarButton type="Transparent" icon="sap-icon://copy" tooltip="copy" />
-                  <OverflowToolbarButton type="Transparent" icon="sap-icon://delete" tooltip="delete" />
-                  <OverflowToolbarButton type="Transparent" icon="sap-icon://add" tooltip="add" />
-                  <OverflowToolbarButton type="Transparent" icon="sap-icon://paste" tooltip="paste" />
-               </uxap:actions>
-               <uxap:navigationActions>
-                  <OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" tooltip="Enter Full Screen Mode" />
-                  <OverflowToolbarButton type="Transparent" icon="sap-icon://decline" tooltip="Close column" />
-               </uxap:navigationActions>
+               
             </uxap:ObjectPageDynamicHeaderTitle>
          </uxap:headerTitle>
          <uxap:headerContent>
             <FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
-               <l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">
-                  <Link text="+49 030 2431170" />
-                  <Link text="Rungestraße 19, 10179 Berlin" />
-               </l:VerticalLayout>
-               <l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">
-                  <Label text="PROMOS consult Projektmanagement, Organisation und Service GmbH" />
-                  <VBox height="63px">
-                     <Label text="EXAD2.0 Projekt" />
-                     <ProgressIndicator percentValue="20" displayValue="20%" showValue="true" state="None" />
-                  </VBox>
-               </l:VerticalLayout>
-               <l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">
-                  <Label text="Berlin, Deutschland" />
-               </l:VerticalLayout>
+               <!--<l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">-->
+               <!--   <Link text="+49 030 2431170" />-->
+               <!--   <Link text="Rungestraße 19, 10179 Berlin" />-->
+               <!--</l:VerticalLayout>-->
+               <!--<l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">-->
+               <!--   <Label text="PROMOS consult Projektmanagement, Organisation und Service GmbH" />-->
+               <!--   <VBox height="63px">-->
+               <!--      <Label text="EXAD2.0 Projekt" />-->
+               <!--      <ProgressIndicator percentValue="20" displayValue="20%" showValue="true" state="None" />-->
+               <!--   </VBox>-->
+               <!--</l:VerticalLayout>-->
+               <!--<l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">-->
+               <!--   <Label text="Berlin, Deutschland" />-->
+               <!--</l:VerticalLayout>-->
             </FlexBox>
          </uxap:headerContent>
          <uxap:sections>
