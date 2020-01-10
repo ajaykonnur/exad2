@@ -4,180 +4,96 @@ sap.ui.define([
 	"sap/ui/table/Table",
 	"sap/m/MessageToast",
 	"promos/exad/EXAD2/controller/factory",
-], function (baseController, JSONModel, Table, MessageToast, factory) {
+	"sap/ui/core/Fragment"
+], function (baseController, JSONModel, Table, MessageToast, factory, Fragment) {
 	"use strict";
 
 	return baseController.extend("promos.exad.EXAD2.controller.targets.billingProcess", {
 
 		onInit: function () {
+			
+			
+			
 			var oModel = new JSONModel();
-			oModel.setData({
-				columnData: [{
-					columnName: "Typ"
-				}, {
-					columnName: "LINR"
-				}, {
-					columnName: "Adresse"
-				}, {
-					columnName: "Medium"
-				}, {
-					columnName: "Letzter Abr-Ztr"
-				}],
-				tableDetails: [{
-					Typ: "Liegenschaft",
-					LINR: "5120013",
-					Adresse: "Dohnanyistr. 24 in 04103 Leipzig",
-					Medium: "",
-					"Letzter Abr-Ztr": "01.01. - 31.12.2017"
-				}, {
-					Typ: "Abrechnungsvereinbarung",
-					LINR: "5120013",
-					Adresse: "Dohnanyistr. 24 in 04103 Leipzig",
-					Medium: "",
-					"Letzter Abr-Ztr": "01.01. - 31.12.2017"
-				}, {
-					Typ: "Abrechnungsmedium",
-					LINR: "5120013",
-					Adresse: "Dohnanyistr. 24 in 04103 Leipzig",
-					Medium: "H",
-					"Letzter Abr-Ztr": "01.01. - 31.12.2017"
-				}, {
-					Typ: "Abrechnungsmedium",
-					LINR: "5120013",
-					Adresse: "Dohnanyistr. 24 in 04103 Leipzig",
-					Medium: "W",
-					"Letzter Abr-Ztr": "01.01. - 31.12.2017"
-				}, {
-					Typ: "Abrechnungsmedium",
-					LINR: "5120013",
-					Adresse: "Dohnanyistr. 24 in 04103 Leipzig",
-					Medium: "K",
-					"Letzter Abr-Ztr": "01.01. - 31.12.2017"
-				}],
-				statusColumnData: [{
-					columnName: "Status"
-				}, {
-					columnName: "Bezeichner"
-				}, {
-					columnName: "Abr-Ztr"
-				}, {
-					columnName: "Medium"
-				}],
-				statusTableDetails: [{
-					Status: "001",
-					Bezeichner: "",
-					"Abr-Ztr": "01.01. - 31.12.2017",
-					Medium: ""
-				}, {
-					Status: "512",
-					Bezeichner: "",
-					"Abr-Ztr": "01.01. - 31.12.2017",
-					Medium: "H"
-				}, {
-					Status: "699",
-					Bezeichner: "",
-					"Abr-Ztr": "01.01. - 31.12.2017",
-					Medium: ""
-				}],
-				dienst: [{
-					title: "Liegenschaft",
-					view: "property"
-				}, {
-					title: "Mietstruktur",
-					view: "Tenant_Structure"
-				}, {
-					title: "Versogungsstruktur",
-					view: "Supply_Structure"
-				}, {
-					title: "Kosten & Brennstoffe",
-					view: "Costs_&_fuels"
-				}, {
-					title: "Abrechnung",
-					view: "Accounting"
-				}, {
-					title: "Ergebnisse",
-					view: "Results"
-				}, {
-					title: "Archiv",
-					view: "Archive"
-				}],
-				Kunden: [{
-					text: "PROMOS",
-					key: "PR",
-					liegenschafts: [{
-								title:"liegenschaft_1"
-							},{
-								title:"liegenschaft_2"
-							},{
-								title:"liegenschaft_3"
-							},{
-								title:"liegenschaft_4"
-							}]
-				}, {
-					text: "ProPotsdam",
-					key: "PDM",
-					liegenschafts: [{
-								title:"liegenschaft_2"
-							},{
-								title:"liegenschaft_3"
-							},{
-								title:"liegenschaft_4"
-							},{
-								title:"liegenschaft_6"
-							}]
-				}, {
-					text: "TAG",
-					key: "TG",
-					liegenschafts: [{
-								title:"liegenschaft_1"
-							},{
-								title:"liegenschaft_4"
-							},{
-								title:"liegenschaft_5"
-							},{
-								title:"liegenschaft_6"
-							}]
-				}, {
-					text: "Dogewo",
-					key: "DG",
-					liegenschafts: [{
-								title:"liegenschaft_0"
-							},{
-								title:"liegenschaft_2"
-							},{
-								title:"liegenschaft_3"
-							},{
-								title:"liegenschaft_6"
-							}]
-				}, {
-					text: "VBW",
-					key: "VB",
-					liegenschafts: [{
-								title:"liegenschaft_1"
-							},{
-								title:"liegenschaft_4"
-							},{
-								title:"liegenschaft_5"
-							},{
-								title:"liegenschaft_6"
-							}]
-				}]
+			
+			var aData = jQuery.ajax({ 
+							type: "GET", 
+							contentType: "application/json", 
+							url: 'https://hyjal.promos-consult.de:9443/JExadCore/rest/entities/Kunde',
+							dataType: "json",
+							success: function(json) {
+								oModel.setData(aData);             // fill the received data into the JSONModel  
+							},
+							error: function(json) {
+								alert("fail to post"); 
+							} 
+				
 			});
-			this.getView().setModel(oModel);
-
-			// var oTable = this.byIdView("dataTable");
-
-			// exadTable.bindColumns(oTable, "/columnData", oModel);
-
-			var oTable2 = this.byIdView("properties");
-
-		//	oTable2.bindColumns("/columnData", oModel);
-
+			
+			this.byIdView("KundeSearch").setModel(oModel);
+		//	this.getView().setModel(oModel);
 		},
 
 		getRouter: function () {
 			return sap.ui.core.UIComponent.getRouterFor(this);
 		},
+		onSelectItem: function(oEvent) {
+			
+			
+			var oSelectItemKey = oEvent.getParameter("selectedItem").getKey();
+			if (oSelectItemKey) {
+				
+				var oModel = new JSONModel();
+				
+				var aData = jQuery.ajax({ 
+							type: "GET", 
+							contentType: "application/json", 
+							url: "https://hyjal.promos-consult.de:9443/JExadCore/rest/entities/liegenschaft?kunde=" + oSelectItemKey,
+							dataType: "json",
+							success: function(json) {
+								oModel.setData(aData);             // fill the received data into the JSONModel        
+							},
+							error: function(json) {
+								alert("fail to retrieve Liengenschaft data"); 
+							} 
+				});
+			// liegenschaft data 
+			this.byIdView("LiegenschaftSearch").setModel(oModel);
+			}
+		},
+		
+		handleNewKunde: function () {
+			this._openDialog("newClient");
+		},
+		// View Setting Dialog opener
+		_openDialog : function (sName, sPage, fInit) {
 
+			// creates dialog list if not yet created
+			if (!this._oDialogs) {
+				this._oDialogs = {};
+			}
+
+			// creates requested dialog if not yet created
+			if (!this._oDialogs[sName]) {
+				Fragment.load({
+					name: "promos.exad.EXAD2.view.targets.billingProcess.fragments." + sName,
+					controller: this
+				}).then(function(oDialog){
+					this._oDialogs[sName] = oDialog;
+					this.getView().addDependent(this._oDialogs[sName]);
+					if (fInit) {
+						fInit(this._oDialogs[sName]);
+					}
+					// opens the dialog
+					this._oDialogs[sName].open(sPage);
+				}.bind(this));
+			} else {
+				// opens the requested dialog
+				this._oDialogs[sName].open(sPage);
+			}
+		}
+		
+
+		
 	});
 });

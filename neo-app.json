@@ -36,6 +36,14 @@
         "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
+    },
+     {
+      "path": "/destinations/hyjalExad",
+      "target": {
+        "type": "destination",
+        "name": "hyjalExad"
+      },
+      "description": "hyjalExad JSON Service"
     }
   ],
   "sendWelcomeFileRedirect": true

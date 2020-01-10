@@ -7,7 +7,6 @@
                <uxap:expandedHeading>
                   <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
                      <Title text="Abrechnungsprozess" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
-                 
                   </FlexBox>
                </uxap:expandedHeading>
                <uxap:snappedHeading>
@@ -15,30 +14,38 @@
                      <FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd" width="50px">
                         <Title text="Abrechnungsprozess" wrapping="true" class="sapUiTinyMarginEnd" />
                      </FlexBox>
-                     
                   </FlexBox>
                </uxap:snappedHeading>
                <uxap:expandedContent>
-               	<ComboBox id="KundeSearch" showSecondaryValues= "true" width="20%" tooltip="Kunde" placeholder="Kunde" items="{ path: '/Kunden', sorter: { path: 'text' }}">
-						<core:ListItem key="{key}" text="{text}" additionalText = "{key}"/>
+               	<ComboBox id="KundeSearch" selectionChange="onSelectItem" showSecondaryValues= "true" width="20%" tooltip="Kunde" placeholder="Kunde" items="{ path: '/responseJSON', sorter: { path: 'bezeichnung' }}">
+						<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
 				</ComboBox>
-                  <Input id="LiegenschaftSearchInput" type="Tel" placeholder="Liegenschaft" width="20%" />
+                <ComboBox id="LiegenschaftSearch" showSecondaryValues= "true" width="20%" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/responseJSON', sorter: { path: 'bezeichnung' }}">
+						<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
+				</ComboBox>
                   <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" width="20%" />
                   <Button text="Auswahl laden" type="Emphasized" press="onPress" />
                </uxap:expandedContent>
                <uxap:snappedContent>
                   <ComboBox id="KundeSearch_" showSecondaryValues= "true" width="20%" tooltip="Kunde" placeholder="Kunde" items="{ path: '/Kunden', sorter: { path: 'text' }}">
 						<core:ListItem key="{key}" text="{text}" additionalText = "{key}"/>
-				</ComboBox><Input id="LiegenschaftSearch_" type="Tel" placeholder="Liegenschaft" width="20%" />
-                  <DateRangeSelection id="DateRangeSearch_" change="onDateRangeSearchChange" width="20%" />
-                  <Button text="Auswahl laden" type="Emphasized" press="onPress" />
+				</ComboBox>
+				<Input id="LiegenschaftSearch_" type="Tel" placeholder="Liegenschaft" width="20%" />
+                <DateRangeSelection id="DateRangeSearch_" change="onDateRangeSearchChange" width="20%" />
+                <Button text="Auswahl laden" type="Emphasized" press="onPress" />
                </uxap:snappedContent>
+               	<uxap:actions>
+					<OverflowToolbarButton type="Transparent" icon="sap-icon://add-employee" tooltip="Kunde Anlegen" press="handleNewKunde"/>
+					<OverflowToolbarButton type="Transparent" icon="sap-icon://home" tooltip="Liegenschaft Anlegen"/>
+					<OverflowToolbarButton type="Transparent" icon="sap-icon://add" tooltip="add"/>
+					<OverflowToolbarButton type="Transparent" icon="sap-icon://paste" tooltip="paste"/>
+				</uxap:actions>
                
             </uxap:ObjectPageDynamicHeaderTitle>
          </uxap:headerTitle>
          <uxap:headerContent>
             <FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
-               <!--<l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">-->
+            	<!--<l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">-->
                <!--   <Link text="+49 030 2431170" />-->
                <!--   <Link text="Rungestraße 19, 10179 Berlin" />-->
                <!--</l:VerticalLayout>-->
