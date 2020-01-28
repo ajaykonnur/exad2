@@ -15,9 +15,9 @@
 				<ToolbarSpacer/>
 				<Label text="bearbeiten"/>
 				<Switch change=".onEditChange"/>
-				<Button tooltip="Neu" icon="sap-icon://add" type="Accept" enabled="false" press=".onAddRowPress"/>
-				<Button tooltip="Kopieren" icon="sap-icon://copy" enabled="false" press=".onCopyRowPress"/>
-				<Button tooltip="Löschen" icon="sap-icon://delete" type="Reject" enabled="false" press=".onDeleteRowPress"/>
+				<Button tooltip="Neu" icon="sap-icon://add" type="Accept" enabled="{$this>editable}" press=".onAddRowPress"/>
+				<Button tooltip="Kopieren" icon="sap-icon://copy" enabled="{$this>editable}" press=".onCopyRowPress"/>
+				<Button tooltip="Löschen" icon="sap-icon://delete" type="Reject" enabled="{$this>editable}" press=".onDeleteRowPress"/>
 			</Toolbar>
 		</t:extension>
 	</t:Table>

@@ -4,6 +4,8 @@ sap.ui.define([
 	"promos/exad/EXAD2/model/models"
 ], function (UIComponent, Device, models) {
 	"use strict";
+	jQuery.sap.registerModulePath("axios", "https://unpkg.com/axios/dist/axios.min");
+	sap.ui.define("axios");
 
 	return UIComponent.extend("promos.exad.EXAD2.Component", {
 
@@ -28,6 +30,15 @@ sap.ui.define([
 
 			this._initModel("displayState");
 			this._initModel("mockdata");
+
+			// init axios instance
+			this.ExadRest = axios.create({
+				baseURL: "/destinations/hyjalExad/JExadCore/rest",
+				timeout: 10000
+					// headers: {
+					// 	'X-Custom-Header': 'foobar'
+					// }
+			});
 
 		},
 		_initModel: function (sModelName) {

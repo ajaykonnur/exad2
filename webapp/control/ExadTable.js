@@ -1,15 +1,30 @@
 sap.ui.define([
 	"sap/ui/core/XMLComposite",
 	"sap/base/Log",
+	"sap/ui/model/json/JSONModel",
 	"promos/exad/EXAD2/controller/messageHelper"
-], function (XMLComposite, Log, messageHelper) {
+], function (XMLComposite, Log, JSONModel, messageHelper) {
 	"use strict";
 	return XMLComposite.extend("promos.exad.EXAD2.control.ExadTable", {
 		messageHelper: messageHelper,
 
 		metadata: {
 			properties: {
-				title: "string"
+				title: {
+					type: "string",
+					defaultValue: ""
+				},
+				editable: {
+					type: "boolean",
+					defaultValue: false
+				},
+				endpoint: {
+					type: "string",
+					defaultValue: ""
+				}
+				// _oModel: {
+				// 	type: "object"
+				// }
 			},
 			events: {
 
@@ -22,19 +37,20 @@ sap.ui.define([
 		 ****************************************************************
 		 */
 
-		init: function () {},
+		init: function () {
+			// this.getOwnerComponent().ExadRest.get(endpoint);
+		},
 
-		/* 
+		/*
 		 ****************************************************************
 		 ************			EVENTHANDLERS			****************
 		 ****************************************************************
 		 */
+
 		onEditChange: function (oEvent) {
-			var oSource = oEvent.getSource();
-			var bPressed = oSource.getState();
-			this.byIdView("Neu").setEnabled(bPressed);
-			this.byIdView("Kopieren").setEnabled(bPressed);
-			this.byIdView("Loeschen").setEnabled(bPressed);
+			var oSwitch = oEvent.getSource();
+			this.setEditable(oSwitch.getState());
+
 		},
 
 		onAddRowPress: function () {
@@ -118,12 +134,10 @@ sap.ui.define([
 
 		_getTable: function () {
 			var oTable = this.getAggregation("_content"); //this only works as long as there is no other content?!
-			if (oTable && oTable.length === undefined) {
+			if (!oTable || Array.isArray(oTable)) {
 				Log.error("oTable is undefined or is of type array.", "_getTable", this);
 			}
 			return oTable;
 		}
-
 	});
-
 });
