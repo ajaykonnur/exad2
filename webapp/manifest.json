@@ -15,10 +15,10 @@
 		},
 		"dataSources": {
 			"hyjalExad": {
-				"uri": "/destinations/hyjalExad/",
+				"uri": "/destinations/hyjalExad",
 				"type": "JSON",
 				"settings": {
-					"odataVersion": "2.0"
+					"localUri": "localService/metadata.xml"
 				}
 			}
 		}
