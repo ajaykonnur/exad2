@@ -10,6 +10,7 @@
 		<tnt:mainContents>
 			<l:Splitter >
 				<Shell id="shellContainer" appWidthLimited="false">
+					 <Button text="Zurück" type="Emphasized" press="onPress" />
 					<App id="appContainer"></App>
 				</Shell>
 				<mvc:XMLView viewName="promos.exad.EXAD2.view.main.sidebar" id="idSideBarArea">

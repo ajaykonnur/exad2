@@ -1,8 +1,15 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap"
-	xmlns:cust="promos.exad.EXAD2.control">
-	<uxap:ObjectPageLayout id="ObjectPageLayoutProperty" showAnchorBarPopover="false" isChildPage="true" upperCaseAnchorBar="false">
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap" xmlns:cust="promos.exad.EXAD2.control">
+	
+	<uxap:ObjectPageLayout id="ObjectPageLayoutProperty"
+						   showAnchorBarPopover="false" 
+						   upperCaseAnchorBar="false" 
+						   alwaysShowContentHeader="true"
+						   preserveHeaderStateOnScroll="true"
+						   height="900px"
+						   toggleHeaderOnTitleClick="false">
 		<uxap:sections>
-			<uxap:ObjectPageSection title="Abrechnungsinformationen" showTitle="false">
+			
+			<uxap:ObjectPageSection title="Abrechnungsinformationen" id="Abrechnungsinformationen" showTitle="false">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<Panel width="100%">
@@ -35,4 +42,5 @@
 			</uxap:ObjectPageSection>
 		</uxap:sections>
 	</uxap:ObjectPageLayout>
+	
 </core:FragmentDefinition>

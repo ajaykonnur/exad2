@@ -1,11 +1,12 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table">
-	<t:Table columns="{/columnData}" rows="{/tableDetails}" selectionMode="MultiToggle" visibleRowCount="7" paste="onPaste">
+	<t:Table columns="{/columnName}" rows="{/TableDetails}" selectionMode="MultiToggle" visibleRowCount="5" paste="onPaste" enableCellFilter="true">
 		<t:columns>
 			<t:Column></t:Column>
 		</t:columns>
 		<t:extension>
 			<Toolbar class="sapMTBHeader-CTX">
 				<Title text="{$this>title}"/>
+				<Label text="({$this>count})" />
 				<ComboBox selectedKey="default">
 					<items>
 						<core:Item key="default" text="Standard"/>
@@ -13,12 +14,29 @@
 				</ComboBox>
 				<Button text="Funktion"/>
 				<ToolbarSpacer/>
-				<Label text="bearbeiten"/>
-				<Switch change=".onEditChange"/>
-				<Button tooltip="Neu" icon="sap-icon://add" type="Accept" enabled="{$this>editable}" press=".onAddRowPress"/>
-				<Button tooltip="Kopieren" icon="sap-icon://copy" enabled="{$this>editable}" press=".onCopyRowPress"/>
-				<Button tooltip="Löschen" icon="sap-icon://delete" type="Reject" enabled="{$this>editable}" press=".onDeleteRowPress"/>
+				<Button tooltip="Neuen Datensatz anlegen" icon="sap-icon://add" press=".onAddRowPress" />
+				<Button tooltip="Datensatz kopieren"  icon="sap-icon://copy" press=".onCopyRowPress"/>
+				<Button tooltip="Datensatz löschen" icon="sap-icon://delete" press=".onDeleteRowPress"/>
+				<Button tooltip="Edit Table" icon="sap-icon://locked" press=".onEditChange"/>
+				<SearchField liveChange=".onSearch" placeholder="Filtern" width="15%" />
+				<MenuButton icon="sap-icon://vertical-grip">
+					<menu>
+						<Menu>
+							<MenuItem text="Sichtbar Spalten"  icon="sap-icon://add" press=".onAddRowPress" />
+							<MenuItem text="Sortierung" icon="sap-icon://action-settings" press=".tabelleSettings" />
+							<MenuItem text="Alle Filter zurücksetzen" icon="sap-icon://clear-filter" press=".clearAllSortings" />
+							<MenuItem text="Export to CSV" icon="sap-icon://excel-attachment" press=".exportToCSV" />
+							<MenuItem text="Layout Vorlagen" icon="sap-icon://grid"/>
+						</Menu>
+					</menu>
+				</MenuButton>
 			</Toolbar>
 		</t:extension>
+		<t:footer>
+			<Toolbar class="sapMTBHeader-CTX">
+				
+			</Toolbar>
+		</t:footer>
 	</t:Table>
+	
 </core:FragmentDefinition>

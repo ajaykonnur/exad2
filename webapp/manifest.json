@@ -84,62 +84,82 @@
 				"controlId": "appContainer",
 				"clearControlAggregation": false
 			},
-		"routes": [
+			"routes": [
 				{
 					"pattern": "",
 					"name": "homeRoute",
 					"target": "billingProcess"
-				},{
+				},
+				{
 					"pattern": "billingProcess",
 					"name": "billingProcessRoute",
 					"target": "billingProcess"
-				},{
+				},
+				{
 					"pattern": "dataSet",
 					"name": "dataSetRoute",
 					"target": "dataSet"
-				},{
+				},
+				{
 					"pattern": "dataExchange",
 					"name": "dataExchangeRoute",
 					"target": "dataExchange"
-				},{
+				},
+				{
 					"pattern": "analysis",
 					"name": "analysisRoute",
 					"target": "analysis"
-				},{
+				},
+				{
 					"pattern": "deviceManagement",
 					"name": "deviceManagementRoute",
 					"target": "deviceManagement"
-				},{
+				},
+				{
 					"pattern": "parameters",
 					"name": "parametersRoute",
 					"target": "parameters"
-				}],
-		"targets":{
-			"billingProcess":{
-				"viewName": "targets/billingProcess/billingProcess",
-				"viewId": "billingProcess"
 				},
-			"dataSet":{
+				{
+					"pattern": "detail",
+					"name": "detailViewRoute",
+					"target": "detailView"
+				}
+			],
+			"targets": {
+				"billingProcess": {
+					"viewName": "targets/billingProcess/billingProcess",
+					"viewId": "billingProcess"
+				},
+				"dataSet": {
 					"viewName": "targets/dataSet",
 					"viewId": "dataSet"
 				},
-			"dataExchange":{
+				"dataExchange": {
 					"viewName": "targets/dataExchange",
 					"viewId": "dataExchange"
 				},
-			"analysis":{
+				"analysis": {
 					"viewName": "targets/analysis",
 					"viewId": "analysis"
 				},
-			"deviceManagement":{
+				"deviceManagement": {
 					"viewName": "targets/deviceManagement",
 					"viewId": "deviceManagement"
 				},
-			"parameters":{
+				"parameters": {
 					"viewName": "targets/parameters",
 					"viewId": "parameters"
+				},
+				"detailView": {
+					"viewName": "targets/detailView",
+					"viewId": "detailView"
 				}
 			}
 		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/yhk_exad2/webapp",
+		"_version": "1.1.0"
 	}
 }

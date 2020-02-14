@@ -1,5 +1,8 @@
 <core:FragmentDefinition 
 	xmlns="sap.m" 
-	xmlns:core="sap.ui.core">
-    <Text text=" Versorgungsstruktur ..." wrapping="false" />
+	xmlns:core="sap.ui.core"
+	xmlns:cust="promos.exad.EXAD2.control">
+    
+    	<cust:ExadTable id="SupplyStructure" title="Versorgungsstruktur" endpoint="/entities/liegenschaftMedium"/>
+    	
 </core:FragmentDefinition>

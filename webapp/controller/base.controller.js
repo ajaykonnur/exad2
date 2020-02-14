@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/base/Log"
-], function (Controller, Log) {
+	"sap/base/Log",
+	"sap/ui/core/routing/History"
+], function (Controller, Log, History) {
 	"use strict";
 
 	return Controller.extend("promos.exad.EXAD2.controller.base", {
@@ -39,6 +40,9 @@ sap.ui.define([
 
 		superNavTo: function (sRoute) {
 			this.getOwnerComponent().getRouter().navTo(sRoute, {});
+		},
+		onNavBack: function(sEvent){
+			window.history.go(-1);
 		}
 	});
 });
