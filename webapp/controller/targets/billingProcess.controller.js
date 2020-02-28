@@ -1,105 +1,87 @@
 sap.ui.define([
 	"promos/exad/EXAD2/controller/base.controller",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/table/Table",
-	"sap/m/MessageToast",
+	"promos/exad/EXAD2/controller/messageHelper",
 	"promos/exad/EXAD2/controller/factory",
-	"sap/ui/core/Fragment",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], function (baseController, JSONModel, Table, MessageToast, factory, Fragment, Filter, FilterOperator) {
+], function (baseController, JSONModel, messageHelper, factory, Filter, FilterOperator) {
 	"use strict";
+	
+	var _agreementAndMediumRequest = new JSONModel();
 
 	return baseController.extend("promos.exad.EXAD2.controller.targets.billingProcess", {
-
+		
+		
 		onInit: function () {
-			
-			
-			// var oTable1 = this.byIdView("accountingInfo");
-			// var oModelData = this.getOwnerComponent().getModel("mockdata").getProperty("/statusInfoTableData"); // getProperty("/accountingInfoTableData");
-		
-			// oTable1._bindColumns(oModelData);
-			
-			// set model to table
-			// var oTable2 = this.byIdView("accountigStatus");
-			// var oModelData2 = this.getOwnerComponent().getModel("mockdata").getProperty("/statusInfoTableData") // getProperty("/accountingInfoTableData");
-			// oTable2._bindColumns(oModelData2);
-			// var oTable2 = this.byIdView("accountigStatus");
-			// var oModelData2 = this.getOwnerComponent().getModel("mockdata").getProperty("/statusInfoTableData");
-			// var oModel2 = new JSONModel(oModelData2);
-			// oTable2.bindColumns("/statusColumnData", oModel2);
-			
+	
 			var oModel = new JSONModel();
-			
-			var aData = jQuery.ajax({ 
-							type: "GET", 
-							contentType: "application/json", 
-							url: 'https://hyjal.promos-consult.de:9443/JExadCore/rest/entities/Kunde',
-							dataType: "json",
-							success: function(json) {
-								oModel.setData(aData);             // fill the received data into the JSONModel  
-							},
-							error: function(json) {
-							//	alert("fail to post"); 
-							} 
-				
-			});
-			
+			var aPath = "/entities/Kunde";
+			oModel = this.ExadRest(aPath, oModel);
 			this.byIdView("ClientSearch").setModel(oModel);
-		
+			
+			_agreementAndMediumRequest = this.ExadRest ("models/agreementAndMediumRequest", _agreementAndMediumRequest);
 		},
 
 		onClientSelected: function(oEvent) {
 			var oSelectItemKey = oEvent.getParameter("selectedItem").getKey();
 			if (oSelectItemKey) {
-				
 				var oModel = new JSONModel();
-				
-				var aData = jQuery.ajax({ 
-							type: "GET", 
-							contentType: "application/json", 
-							url: "https://hyjal.promos-consult.de:9443/JExadCore/rest/entities/liegenschaft?kunde=" + oSelectItemKey,
-							dataType: "json",
-							success: function(json) {
-								oModel.setData(aData);             // fill the received data into the JSONModel        
-							},
-							error: function(json) {
-								alert("fail to retrieve Liengenschaft data"); 
-							} 
-				});
-			// liegenschaft data 
-			this.byIdView("PropertySearch").setModel(oModel);
+				var aPath = "/entities/liegenschaft?kunde=" + oSelectItemKey;
+				oModel = this.ExadRest(aPath, oModel);
+				this.byIdView("PropertySearch").setModel(oModel);
 			}
 		},
+		
 		Search : function(oEvent){
-			// var aFilters = [];
-			var	aFilters = this.getFilters();
-
-			var oProperty = this.byIdView("PropertySearch");
-			var oSelectedItem = oProperty.getProperty("selectedKey");
-			var oModel = new JSONModel();
-			var oTable1 = this.byIdView("accountingInfo");
-				
-				var aData = jQuery.ajax({ 
-							type: "GET", 
-							contentType: "application/json", 
-							url: "https://hyjal.promos-consult.de:9443/JExadCore/rest/dto/agreementAndMediumRequest/" + oSelectedItem,
-							dataType: "json",
-							success: function(json) {
-								oModel.setData(aData.responseJSON);             // fill the received data into the JSONModel      
-							//	oTable1._bindColumns(oModel);
-							},
-							error: function(json) {
-								alert("fail to retrieve Abrechnung data"); 
-							} 
-				});
-		
-			// set model to table
-			// var oTable1 = this.byIdView("accountingInfo");
-			// oTable1._bindColumns(oModel);
-			var oModelData = this.getOwnerComponent().getModel("mockdata").getProperty("/statusInfoTableData"); // getProperty("/accountingInfoTableData");
-			oTable1._bindColumns(oModelData);
-		
+			
+			var oClient = this.byIdView("ClientSearch");
+			var sSelectedClient = oClient.getProperty("selectedKey");
+			if (sSelectedClient) {
+				var oProperty = this.byIdView("PropertySearch");
+				var sSelectedLiegenschaft = oProperty.getProperty("selectedKey");
+				if(sSelectedLiegenschaft){
+					var oModel = new JSONModel();
+					var aModelData = [];
+				//	var	aFilters = this.getFilters();
+					var oTable1 = this.byIdView("accountingInfo");
+					
+					var oDatum	= this.byIdView("DateRangeSearch");
+					var sDateRange = oDatum.getProperty("value");
+					if (sDateRange){
+						sDateRange = factory.DateFormatter(sDateRange);
+						var	aDateRange = sDateRange.split("-");
+						sDateRange = "gueltigVon-" + aDateRange[0] + "-gueltigBis-" + aDateRange[1] + ")";
+						this.getOwnerComponent().ExadRest(oTable1.getProperty("endpoint")+ sSelectedLiegenschaft + "?BETWEEN_DATE(" + sDateRange )
+						.then(function (response) {
+							aModelData.statusTableDetails = response.data;
+							aModelData.statusColumnData = _agreementAndMediumRequest.getData();
+							oTable1._bindColumns(aModelData);
+							oTable1.setCount(aModelData.statusTableDetails.length);
+							}).catch(function (error) {
+											  //  console.log(error.toJSON());
+							});
+						oEvent.getSource().setText(messageHelper._getI18nMessage("SearchButton"));
+						oEvent.getSource().setType("Default");
+					}else{
+						this.getOwnerComponent().ExadRest(oTable1.getProperty("endpoint")+ sSelectedLiegenschaft)
+							.then(function (response) {
+								aModelData.statusTableDetails = response.data;
+								aModelData.statusColumnData = _agreementAndMediumRequest.getData();
+								oTable1._bindColumns(aModelData);
+								oTable1.setCount(aModelData.statusTableDetails.length);
+								}).catch(function (error) {
+												  //  console.log(error.toJSON());
+								});
+							oEvent.getSource().setText(messageHelper._getI18nMessage("SearchButton"));
+							oEvent.getSource().setType("Default");
+					}
+				}else{
+					messageHelper.messageToast("PropertySelectionError");
+				}
+			}else{
+				messageHelper.messageToast("ClientSelectionError");
+			}
 		},
 		getFilters : function (){
 			var oFilters = [];
@@ -117,6 +99,7 @@ sap.ui.define([
 			};
 			return oFilters;
 		},
+		
 		onDetailNavigation : function (oEvent) {
 			var sKey = oEvent.getSource().getId();
 			var temp = [];
@@ -127,15 +110,23 @@ sap.ui.define([
 			}
 			this.superNavTo(sKey + "Route");
 		},
+		
 		getRouter: function () {
 			return sap.ui.core.UIComponent.getRouterFor(this);
+		},
+	
+		ExadRest: function(sPath, oModel ){
+			this.getOwnerComponent().ExadRest(sPath)
+				.then(function (response) {
+										oModel.setData(response.data); 
+						}).catch(function (error) {
+										  //  console.log(error.toJSON());
+								});
+			return oModel;
 		}
 		
 		
 	
-		
-	
-		
 		
 
 	});

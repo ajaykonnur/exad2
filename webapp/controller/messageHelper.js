@@ -13,7 +13,8 @@ sap.ui.define([
 		_getI18nMessage: function (sText) {
 			var sReturn = "";
 			if (sText && sText !== "") {
-				var oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+				var oComp = sap.ui.getCore().getComponent( "promos.exad.EXAD2");
+				var oResourceBundle = oComp.getModel("i18n").getResourceBundle();
 				var sMessage = oResourceBundle.getText(sText);
 				if (sMessage) {
 					sReturn = sMessage;

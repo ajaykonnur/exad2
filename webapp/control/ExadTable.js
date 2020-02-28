@@ -11,6 +11,7 @@ sap.ui.define([
 	"sap/ui/model/FilterOperator"
 ], function (XMLComposite, Log, JSONModel, messageHelper, MessageToast, Export, ExportTypeCSV, Utils, Filter, FilterOperator) {
 	"use strict";
+
 	return XMLComposite.extend("promos.exad.EXAD2.control.ExadTable", {
 		messageHelper: messageHelper,
 
@@ -47,25 +48,64 @@ sap.ui.define([
 
 		/* 
 		 ****************************************************************
-		 ************			Lifecycle			****************
-		 ****************************************************************
+			************			Lifecycle			****************
+		 **************************************************************** 
 		 */
 
 		init: function () {
-			// this.getOwnerComponent().ExadRest.get(endpoint);
+			var oComp = sap.ui.getCore().getComponent( "promos.exad.EXAD2");
+			this._getTable().setVisibleRowCount(0);
+		
+								
+			
 		},
-
+	
 		/*
 		 ****************************************************************
 		 ************			EVENTHANDLERS			****************
 		 ****************************************************************
 		 */
+		 
+		setCellsEditable: function() {
+			var oTable = this._getTable();
+			var aRows = oTable.getRows();
+			for (var i = 0; i < aRows.length; i++) {
+				var oRow = aRows[i];
+				var aCells = oRow.getCells();
+	
+				for (var m = 0; m < aCells.length; m++) {
+					var oCell = aCells[m];
+					if (oCell && oCell.setEditable) {
+						oCell.setEditable(true);
+					}
+				}
+	
+			}
+		},
+
 
 		onEditChange: function (oEvent) {
-			var oSwitch = oEvent.getSource();
-			this.setEditable(oSwitch.getState());
-		// setIcon("sap-icon://unlocked")
+			
+			var sFragmentId = this._getView().createId("accountingInfo");
+			var addBtn = sap.ui.core.Fragment.byId(sFragmentId, "addBtn"); // works
+			var copyBtn = sap.ui.core.Fragment.byId(sFragmentId, "copyBtn");
+			var deleteBtn = sap.ui.core.Fragment.byId(sFragmentId, "deleteBtn");
 
+			var oSwitch =  oEvent.getSource().getIcon();
+			
+			if(oSwitch.includes("unlocked")) {
+				addBtn.setEnabled(true);
+				copyBtn.setEnabled(true);
+				deleteBtn.setEnabled(true);
+				oEvent.getSource().setIcon("sap-icon://locked");
+				this.setCellsEditable();
+			}else{
+				addBtn.setEnabled(false);
+				copyBtn.setEnabled(false);
+				deleteBtn.setEnabled(false);
+				oEvent.getSource().setIcon("sap-icon://unlocked");
+			}
+			
 		},
 
 		onAddRowPress: function () {
@@ -75,22 +115,66 @@ sap.ui.define([
 			var sNewLine = [];
 			
 			
+			// var form = new sap.ui.layout.form.SimpleForm();
+			// 	form.setLabelSpanL(4);	form.setLabelSpanM(4);	form.setLabelSpanS(4);
+			// 	form.setEmptySpanL(0);	form.setEmptySpanM(0);	form.setEmptySpanS(0);
+			// 	form.setMaxContainerCols(2);
+			// 	form.setLayout("ResponsiveGridLayout");
+				
+			// int i = allocationnode.size() - 1;
+			// allocationnode.setLeadSelection(i);
+			
 			for (var i=0; i<aTableVisibleColumns.length; i++){
 				sColumnName = aTableVisibleColumns[i].getLabel().getText();
-				sNewLine.push(sColumnName);
-				sNewLine.sColumnName = "test";
+				sNewLine[sColumnName] = "Enter "+sColumnName;
+				
+				// var lab = new sap.m.Label();
+				// lab.setText(sColumnName);
+				// form.addContent(lab);
+				
+				// var inp = new sap.m.Input();
+				// inp.setValue("");
+				// form.addContent(inp);
+				
 			}
 			
 			var oModel = oTable.getModel(); // this.getView().getModel();
+			oTable.setEditable(true);
+			
 			oModel.getData().statusTableDetails.push(sNewLine);
 			
-			// var aItems = oTable.getItems();
+			var oIndex = oTable.getModel().oData.statusTableDetails.length - 1 ;
+			var oItem = oTable.getModel().oData.statusTableDetails[oIndex];
+			 var oFlag = oModel.getProperty("/oIndex");
+	          if (oFlag === undefined) {
+	            oModel.setProperty("/oIndex", oIndex);
+	            this.onPress(oItem, true);
+	          } else {
+	            var oPreviousItem = oTable.getItems()[oFlag];
+	            this.onPress(oPreviousItem, false);
+	            var oCurrentItem = oTable.getItems()[oIndex];
+	            oModel.setProperty("/oIndex", oIndex);
+	            this.onPress(oCurrentItem, true);
+	          }
+	// var aItems = oTable.getItems();
    // 		for (var i = 0; i < aItems.length; i++) {
    //     		aItems[i].getCells()[0].setEditable(aItems[i].getSelected());
    // 		}
 			oModel.refresh();
+			this._setVisibleRowCount();
 
 		},
+		 onPress: function(oItem, oFlag) {
+          //var oEditableCells = oItem.getCells();
+          //$(oEditableCells).each(function(i) {
+          //  var oEditableCell = oEditableCells[i];
+          //  var oMetaData = oEditableCell.getMetadata();
+          //  var oElement = oMetaData.getElementName();
+          //  if (oElement == "sap.m.Input") {
+          //    oEditableCell.setEditable(oFlag);
+          //  }
+          //});
+        },
 
 		onCopyRowPress: function (oEvent) {
 			var oTable = this._getTable();
@@ -104,7 +188,9 @@ sap.ui.define([
 					oNewRow = oModel.getData().statusTableDetails[aSelectedIndices[i]];
 					oModel.getData().statusTableDetails.push(oNewRow); //Just add to the end of the table
 				}
+				var aLastIndex = oModel.getData().statusTableDetails.lenght - 1;
 				oModel.refresh();
+				oTable.setSelectedIndex(aLastIndex);
 			}
 		},
 
@@ -123,27 +209,37 @@ sap.ui.define([
 		},
 		onSearch: function (oEvent) {
 			// add filter for search
+			var sQuery = oEvent.getSource().getValue();
 			var oTable = this._getTable();
 			var aFilters = [];
-		
-			
-			var sQuery = oEvent.getSource().getValue();
-		//	if (sQuery && sQuery.length > 0) {
-				var filter = new Filter([
-					new Filter("Status", sap.ui.model.FilterOperator.Contains, sQuery),
-					new Filter("Bezeicher", sap.ui.model.FilterOperator.Contains, sQuery),
-					new Filter("Abr-Ztr", sap.ui.model.FilterOperator.Contains, sQuery),
-					new Filter("Medium", sap.ui.model.FilterOperator.Contains, sQuery)
+			var aVisibleColumns = oTable._getVisibleColumns();
+			var aLabel = [];
+			for (var i = 0; i < aVisibleColumns.length; i++) {
+				aLabel[i]= 	new Filter(aVisibleColumns[i].getProperty("filterProperty"), sap.ui.model.FilterOperator.Contains, sQuery);
+			}
+
+				var filter = new Filter([ aLabel
 				],false);
-		//	}
+			filter.aFilters = filter.aFilters[0];
 			aFilters.push(filter);
-			
 			var oBinding = oTable.getBinding("rows");
 			oBinding.filter(aFilters, "Application");
 		},
 	
 		_getVisibleColumns : function() {
 			return this._getTable()._getVisibleColumns();
+		},
+		
+		_setVisibleRowCount: function(iVal) {
+			var oTable = this._getTable();
+			if(iVal){
+				oTable.setVisibleRowCount(iVal);
+			}else{
+				var iRowCount = oTable.getModel().getData().statusTableDetails.length;
+				oTable.setVisibleRowCount(iRowCount);
+			}
+			
+				
 		},
 
 		/* 
@@ -152,41 +248,6 @@ sap.ui.define([
 		 ****************************************************************
 		 */
 
-		bindColumns: function (sModelData) {
-			var oTable = this._getTable();
-			
-			 
-		//	 var oModel = new JSONModel(sModelData);
-			 oTable.setModel(sModelData);
-			 
-			 var data=[];
-					for(var i=0;i<oTable.getModel().oData.length;i++ ){
-						data.push(oTable.getModel().oData[i].Name);
-					}
-			 
-			 oTable.bindColumns("/", function (index, context) {
-			 	
-			 	
-				var columnName = data[i]; // context.getProperty().columnName;
-
-				return new sap.ui.table.Column({
-					label: columnName,
-					filterProperty: columnName,
-					sortProperty: columnName,
-					template: columnName
-					// template: new sap.ui.commons.TextField({
-					// 	value: {
-					// 		path: "/TableDetails" + "/" + index.slice(-1) + "/" + columnName
-					// 	},
-					// 	editable: false
-					// })
-
-				});
-			});
-			
-			oTable.bindRows("/");
-			
-		},
 		_bindColumns: function (sModelData) {
 			var oTable = this._getTable();
 			
@@ -196,7 +257,7 @@ sap.ui.define([
 			 
 			oTable.bindColumns("/statusColumnData", function (index, context) {
 
-				var columnName = context.getProperty().columnName;
+				var columnName = context.getProperty().name;
 
 				return new sap.ui.table.Column({
 					label: columnName,
@@ -204,9 +265,10 @@ sap.ui.define([
 					sortProperty: columnName,
 					template: columnName
 					// template: new sap.ui.commons.TextField({
-					// 	value: {
-					// 		path: "/TableDetails" + "/" + index.slice(-1) + "/" + columnName
-					// 	},
+					// 	value: columnName,
+					// 	// {
+					// 	// 	path: "/TableDetails" + "/" + index.slice(-1) + "/" + columnName
+					// 	// },
 					// 	editable: false
 					// })
 
@@ -214,6 +276,26 @@ sap.ui.define([
 			});
 
 			oTable.bindRows("/statusTableDetails");
+			
+			var oRowCount = sModelData.statusTableDetails.length ;
+			
+			oTable.setVisibleRowCount(oRowCount);
+			
+			var sFragmentId = this._getView().createId("accountingInfo");
+			var oFieldRowCount = sap.ui.core.Fragment.byId(sFragmentId, "inputChangeVisibleRowCount"); // works
+			oFieldRowCount.setValue(oRowCount);
+			
+			// this.onChangeVisibleRowCount(oRowCount);
+		},
+		
+		onChangeVisibleRowCount: function(sValue){
+			var aRowCount = parseInt(sValue.getParameter("value"));
+			var sFragmentId = this._getView().createId("accountingInfo");
+			var oFieldRowCount = sap.ui.core.Fragment.byId(sFragmentId, "inputChangeVisibleRowCount"); // works
+				oFieldRowCount.setValue(aRowCount);
+			var oTable = this._getTable();
+			oTable.setVisibleRowCount(aRowCount);
+		//	this._getView().byId("inputChangeVisibleRowCount").setValue(sValue);
 		},
 		
 		
@@ -432,6 +514,24 @@ sap.ui.define([
 			}
 	
 			return this._oView;
+		},
+		/** 
+		 * Gets the desired Control by its ID.
+		 * 
+		 * @param {string} id - The id of the control
+		 * @returns {Object} - The found Control
+		 */
+		byId: function(id) {
+			var oControl = this._getView().byId(id);
+			
+			if (!oControl) {
+				oControl = sap.ui.getCore().byId(id);
+			}
+			
+			return oControl;
+		},
+		getView: function() {
+			return this.view;
 		},
 		
 			/* 

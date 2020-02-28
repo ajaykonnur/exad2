@@ -29,6 +29,15 @@ sap.ui.define([
 			oCard.setHeader(oHeader);
 
 			return oCard;
+		},
+		
+		DateFormatter: function (sDateRange) {
+			var aDateRange = sDateRange.split("-"); 
+			var aDateFrom = aDateRange[0].split(".");
+			var aDateTo = aDateRange[1].split(".");
+			
+			var sResult = aDateFrom[0] + aDateFrom[1] + aDateFrom[2] + "-" + aDateTo[0] + aDateTo[1] + aDateTo[2] ;
+			return sResult;
 		}
 	};
 

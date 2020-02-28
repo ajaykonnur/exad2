@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table" xmlns:tnt="sap.tnt" xmlns:uxap="sap.uxap" controllerName="promos.exad.EXAD2.controller.targets.billingProcess">
- <Page id="pageBillingProcess">
-  <!--<Page id="pageBillingProcess" enableScrolling="false">-->
-	
+ <Page id="pageBillingProcess" enableScrolling="false">
   	  <uxap:ObjectPageLayout id="ObjectPageLayout_" showTitleInHeaderContent="true" useIconTabBar="true">
          <uxap:headerTitle>
             <uxap:ObjectPageDynamicHeaderTitle>
@@ -19,28 +17,17 @@
                   </FlexBox>
                </uxap:snappedHeading>
                <uxap:expandedContent>
-               	<ComboBox id="ClientSearch" selectionChange="onClientSelected" showSecondaryValues= "true" width="20%" tooltip="Kunde" placeholder="Kunde" items="{ path: '/responseJSON', sorter: { path: 'bezeichnung' }}">
+               	<ComboBox id="ClientSearch" selectionChange="onClientSelected" showSecondaryValues= "true" width="20%" tooltip="Kunde" placeholder="Kunde" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
 						<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
 				</ComboBox>
-                <ComboBox id="PropertySearch" showSecondaryValues= "true" width="20%" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/responseJSON', sorter: { path: 'bezeichnung' }}">
+                <ComboBox id="PropertySearch" showSecondaryValues= "true" width="20%" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
 						<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
 				</ComboBox>
                   <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" width="20%" />
-                  <Button id="SearchButton" text="Auswahl laden" type="Emphasized" press="Search" />
+                  <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="Search" />
                </uxap:expandedContent>
-    <!--           <uxap:snappedContent>-->
-    <!--              <ComboBox id="KundeSearch_" showSecondaryValues= "true" width="20%" tooltip="Kunde" placeholder="Kunde" items="{ path: '/Kunden', sorter: { path: 'text' }}">-->
-				<!--		<core:ListItem key="{key}" text="{text}" additionalText = "{key}"/>-->
-				<!--</ComboBox>-->
-				<!--<Input id="LiegenschaftSearch_" type="Tel" placeholder="Liegenschaft" width="20%" />-->
-    <!--            <DateRangeSelection id="DateRangeSearch_" change="onDateRangeSearchChange" width="20%" />-->
-    <!--            <Button text="Auswahl laden" type="Emphasized" press="onPress" />-->
-    <!--           </uxap:snappedContent>-->
                	<uxap:actions>
 					<OverflowToolbarButton id="detailView" type="Transparent" icon="sap-icon://add-employee" tooltip="Kunde Anlegen" press="onDetailNavigation"/>
-					<!--<OverflowToolbarButton type="Transparent" icon="sap-icon://home" tooltip="Liegenschaft Anlegen"/>-->
-					<!--<OverflowToolbarButton type="Transparent" icon="sap-icon://add" tooltip="add"/>-->
-					<!--<OverflowToolbarButton type="Transparent" icon="sap-icon://paste" tooltip="paste"/>-->
 				</uxap:actions>
                
             </uxap:ObjectPageDynamicHeaderTitle>
@@ -50,7 +37,7 @@
             <uxap:ObjectPageSection id="Liegenschaft" title="Liegenschaft">
                <uxap:subSections>
                   <uxap:ObjectPageSubSection id="LiegenschaftSS" title=" ">
-                     <uxap:blocks height="100%">
+                     <uxap:blocks>
                         <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.property" type="XML" />
                      </uxap:blocks>
                   </uxap:ObjectPageSubSection>

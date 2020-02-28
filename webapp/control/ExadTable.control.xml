@@ -1,5 +1,5 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table">
-	<t:Table columns="{/columnName}" rows="{/TableDetails}" selectionMode="MultiToggle" visibleRowCount="5" paste="onPaste" enableCellFilter="true">
+<core:FragmentDefinition  xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table">
+	<t:Table columns="{/columnName}" rows="{/TableDetails}" selectionMode="MultiToggle" paste="onPaste" enableCellFilter="true" alternateRowColors="true">
 		<t:columns>
 			<t:Column></t:Column>
 		</t:columns>
@@ -14,10 +14,10 @@
 				</ComboBox>
 				<Button text="Funktion"/>
 				<ToolbarSpacer/>
-				<Button tooltip="Neuen Datensatz anlegen" icon="sap-icon://add" press=".onAddRowPress" />
-				<Button tooltip="Datensatz kopieren"  icon="sap-icon://copy" press=".onCopyRowPress"/>
-				<Button tooltip="Datensatz löschen" icon="sap-icon://delete" press=".onDeleteRowPress"/>
-				<Button tooltip="Edit Table" icon="sap-icon://locked" press=".onEditChange"/>
+				<Button id="addBtn" tooltip="Neuen Datensatz anlegen" enabled="false" icon="sap-icon://add" press=".onAddRowPress" />
+				<Button id="copyBtn" tooltip="Datensatz kopieren"  enabled="false" icon="sap-icon://copy" press=".onCopyRowPress"/>
+				<Button id="deleteBtn" tooltip="Datensatz löschen" enabled="false" icon="sap-icon://delete" press=".onDeleteRowPress"/>
+				<Button id="editBtn" tooltip="Edit Table" icon="sap-icon://unlocked" press=".onEditChange"/>
 				<SearchField liveChange=".onSearch" placeholder="Filtern" width="15%" />
 				<MenuButton icon="sap-icon://vertical-grip">
 					<menu>
@@ -33,8 +33,10 @@
 			</Toolbar>
 		</t:extension>
 		<t:footer>
-			<Toolbar class="sapMTBHeader-CTX">
-				
+			<Toolbar id="footerToolbar">
+				<ToolbarSpacer />
+				<Label id="ChangeVisibleRowCount" text="{i18n>Table.VisibleRows}" />
+				<Input id="inputChangeVisibleRowCount" type="Number" editable="true" placeholder="{i18n>Search.Rows}" value="" width="3rem" change="onChangeVisibleRowCount" />
 			</Toolbar>
 		</t:footer>
 	</t:Table>
