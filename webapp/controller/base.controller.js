@@ -19,7 +19,32 @@ sap.ui.define([
 			}
 			return oModel;
 		},
-
+		
+		getExadRest: function(oObjekt, oTable, sParameters){
+				var aModelData = [];
+				if (sParameters){
+					this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint")+sParameters)
+						.then(function (response) {
+							aModelData.RowData = response.data;
+							aModelData.ColumnData = oObjekt.getData();
+							oTable._bindColumns(aModelData);
+							oTable.setCount(aModelData.RowData.length);
+							}).catch(function (error) {
+								//  console.log(error.toJSON());
+							});
+				}else{
+					this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint"))
+						.then(function (response) {
+							aModelData.RowData = response.data;
+							aModelData.ColumnData = oObjekt.getData();
+							oTable._bindColumns(aModelData);
+							oTable.setCount(aModelData.RowData.length);
+							}).catch(function (error) {
+								//  console.log(error.toJSON());
+							});
+				}
+			
+		},
 		superGetModelProperty: function (sModelname, sPropertypath) {
 			var oModel = this.getModelView(sModelname);
 			var oProperty = oModel.getProperty(sPropertypath);
