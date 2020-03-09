@@ -48,8 +48,8 @@
 											text="{Text}" />
 								</List>
 								<FeedInput
-										showIcon="true"
-										icon="http://upload.wikimedia.org/wikipedia/commons/2/25/George_Washington_as_CIC_of_the_Continental_Army_bust.jpg" />
+										showIcon="true"/>
+										<!--icon="http://upload.wikimedia.org/wikipedia/commons/2/25/George_Washington_as_CIC_of_the_Continental_Army_bust.jpg" />-->
 							</l:VerticalLayout>
 							<!--<Toolbar class="sapMTBHeader-CTX">-->
 							<!--	<Title text="Kommentare"/>-->

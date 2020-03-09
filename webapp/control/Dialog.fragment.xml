@@ -3,13 +3,13 @@
                 reset="onReset" class="sapMBarContainer sapMBarPH">
         <panels>
             <P13nColumnsPanel changeColumnsItems="onChangeColumnsItems"
-                              items="{path: '/Items'}"
-                              columnsItems="{path: '/ColumnsItems'}">
+                              items="{path: '/ColumnData'}"
+                              columnsItems="{path: '/ColumnData'}">
                 <items>
-                    <P13nItem columnKey="{columnKey}" text="{text}"/>
+                    <P13nItem columnKey="{name}" text="{label}"/>
                 </items>
-                <columnsItems class="sapMLIB sapMLIB-CTX sapMLIBActionable sapMLIBFocusable sapMLIBSelected sapMLIBShowSeparator sapMLIBTypeActive sapMListTblRow sapMLIBHoverable">
-                    <P13nColumnsItem columnKey="{columnKey}" index="{index}" visible="{visible}"/>
+                <columnsItems>
+                    <P13nColumnsItem columnKey="{name}" index="{index}" visible="{column-visible}"/>
                 </columnsItems>
             </P13nColumnsPanel>
         </panels>

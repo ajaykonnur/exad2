@@ -39,6 +39,9 @@ sap.ui.define([
 				selectionMode:{
 					type: "string",
 					defaultValue: "MultiToggle"
+				},
+				UseTablePersonalisation: {
+					type: "object"
 				}
 				// _oModel: {
 				// 	type: "object"
@@ -242,7 +245,7 @@ sap.ui.define([
 		 * @public
 		 */ 
 		setUseTablePersonalisation: function(bUseTablePersonalisation) {
-			
+			this.UseTablePersonalisation = bUseTablePersonalisation;
 		},
 		
 		
@@ -275,7 +278,7 @@ sap.ui.define([
 		setCellsEditable: function() {
 			var oTable = this._getTable();
 		//	var aRows = this.getRows();
-			var oRows = this._getSelectedRowsAsModel(oTable.getModel());
+			var aRows = this._getSelectedRowsAsModel(oTable.getModel());
 			for (var i = 0; i < aRows.length; i++) {
 				var oRow = aRows[i];
 				var aCells = oRow.getCells();
@@ -1073,25 +1076,7 @@ sap.ui.define([
 		
 		onChangeVisibleColumns: function(oEvent){
 			var oTable = this._getTable();
-		
-			// var oDataInitial = new sap.ui.base.Object();
-			
-			var Items = [] ;
-			var ColumnsItems = [] ;
-			for (var i = 0; i < oTable.getModel().getData().ColumnData.length; i++ ){
-				var aTemp = oTable.getModel().getData().ColumnData[i];
-				Items[i] = [] ;
-				Items[i].columnKey = aTemp.name; 
-				Items[i].text = aTemp.label; if (aTemp.name === undefined) { Items[i].columnKey = aTemp.columnKey ; 	Items[i].text = aTemp.text ;}
-				
-				ColumnsItems[i] = [];
-				ColumnsItems[i].columnKey = aTemp.name;
-				ColumnsItems[i].visible = aTemp["column-visible"];
-				ColumnsItems[i].index = aTemp["column-order"];  if (aTemp.name === undefined) { ColumnsItems[i].columnKey = aTemp.columnKey ; ColumnsItems[i].visible = aTemp.visible; ColumnsItems[i].index = aTemp.index; }
-			}
-			_oDataInitial.Items = Items;
-			_oDataInitial.ColumnsItems = ColumnsItems;
-		//	_oDataInitial.ColumnData = oTable.getModel().getData().ColumnData;
+			_oDataInitial.ColumnData = oTable.getModel().getData().ColumnData;
 			_oJSONModel = new JSONModel(jQuery.extend(true, {}, _oDataInitial));
 			_oJSONModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);	
 		
@@ -1156,13 +1141,13 @@ sap.ui.define([
 				aDataBase.sort(fnSort);
 				aData.sort(fnSort);
 			var aItemsNotEqual = aDataBase.filter(function(oDataBase, iIndex) {
-					return oDataBase.columnKey !== aData[iIndex].columnKey || oDataBase.visible !== aData[iIndex].visible || oDataBase.index !== aData[iIndex].index || oDataBase.width !== aData[iIndex].width || oDataBase.total !== aData[iIndex].total;
+					return oDataBase.name !== aData[iIndex].name || oDataBase.visible !== aData[iIndex].visible || oDataBase.index !== aData[iIndex].index || oDataBase.width !== aData[iIndex].width || oDataBase.total !== aData[iIndex].total;
 				});
 				return aItemsNotEqual.length === 0;
 			};
 	
-			var aDataRuntime = fnGetUnion(_oDataInitial.ColumnsItems, _oJSONModel.getProperty("/ColumnsItems"));
-			return !fnIsEqual(aDataRuntime, _oDataInitial.ColumnsItems);
+			var aDataRuntime = fnGetUnion(_oDataInitial.ColumnData, _oJSONModel.getProperty("/ColumnData"));
+			return !fnIsEqual(aDataRuntime, _oDataInitial.ColumnData);
 		},
 		onOK: function(oEvent) {
 			this.oDataBeforeOpen = {};
@@ -1171,14 +1156,22 @@ sap.ui.define([
 			var oModel = oSource.getModel();
 			var oData = oModel.getData();
 			
-			aModelData.ColumnData = oData.ColumnsItems;
+			aModelData.ColumnData = [] ;
+			var aTemp = [];
 			
+			for (var i = 0; i< oData.ColumnData.length ; i++){
+				aTemp = {
+					label : oData.ColumnData[i].columnKey,
+					name : oData.ColumnData[i].columnKey,
+					"column-visible" : oData.ColumnData[i].visible,
+					index : oData.ColumnData[i].index
+				};
+				 aModelData.ColumnData[i] = aTemp;
+			}
 			var oTable = this._getTable();
 			
 			aModelData.RowData = oTable.getModel().getData().RowData;
-			
-			
-			
+			this.setUseTablePersonalisation(aModelData.ColumnData);
 			this._bindColumns(aModelData);
 			oEvent.getSource().close();
             oEvent.getSource().destroy();
@@ -1196,7 +1189,7 @@ sap.ui.define([
 			_oJSONModel.setProperty("/", jQuery.extend(true, [], _oDataInitial));
 		},
 		onChangeColumnsItems: function(oEvent) {
-			_oJSONModel.setProperty("/ColumnsItems", oEvent.getParameter("items"));
+			_oJSONModel.setProperty("/ColumnData", oEvent.getParameter("items"));
 			_oJSONModel.setProperty("/ShowResetEnabled", this._isChangedColumnsItems());
 		},
 		/* 
@@ -1207,24 +1200,17 @@ sap.ui.define([
 
 		_bindColumns: function (aModelData) {
 			var oTable = this._getTable();
+			if (this.UseTablePersonalisation){
+				aModelData.ColumnData = this.UseTablePersonalisation;
+			}
+			var	oModel = new JSONModel(aModelData);	
 			
-			
-			var oModel = new JSONModel(aModelData);
 			 oTable.setModel(oModel);
 			 
 			oTable.bindColumns("/ColumnData", function (index, context) {
 				var columnLabel = context.getProperty().label;
-					if (columnLabel === undefined){
-					columnLabel = context.getProperty().columnKey;
-				}
 				var columnName = context.getProperty().name;
-				if (columnName === undefined){
-					columnName = context.getProperty().columnKey;
-				}
 				var bVisible = context.getProperty("column-visible");
-				if (bVisible === undefined){
-					bVisible = context.getProperty().visible;
-				}
 			//	var bEditabled = context.getProperty("detail-editable");
 				return new sap.ui.table.Column({
 					label: columnLabel,
