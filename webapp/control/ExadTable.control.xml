@@ -34,7 +34,7 @@
 		</t:extension>
 		<t:footer>
 			<Toolbar id="footerToolbar">
-				<Button id="SaveBtn" text="{i18n>table.Save}" type="Accept" press=".onSave" />
+				<!--<Button id="SaveBtn" text="{i18n>table.Save}" type="Accept" press=".onSave" />-->
 				<ToolbarSpacer />
 				<Label id="ChangeVisibleRowCount" text="{i18n>table.VisibleRows}" />
 				<Input id="inputChangeVisibleRowCount" type="Number" editable="true" placeholder="{i18n>table.Rows}" value="" width="3rem" change="onUpdateVisibleRowCount" />

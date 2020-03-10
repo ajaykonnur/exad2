@@ -20,13 +20,13 @@ sap.ui.define([
 			return oModel;
 		},
 		
-		getExadRest: function(oObjekt, oTable, sParameters){
+		getExadRest: function(oObject, oTable, sParameters){
 				var aModelData = [];
 				if (sParameters){
 					this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint")+sParameters)
 						.then(function (response) {
 							aModelData.RowData = response.data;
-							aModelData.ColumnData = oObjekt.getData();
+							aModelData.ColumnData = oObject.getData();
 							oTable._bindColumns(aModelData);
 							oTable.setCount(aModelData.RowData.length);
 							}).catch(function (error) {
@@ -36,13 +36,25 @@ sap.ui.define([
 					this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint"))
 						.then(function (response) {
 							aModelData.RowData = response.data;
-							aModelData.ColumnData = oObjekt.getData();
+							aModelData.ColumnData = oObject.getData();
 							oTable._bindColumns(aModelData);
 							oTable.setCount(aModelData.RowData.length);
 							}).catch(function (error) {
 								//  console.log(error.toJSON());
 							});
 				}
+			
+		},
+		postExadRest: function(oObject, oTable, sParameter){
+		
+			this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint")+sParameter, "post")
+						.then(function (response) {
+							var oRes = response;
+							console.log(oRes);
+							}).catch(function (error) {
+								console.log(error.toJSON());
+							});
+		
 			
 		},
 		superGetModelProperty: function (sModelname, sPropertypath) {

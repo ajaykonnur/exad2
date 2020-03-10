@@ -1063,9 +1063,16 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 		
-		onSave: function(){
+		onSave: function(oEvent){
+			var oTable = this._getTable();
+			var oSource = oEvent.getSource();
+			var oModel = oSource.getModel();
+			var oData = oModel.getData();
 			
-				
+			var iLength =	oData.RowData.length;
+			
+			this._getView().getController()._saveTableData(oData, oTable, iLength);
+			
 		},
 		
 		onUpdateVisibleRowCount: function(oEvent){

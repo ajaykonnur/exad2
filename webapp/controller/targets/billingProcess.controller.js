@@ -60,7 +60,15 @@ sap.ui.define([
 		
 			
 		},
+		_saveTableData: function(oObject, oTable, sParameter){
+			
+			var oParent = oTable.getParent();
+			
+			this.postExadRest(oObject, oParent, sParameter);
 		
+			
+			
+		},
 		Search : function(oEvent){
 			
 			var oClient = this.byIdView("ClientSearch");
