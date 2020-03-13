@@ -61,16 +61,16 @@ module.exports = function (grunt) {
 	grunt.log.writeln("\n### grunt.config() ###\n" + JSON.stringify(grunt.config(), null, 2));
 
 	grunt.registerTask("cachebuster", function () {
-		console.log("Test");
-		var config = grunt.config.get(name);
-		var data, t, src, dest, dir, prop;
+		var oConfig = grunt.config.get(name);
+		var oCachebusterFile, t, src, dest, dir, prop;
 
-		data = grunt.file.readJSON(config.src + '/sap-ui-cachebuster-info.json');
-		for (prop in data) {
-			if (data.hasOwnProperty(prop)) {
-				t = data[prop];
-				src = config.src + '/' + prop;
-				dest = config.src + '/~' + t + '~/' + prop;
+		oCachebusterFile = grunt.file.readJSON(oConfig.src + '/sap-ui-cachebuster-info.json');
+		console.log(oCachebusterFile);
+		for (prop in oCachebusterFile) {
+			if (oCachebusterFile.hasOwnProperty(prop)) {
+				t = oCachebusterFile[prop];
+				src = oConfig.src + '/' + prop;
+				dest = oConfig.src + '/~' + t + '~/' + prop;
 				grunt.verbose.writeln(
 					name + ': ' + chalk.cyan(path.basename(src)) + ' to ' +
 					chalk.cyan(dest) + '.');
@@ -79,6 +79,7 @@ module.exports = function (grunt) {
 				fs.copyFileSync(src, dest);
 			}
 		}
+		grunt.file.write(oConfig.src + "/sap-ui-cachebuster-info_DEBUG.json", JSON.stringify(oCachebusterFile, null, 2));
 	});
 
 	grunt.registerTask("default", [

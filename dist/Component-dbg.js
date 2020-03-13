@@ -1,6 +1,6 @@
 // EXAD2 Frontend
 // Version: 0.02
-// Built on: 2020-3-13 15:20:26
+// Built on: 2020-3-13 19:59:19
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
