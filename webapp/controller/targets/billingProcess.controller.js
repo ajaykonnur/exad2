@@ -9,6 +9,8 @@ sap.ui.define([
 	"use strict";
 	
 	var _agreementAndMediumRequest = new JSONModel();
+	var _mietobjekt = new JSONModel();
+	var _mieter = new JSONModel();
 
 	return baseController.extend("promos.exad.EXAD2.controller.targets.billingProcess", {
 		
@@ -21,18 +23,52 @@ sap.ui.define([
 			this.byIdView("ClientSearch").setModel(oModel);
 			
 			_agreementAndMediumRequest = this.ExadRest ("models/agreementAndMediumRequest", _agreementAndMediumRequest);
+			_mietobjekt  = this.ExadRest ("models/Mietobjekt", _mietobjekt);
+			_mieter		=   this.ExadRest ("models/Mieter", _mieter);
+			
+			//var aModelData = [];
+			var oTable = this.byIdView("Mietobjekte");
+			this.getExadRest(_mietobjekt, oTable);
+			
+			// kommentare
+			 var oEntryCollection = this.getOwnerComponent().getModel("mockdata").getProperty("/EntryCollection");
+		//	 this.byIdView("kommentare").setModel(oEntryCollection);
+		
+			
 		},
-
+	
 		onClientSelected: function(oEvent) {
 			var oSelectItemKey = oEvent.getParameter("selectedItem").getKey();
 			if (oSelectItemKey) {
 				var oModel = new JSONModel();
-				var aPath = "/entities/liegenschaft?kunde=" + oSelectItemKey;
-				oModel = this.ExadRest(aPath, oModel);
+				var sPath = "/entities/liegenschaft?kunde=" + oSelectItemKey;
+				oModel = this.ExadRest(sPath, oModel);
 				this.byIdView("PropertySearch").setModel(oModel);
 			}
 		},
+		onTenantRowSelectionChange: function(sId){
+			// Mieter
+			var oTable = this.byIdView("Mieter");
+			var sParam = "?mietobjekt=" + sId;
+			this.getExadRest(_mieter, oTable, sParam);
+			
+			// Grundanteile
+			
+			// Endgeräte
+			
+			// Ablesewerte
 		
+			
+		},
+		_saveTableData: function(oObject, oTable, sParameter){
+			
+			var oParent = oTable.getParent();
+			
+			this.postExadRest(oObject, oParent, sParameter);
+		
+			
+			
+		},
 		Search : function(oEvent){
 			
 			var oClient = this.byIdView("ClientSearch");
@@ -54,10 +90,10 @@ sap.ui.define([
 						sDateRange = "gueltigVon-" + aDateRange[0] + "-gueltigBis-" + aDateRange[1] + ")";
 						this.getOwnerComponent().ExadRest(oTable1.getProperty("endpoint")+ sSelectedLiegenschaft + "?BETWEEN_DATE(" + sDateRange )
 						.then(function (response) {
-							aModelData.statusTableDetails = response.data;
-							aModelData.statusColumnData = _agreementAndMediumRequest.getData();
+							aModelData.RowData = response.data;
+							aModelData.ColumnData = _agreementAndMediumRequest.getData();
 							oTable1._bindColumns(aModelData);
-							oTable1.setCount(aModelData.statusTableDetails.length);
+							oTable1.setCount(aModelData.RowData.length);
 							}).catch(function (error) {
 											  //  console.log(error.toJSON());
 							});
@@ -66,10 +102,10 @@ sap.ui.define([
 					}else{
 						this.getOwnerComponent().ExadRest(oTable1.getProperty("endpoint")+ sSelectedLiegenschaft)
 							.then(function (response) {
-								aModelData.statusTableDetails = response.data;
-								aModelData.statusColumnData = _agreementAndMediumRequest.getData();
+								aModelData.RowData = response.data;
+								aModelData.ColumnData = _agreementAndMediumRequest.getData();
 								oTable1._bindColumns(aModelData);
-								oTable1.setCount(aModelData.statusTableDetails.length);
+								oTable1.setCount(aModelData.RowData.length);
 								}).catch(function (error) {
 												  //  console.log(error.toJSON());
 								});

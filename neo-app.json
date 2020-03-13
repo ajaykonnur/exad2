@@ -33,10 +33,11 @@
 		},
 		"description": "SAPUI5 Test Resources"
 	}, {
-		"path": "/destinations/hyjalExad/",
+		"path": "/JExadCore/rest/",
 		"target": {
 			"type": "destination",
-			"name": "hyjalExad"
+			"name": "hyjalExad",
+			"entryPath": "/JExadCore/rest/"
 		},
 		"description": "hyjalExad"
 	}],

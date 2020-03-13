@@ -1,5 +1,5 @@
 <core:FragmentDefinition  xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table">
-	<t:Table columns="{/columnName}" rows="{/TableDetails}" selectionMode="MultiToggle" paste="onPaste" enableCellFilter="true" alternateRowColors="true">
+	<t:Table selectionMode="{$this>selectionMode}" paste="onPaste" rowSelectionChange=".onRowSelectionChange" enableCellFilter="true" alternateRowColors="true" showColumnVisibilityMenu="true">
 		<t:columns>
 			<t:Column></t:Column>
 		</t:columns>
@@ -14,19 +14,19 @@
 				</ComboBox>
 				<Button text="Funktion"/>
 				<ToolbarSpacer/>
-				<Button id="addBtn" tooltip="Neuen Datensatz anlegen" enabled="false" icon="sap-icon://add" press=".onAddRowPress" />
-				<Button id="copyBtn" tooltip="Datensatz kopieren"  enabled="false" icon="sap-icon://copy" press=".onCopyRowPress"/>
-				<Button id="deleteBtn" tooltip="Datensatz löschen" enabled="false" icon="sap-icon://delete" press=".onDeleteRowPress"/>
-				<Button id="editBtn" tooltip="Edit Table" icon="sap-icon://unlocked" press=".onEditChange"/>
-				<SearchField liveChange=".onSearch" placeholder="Filtern" width="15%" />
+				<Button id="addBtn" tooltip="{i18n>Btn.add.tooltip}" enabled="false" icon="sap-icon://add" press=".onAddRowPress" />
+				<Button id="copyBtn" tooltip="{i18n>Btn.copy.tooltip}"  enabled="false" icon="sap-icon://copy" press=".onCopyRowPress"/>
+				<Button id="deleteBtn" tooltip="{i18n>Btn.delete.tooltip}" enabled="false" icon="sap-icon://delete" press=".onDeleteRowPress"/>
+				<Button id="editBtn" tooltip="{i18n>Btn.edit.tooltip}" icon="sap-icon://unlocked" press=".onEditChange"/>
+				<SearchField liveChange=".onSearchLiveChange" placeholder="{i18n>searchField.placeholder}" width="15%" />
 				<MenuButton icon="sap-icon://vertical-grip">
 					<menu>
 						<Menu>
-							<MenuItem text="Sichtbar Spalten"  icon="sap-icon://add" press=".onAddRowPress" />
-							<MenuItem text="Sortierung" icon="sap-icon://action-settings" press=".tabelleSettings" />
-							<MenuItem text="Alle Filter zurücksetzen" icon="sap-icon://clear-filter" press=".clearAllSortings" />
-							<MenuItem text="Export to CSV" icon="sap-icon://excel-attachment" press=".exportToCSV" />
-							<MenuItem text="Layout Vorlagen" icon="sap-icon://grid"/>
+							<MenuItem text="{i18n>Btn.visibleRowsChange}"  icon="sap-icon://add" press=".onChangeVisibleColumns" />
+							<MenuItem text="{i18n>Btn.sort}" icon="sap-icon://action-settings" press=".tabelleSettings" />
+							<MenuItem text="{i18n>Btn.clearFilter}" icon="sap-icon://clear-filter" press=".clearFiltersAndSorters" />
+							<MenuItem text="{i18n>Btn.export}" icon="sap-icon://excel-attachment" press=".exportToCSV" />
+							<MenuItem text="{i18n>Btn.layout}" icon="sap-icon://grid"/>
 						</Menu>
 					</menu>
 				</MenuButton>
@@ -34,9 +34,10 @@
 		</t:extension>
 		<t:footer>
 			<Toolbar id="footerToolbar">
+				<!--<Button id="SaveBtn" text="{i18n>table.Save}" type="Accept" press=".onSave" />-->
 				<ToolbarSpacer />
-				<Label id="ChangeVisibleRowCount" text="{i18n>Table.VisibleRows}" />
-				<Input id="inputChangeVisibleRowCount" type="Number" editable="true" placeholder="{i18n>Search.Rows}" value="" width="3rem" change="onChangeVisibleRowCount" />
+				<Label id="ChangeVisibleRowCount" text="{i18n>table.VisibleRows}" />
+				<Input id="inputChangeVisibleRowCount" type="Number" editable="true" placeholder="{i18n>table.Rows}" value="" width="3rem" change="onUpdateVisibleRowCount" />
 			</Toolbar>
 		</t:footer>
 	</t:Table>
