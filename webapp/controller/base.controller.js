@@ -1,3 +1,5 @@
+// Version: @@version
+
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/base/Log",
@@ -19,43 +21,42 @@ sap.ui.define([
 			}
 			return oModel;
 		},
-		
-		getExadRest: function(oObject, oTable, sParameters){
-				var aModelData = [];
-				if (sParameters){
-					this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint")+sParameters)
-						.then(function (response) {
-							aModelData.RowData = response.data;
-							aModelData.ColumnData = oObject.getData();
-							oTable._bindColumns(aModelData);
-							oTable.setCount(aModelData.RowData.length);
-							}).catch(function (error) {
-								//  console.log(error.toJSON());
-							});
-				}else{
-					this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint"))
-						.then(function (response) {
-							aModelData.RowData = response.data;
-							aModelData.ColumnData = oObject.getData();
-							oTable._bindColumns(aModelData);
-							oTable.setCount(aModelData.RowData.length);
-							}).catch(function (error) {
-								//  console.log(error.toJSON());
-							});
-				}
-			
+
+		getExadRest: function (oObject, oTable, sParameters) {
+			var aModelData = [];
+			if (sParameters) {
+				this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint") + sParameters)
+					.then(function (response) {
+						aModelData.RowData = response.data;
+						aModelData.ColumnData = oObject.getData();
+						oTable._bindColumns(aModelData);
+						oTable.setCount(aModelData.RowData.length);
+					}).catch(function (error) {
+						//  console.log(error.toJSON());
+					});
+			} else {
+				this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint"))
+					.then(function (response) {
+						aModelData.RowData = response.data;
+						aModelData.ColumnData = oObject.getData();
+						oTable._bindColumns(aModelData);
+						oTable.setCount(aModelData.RowData.length);
+					}).catch(function (error) {
+						//  console.log(error.toJSON());
+					});
+			}
+
 		},
-		postExadRest: function(oObject, oTable, sParameter){
-		
-			this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint")+sParameter, "post")
-						.then(function (response) {
-							var oRes = response;
-							console.log(oRes);
-							}).catch(function (error) {
-								console.log(error.toJSON());
-							});
-		
-			
+		postExadRest: function (oObject, oTable, sParameter) {
+
+			this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint") + sParameter, "post")
+				.then(function (response) {
+					var oRes = response;
+					console.log(oRes);
+				}).catch(function (error) {
+					console.log(error.toJSON());
+				});
+
 		},
 		superGetModelProperty: function (sModelname, sPropertypath) {
 			var oModel = this.getModelView(sModelname);
@@ -78,7 +79,7 @@ sap.ui.define([
 		superNavTo: function (sRoute) {
 			this.getOwnerComponent().getRouter().navTo(sRoute, {});
 		},
-		onNavBack: function(sEvent){
+		onNavBack: function (sEvent) {
 			window.history.go(-1);
 		}
 	});

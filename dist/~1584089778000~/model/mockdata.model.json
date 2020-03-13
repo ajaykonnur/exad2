@@ -1,0 +1,988 @@
+{
+	"listItems": [{
+		"text": "Apple"
+	}, {
+		"text": "Orange"
+	}, {
+		"text": "Pear"
+	}],
+	"treeListItems": [{
+		"text": "Apple",
+		"nodes": [{
+			"text": "red"
+		}, {
+			"text": "green"
+		}, {
+			"text": "blue"
+		}]
+	}, {
+		"text": "Orange",
+		"nodes": [{
+			"text": "red"
+		}, {
+			"text": "green"
+		}, {
+			"text": "blue"
+		}, {
+			"text": "green"
+		}, {
+			"text": "blue"
+		}, {
+			"text": "green"
+		}, {
+			"text": "blue"
+		}]
+	}],
+	"noteItems": [{
+		"text": "Hier muss noch ein Feld gefüllt werden.",
+		"author": "Tobias Koops",
+		"date": "01.12.2019"
+	}, {
+		"text": "Aber erst später.",
+		"author": "Toni Schuster",
+		"date": "04.12.2019"
+	}, {
+		"text": "Ich kann das dann übernehmen.",
+		"author": "Housseyn Kaouane",
+		"date": "06.12.2019"
+	}, {
+		"text": "Hier muss noch ein Feld gefüllt werden.",
+		"author": "Tobias Koops",
+		"date": "01.12.2019"
+	}, {
+		"text": "Aber erst später.",
+		"author": "Toni Schuster",
+		"date": "04.12.2019"
+	}, {
+		"text": "Ich kann das dann übernehmen.",
+		"author": "Housseyn Kaouane",
+		"date": "06.12.2019"
+	}, {
+		"text": "Hier muss noch ein Feld gefüllt werden.",
+		"author": "Tobias Koops",
+		"date": "01.12.2019"
+	}, {
+		"text": "Aber erst später.",
+		"author": "Toni Schuster",
+		"date": "04.12.2019"
+	}, {
+		"text": "Ich kann das dann übernehmen.",
+		"author": "Housseyn Kaouane",
+		"date": "06.12.2019"
+	}],
+	"hintItems": [{
+		"text": "Hier muss noch ein Feld gefüllt werden.",
+		"title": "Tipp 1"
+	}, {
+		"text": "Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquya",
+		"title": "Tipp 2"
+	}],
+
+	"liegenschaftMedium": [{
+		"uniqueId": "2cd5d5a0-39f5-40ab-9cb4-685536695aa0",
+		"currentUser": "",
+		"currentProgram": "",
+		"currentDateTime": null,
+		"changed": false,
+		"creationDateTime": {
+			"year": 2020,
+			"monthValue": 1,
+			"month": "JANUARY",
+			"dayOfMonth": 8,
+			"dayOfYear": 8,
+			"dayOfWeek": "WEDNESDAY",
+			"hour": 13,
+			"minute": 6,
+			"second": 40,
+			"nano": 0,
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			}
+		},
+		"creationUser": "anonymous",
+		"modificationDateTime": {
+			"year": 2020,
+			"monthValue": 1,
+			"month": "JANUARY",
+			"dayOfMonth": 8,
+			"dayOfYear": 8,
+			"dayOfWeek": "WEDNESDAY",
+			"hour": 13,
+			"minute": 6,
+			"second": 40,
+			"nano": 0,
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			}
+		},
+		"modificationUser": "anonymous",
+		"deletionDateTime": {
+			"year": 2040,
+			"monthValue": 1,
+			"month": "JANUARY",
+			"dayOfMonth": 1,
+			"dayOfYear": 1,
+			"dayOfWeek": "SUNDAY",
+			"hour": 0,
+			"minute": 0,
+			"second": 0,
+			"nano": 0,
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			}
+		},
+		"creationProgram": "TestEJB",
+		"modificationProgram": "",
+		"id": 1,
+		"liegenschaft": {
+			"uniqueId": "14c66e0d-785b-4696-bc82-134dd506a58a",
+			"currentUser": "",
+			"currentProgram": "",
+			"currentDateTime": null,
+			"changed": false,
+			"creationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"creationUser": "anonymous",
+			"modificationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"modificationUser": "anonymous",
+			"deletionDateTime": {
+				"year": 2040,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 1,
+				"dayOfYear": 1,
+				"dayOfWeek": "SUNDAY",
+				"hour": 0,
+				"minute": 0,
+				"second": 0,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"id": 1,
+			"nummer": "999999999",
+			"kunde": {
+				"uniqueId": "e9b7a3f6-ebed-4240-96cd-6d4cafb3d373",
+				"currentUser": "",
+				"currentProgram": "",
+				"currentDateTime": null,
+				"changed": false,
+				"creationDateTime": {
+					"year": 2020,
+					"monthValue": 1,
+					"month": "JANUARY",
+					"dayOfMonth": 8,
+					"dayOfYear": 8,
+					"dayOfWeek": "WEDNESDAY",
+					"hour": 13,
+					"minute": 6,
+					"second": 40,
+					"nano": 0,
+					"chronology": {
+						"id": "ISO",
+						"calendarType": "iso8601"
+					}
+				},
+				"creationUser": "anonymous",
+				"modificationDateTime": {
+					"year": 2020,
+					"monthValue": 1,
+					"month": "JANUARY",
+					"dayOfMonth": 8,
+					"dayOfYear": 8,
+					"dayOfWeek": "WEDNESDAY",
+					"hour": 13,
+					"minute": 6,
+					"second": 40,
+					"nano": 0,
+					"chronology": {
+						"id": "ISO",
+						"calendarType": "iso8601"
+					}
+				},
+				"modificationUser": "anonymous",
+				"deletionDateTime": {
+					"year": 2040,
+					"monthValue": 1,
+					"month": "JANUARY",
+					"dayOfMonth": 1,
+					"dayOfYear": 1,
+					"dayOfWeek": "SUNDAY",
+					"hour": 0,
+					"minute": 0,
+					"second": 0,
+					"nano": 0,
+					"chronology": {
+						"id": "ISO",
+						"calendarType": "iso8601"
+					}
+				},
+				"id": 1,
+				"nummer": "99999",
+				"bezeichnung": "Test",
+				"anzeigeName": ""
+			},
+			"gueltigVon": {
+				"year": 2014,
+				"month": "JANUARY",
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				},
+				"era": "CE",
+				"monthValue": 1,
+				"dayOfMonth": 1,
+				"dayOfYear": 1,
+				"dayOfWeek": "WEDNESDAY",
+				"leapYear": false
+			},
+			"gueltigBis": null,
+			"bezeichnung": "Test",
+			"anzeigeName": "999999999 - Test"
+		},
+		"medium": "H",
+		"gueltigVon": {
+			"year": 2014,
+			"month": "JANUARY",
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			},
+			"era": "CE",
+			"monthValue": 1,
+			"dayOfMonth": 1,
+			"dayOfYear": 1,
+			"dayOfWeek": "WEDNESDAY",
+			"leapYear": false
+		},
+		"gueltigBis": null,
+		"bezeichnung": "H",
+		"temperaturVorlauf": 0,
+		"temperaturRuecklauf": 0,
+		"temperaturRaumluft": 0,
+		"leerstandsBewertungsFaktor": 1,
+		"warmwasserAbtrennungsart": {
+			"uniqueId": "4ec8b87c-a3af-4adf-9546-1f5eb9912f8b",
+			"currentUser": "",
+			"currentProgram": "",
+			"currentDateTime": null,
+			"changed": false,
+			"creationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"creationUser": "anonymous",
+			"modificationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"modificationUser": "anonymous",
+			"deletionDateTime": {
+				"year": 2040,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 1,
+				"dayOfYear": 1,
+				"dayOfWeek": "SUNDAY",
+				"hour": 0,
+				"minute": 0,
+				"second": 0,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"creationProgram": "TestEJB",
+			"modificationProgram": "",
+			"description": "Standard",
+			"id": 0,
+			"kesselwirkungsgradVerwenden": false,
+			"brennwertfaktorVerwenden": false,
+			"nutzergruppenheizwaermeVerwenden": false,
+			"anzeigeName": "Standard"
+		},
+		"anzeigeName": ""
+	}, {
+		"uniqueId": "46f128ff-5f75-4a8c-964a-07b045ffcbae",
+		"currentUser": "",
+		"currentProgram": "",
+		"currentDateTime": null,
+		"changed": false,
+		"creationDateTime": {
+			"year": 2020,
+			"monthValue": 1,
+			"month": "JANUARY",
+			"dayOfMonth": 8,
+			"dayOfYear": 8,
+			"dayOfWeek": "WEDNESDAY",
+			"hour": 13,
+			"minute": 6,
+			"second": 40,
+			"nano": 0,
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			}
+		},
+		"creationUser": "anonymous",
+		"modificationDateTime": {
+			"year": 2020,
+			"monthValue": 1,
+			"month": "JANUARY",
+			"dayOfMonth": 8,
+			"dayOfYear": 8,
+			"dayOfWeek": "WEDNESDAY",
+			"hour": 13,
+			"minute": 6,
+			"second": 40,
+			"nano": 0,
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			}
+		},
+		"modificationUser": "anonymous",
+		"deletionDateTime": {
+			"year": 2040,
+			"monthValue": 1,
+			"month": "JANUARY",
+			"dayOfMonth": 1,
+			"dayOfYear": 1,
+			"dayOfWeek": "SUNDAY",
+			"hour": 0,
+			"minute": 0,
+			"second": 0,
+			"nano": 0,
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			}
+		},
+		"creationProgram": "TestEJB",
+		"modificationProgram": "",
+		"id": 2,
+		"liegenschaft": {
+			"uniqueId": "14c66e0d-785b-4696-bc82-134dd506a58a",
+			"currentUser": "",
+			"currentProgram": "",
+			"currentDateTime": null,
+			"changed": false,
+			"creationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"creationUser": "anonymous",
+			"modificationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"modificationUser": "anonymous",
+			"deletionDateTime": {
+				"year": 2040,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 1,
+				"dayOfYear": 1,
+				"dayOfWeek": "SUNDAY",
+				"hour": 0,
+				"minute": 0,
+				"second": 0,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"id": 1,
+			"nummer": "999999999",
+			"kunde": {
+				"uniqueId": "e9b7a3f6-ebed-4240-96cd-6d4cafb3d373",
+				"currentUser": "",
+				"currentProgram": "",
+				"currentDateTime": null,
+				"changed": false,
+				"creationDateTime": {
+					"year": 2020,
+					"monthValue": 1,
+					"month": "JANUARY",
+					"dayOfMonth": 8,
+					"dayOfYear": 8,
+					"dayOfWeek": "WEDNESDAY",
+					"hour": 13,
+					"minute": 6,
+					"second": 40,
+					"nano": 0,
+					"chronology": {
+						"id": "ISO",
+						"calendarType": "iso8601"
+					}
+				},
+				"creationUser": "anonymous",
+				"modificationDateTime": {
+					"year": 2020,
+					"monthValue": 1,
+					"month": "JANUARY",
+					"dayOfMonth": 8,
+					"dayOfYear": 8,
+					"dayOfWeek": "WEDNESDAY",
+					"hour": 13,
+					"minute": 6,
+					"second": 40,
+					"nano": 0,
+					"chronology": {
+						"id": "ISO",
+						"calendarType": "iso8601"
+					}
+				},
+				"modificationUser": "anonymous",
+				"deletionDateTime": {
+					"year": 2040,
+					"monthValue": 1,
+					"month": "JANUARY",
+					"dayOfMonth": 1,
+					"dayOfYear": 1,
+					"dayOfWeek": "SUNDAY",
+					"hour": 0,
+					"minute": 0,
+					"second": 0,
+					"nano": 0,
+					"chronology": {
+						"id": "ISO",
+						"calendarType": "iso8601"
+					}
+				},
+				"id": 1,
+				"nummer": "99999",
+				"bezeichnung": "Test",
+				"anzeigeName": ""
+			},
+			"gueltigVon": {
+				"year": 2014,
+				"month": "JANUARY",
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				},
+				"era": "CE",
+				"monthValue": 1,
+				"dayOfMonth": 1,
+				"dayOfYear": 1,
+				"dayOfWeek": "WEDNESDAY",
+				"leapYear": false
+			},
+			"gueltigBis": null,
+			"bezeichnung": "Test",
+			"anzeigeName": "999999999 - Test"
+		},
+		"medium": "K",
+		"gueltigVon": {
+			"year": 2014,
+			"month": "JANUARY",
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			},
+			"era": "CE",
+			"monthValue": 1,
+			"dayOfMonth": 1,
+			"dayOfYear": 1,
+			"dayOfWeek": "WEDNESDAY",
+			"leapYear": false
+		},
+		"gueltigBis": null,
+		"bezeichnung": "K",
+		"temperaturVorlauf": 0,
+		"temperaturRuecklauf": 0,
+		"temperaturRaumluft": 0,
+		"leerstandsBewertungsFaktor": 1,
+		"warmwasserAbtrennungsart": {
+			"uniqueId": "4ec8b87c-a3af-4adf-9546-1f5eb9912f8b",
+			"currentUser": "",
+			"currentProgram": "",
+			"currentDateTime": null,
+			"changed": false,
+			"creationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"creationUser": "anonymous",
+			"modificationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"modificationUser": "anonymous",
+			"deletionDateTime": {
+				"year": 2040,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 1,
+				"dayOfYear": 1,
+				"dayOfWeek": "SUNDAY",
+				"hour": 0,
+				"minute": 0,
+				"second": 0,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"creationProgram": "TestEJB",
+			"modificationProgram": "",
+			"description": "Standard",
+			"id": 0,
+			"kesselwirkungsgradVerwenden": false,
+			"brennwertfaktorVerwenden": false,
+			"nutzergruppenheizwaermeVerwenden": false,
+			"anzeigeName": "Standard"
+		},
+		"anzeigeName": ""
+	}, {
+		"uniqueId": "8378497e-a354-4ec5-a94a-ad5f63e76a6f",
+		"currentUser": "",
+		"currentProgram": "",
+		"currentDateTime": null,
+		"changed": false,
+		"creationDateTime": {
+			"year": 2020,
+			"monthValue": 1,
+			"month": "JANUARY",
+			"dayOfMonth": 8,
+			"dayOfYear": 8,
+			"dayOfWeek": "WEDNESDAY",
+			"hour": 13,
+			"minute": 6,
+			"second": 40,
+			"nano": 0,
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			}
+		},
+		"creationUser": "anonymous",
+		"modificationDateTime": {
+			"year": 2020,
+			"monthValue": 1,
+			"month": "JANUARY",
+			"dayOfMonth": 8,
+			"dayOfYear": 8,
+			"dayOfWeek": "WEDNESDAY",
+			"hour": 13,
+			"minute": 6,
+			"second": 40,
+			"nano": 0,
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			}
+		},
+		"modificationUser": "anonymous",
+		"deletionDateTime": {
+			"year": 2040,
+			"monthValue": 1,
+			"month": "JANUARY",
+			"dayOfMonth": 1,
+			"dayOfYear": 1,
+			"dayOfWeek": "SUNDAY",
+			"hour": 0,
+			"minute": 0,
+			"second": 0,
+			"nano": 0,
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			}
+		},
+		"creationProgram": "TestEJB",
+		"modificationProgram": "",
+		"id": 3,
+		"liegenschaft": {
+			"uniqueId": "14c66e0d-785b-4696-bc82-134dd506a58a",
+			"currentUser": "",
+			"currentProgram": "",
+			"currentDateTime": null,
+			"changed": false,
+			"creationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"creationUser": "anonymous",
+			"modificationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"modificationUser": "anonymous",
+			"deletionDateTime": {
+				"year": 2040,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 1,
+				"dayOfYear": 1,
+				"dayOfWeek": "SUNDAY",
+				"hour": 0,
+				"minute": 0,
+				"second": 0,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"id": 1,
+			"nummer": "999999999",
+			"kunde": {
+				"uniqueId": "e9b7a3f6-ebed-4240-96cd-6d4cafb3d373",
+				"currentUser": "",
+				"currentProgram": "",
+				"currentDateTime": null,
+				"changed": false,
+				"creationDateTime": {
+					"year": 2020,
+					"monthValue": 1,
+					"month": "JANUARY",
+					"dayOfMonth": 8,
+					"dayOfYear": 8,
+					"dayOfWeek": "WEDNESDAY",
+					"hour": 13,
+					"minute": 6,
+					"second": 40,
+					"nano": 0,
+					"chronology": {
+						"id": "ISO",
+						"calendarType": "iso8601"
+					}
+				},
+				"creationUser": "anonymous",
+				"modificationDateTime": {
+					"year": 2020,
+					"monthValue": 1,
+					"month": "JANUARY",
+					"dayOfMonth": 8,
+					"dayOfYear": 8,
+					"dayOfWeek": "WEDNESDAY",
+					"hour": 13,
+					"minute": 6,
+					"second": 40,
+					"nano": 0,
+					"chronology": {
+						"id": "ISO",
+						"calendarType": "iso8601"
+					}
+				},
+				"modificationUser": "anonymous",
+				"deletionDateTime": {
+					"year": 2040,
+					"monthValue": 1,
+					"month": "JANUARY",
+					"dayOfMonth": 1,
+					"dayOfYear": 1,
+					"dayOfWeek": "SUNDAY",
+					"hour": 0,
+					"minute": 0,
+					"second": 0,
+					"nano": 0,
+					"chronology": {
+						"id": "ISO",
+						"calendarType": "iso8601"
+					}
+				},
+				"id": 1,
+				"nummer": "99999",
+				"bezeichnung": "Test",
+				"anzeigeName": ""
+			},
+			"gueltigVon": {
+				"year": 2014,
+				"month": "JANUARY",
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				},
+				"era": "CE",
+				"monthValue": 1,
+				"dayOfMonth": 1,
+				"dayOfYear": 1,
+				"dayOfWeek": "WEDNESDAY",
+				"leapYear": false
+			},
+			"gueltigBis": null,
+			"bezeichnung": "Test",
+			"anzeigeName": "999999999 - Test"
+		},
+		"medium": "W",
+		"gueltigVon": {
+			"year": 2014,
+			"month": "JANUARY",
+			"chronology": {
+				"id": "ISO",
+				"calendarType": "iso8601"
+			},
+			"era": "CE",
+			"monthValue": 1,
+			"dayOfMonth": 1,
+			"dayOfYear": 1,
+			"dayOfWeek": "WEDNESDAY",
+			"leapYear": false
+		},
+		"gueltigBis": null,
+		"bezeichnung": "W",
+		"temperaturVorlauf": 0,
+		"temperaturRuecklauf": 0,
+		"temperaturRaumluft": 0,
+		"leerstandsBewertungsFaktor": 1,
+		"warmwasserAbtrennungsart": {
+			"uniqueId": "4ec8b87c-a3af-4adf-9546-1f5eb9912f8b",
+			"currentUser": "",
+			"currentProgram": "",
+			"currentDateTime": null,
+			"changed": false,
+			"creationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"creationUser": "anonymous",
+			"modificationDateTime": {
+				"year": 2020,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 8,
+				"dayOfYear": 8,
+				"dayOfWeek": "WEDNESDAY",
+				"hour": 13,
+				"minute": 6,
+				"second": 40,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"modificationUser": "anonymous",
+			"deletionDateTime": {
+				"year": 2040,
+				"monthValue": 1,
+				"month": "JANUARY",
+				"dayOfMonth": 1,
+				"dayOfYear": 1,
+				"dayOfWeek": "SUNDAY",
+				"hour": 0,
+				"minute": 0,
+				"second": 0,
+				"nano": 0,
+				"chronology": {
+					"id": "ISO",
+					"calendarType": "iso8601"
+				}
+			},
+			"creationProgram": "TestEJB",
+			"modificationProgram": "",
+			"description": "Standard",
+			"id": 0,
+			"kesselwirkungsgradVerwenden": false,
+			"brennwertfaktorVerwenden": false,
+			"nutzergruppenheizwaermeVerwenden": false,
+			"anzeigeName": "Standard"
+		},
+		"anzeigeName": ""
+	}],
+	"statusInfoTableData": {
+		"statusColumnData": [{
+			"columnName": "Status"
+		}, {
+			"columnName": "Bezeichner"
+		}, {
+			"columnName": "Abr-Ztr"
+		}, {
+			"columnName": "Medium"
+		}],
+		"statusTableDetails": [{
+			"Status": "001",
+			"Bezeichner": "",
+			"Abr-Ztr": "01.01. - 31.12.2017",
+			"Medium": ""
+		}, {
+			"Status": "512",
+			"Bezeichner": "",
+			"Abr-Ztr": "01.01. - 31.12.2017",
+			"Medium": "H"
+		}, {
+			"Status": "699",
+			"Bezeichner": "",
+			"Abr-Ztr": "01.01. - 31.12.2017",
+			"Medium": ""
+		}]
+	},
+	 "EntryCollection" : [
+	{
+	  "Author" : "Alexandrina Victoria",
+	  "AuthorPicUrl" : "http://upload.wikimedia.org/wikipedia/commons/a/aa/Dronning_victoria.jpg",
+	  "Type" : "Request",
+	  "Date" : "March 03 2013",
+	  "Text" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, seddiamnonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
+	},
+	{
+	  "Author" : "George Washington",
+	  "AuthorPicUrl" : "http://upload.wikimedia.org/wikipedia/commons/2/25/George_Washington_as_CIC_of_the_Continental_Army_bust.jpg",
+	  "Type" : "Reply",
+	  "Date" : "March 04 2013",
+	  "Text" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore"
+	},
+	{
+	  "Author" : "Alexandrina Victoria",
+	  "AuthorPicUrl" : "http://upload.wikimedia.org/wikipedia/commons/a/aa/Dronning_victoria.jpg",
+	  "Type" : "Request",
+	  "Date" : "March 05 2013",
+	  "Text" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat"
+	},
+	{
+	  "Author" : "George Washington",
+	  "AuthorPicUrl" : "http://upload.wikimedia.org/wikipedia/commons/2/25/George_Washington_as_CIC_of_the_Continental_Army_bust.jpg",
+	  "Type" : "Rejection",
+	  "Date" : "March 07 2013",
+	  "Text" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+	}
+  ]
+}

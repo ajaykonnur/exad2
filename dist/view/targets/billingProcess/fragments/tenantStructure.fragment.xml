@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap" xmlns:l="sap.ui.layout"
+	xmlns:cust="promos.exad.EXAD2.control">
+	<uxap:ObjectPageLayout id="ObjectPageLayout" showAnchorBarPopover="false" upperCaseAnchorBar="false">
+		<uxap:sections>
+			<uxap:ObjectPageSection title="Mietobjekte" showTitle="false">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<l:VerticalLayout width="100%">
+							<Panel width="100%">
+								<cust:ExadTable selectionMode="Single" id="Mietobjekte" title="Mietobjekte" endpoint="/entities/Mietobjekt"/>
+							</Panel>
+							<Panel width="100%">
+								<cust:ExadTable id="Mieter" title="Mietobjekte" endpoint="/entities/Mieter"/>
+							</Panel>
+						</l:VerticalLayout>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+	</uxap:ObjectPageLayout>
+</core:FragmentDefinition>
