@@ -1,6 +1,6 @@
-// TEST
-// Version: 0.01
-// Built on: 2020-3-13 12:57:50
+// EXAD2 Frontend
+// Version: 0.02
+// Built on: 2020-3-13 15:20:26
 sap.ui.define([
 	"jquery.sap.global",
 	"sap/ui/core/format/NumberFormat",
@@ -18,7 +18,7 @@ sap.ui.define([
 	 * @private
      * @author Adrian Zguri adrian.zguri@promos-consult.de
 	 * @since 1.0
-	 * @version 0.01, built on:2020-3-13
+	 * @version 0.02, built on:2020-3-13
 	 * @namcespace prorex.ui5.lib.Utils
 	 */ 
 	return /** @lends prorex.ui5.lib.Utils */ {
