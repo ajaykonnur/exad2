@@ -79,7 +79,6 @@ module.exports = function (grunt) {
 				fs.copyFileSync(src, dest);
 			}
 		}
-		grunt.file.write(oConfig.src + "/sap-ui-cachebuster-info_DEBUG.json", JSON.stringify(oCachebusterFile, null, 2));
 	});
 
 	grunt.registerTask("default", [

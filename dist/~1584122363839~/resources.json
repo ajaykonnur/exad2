@@ -1,0 +1,539 @@
+{
+    "resources": [
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "control/Dialog.fragment.xml"
+        },
+        {
+            "name": "control/ExadTable-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "control/ExadTable.control.xml"
+        },
+        {
+            "name": "control/ExadTable.js"
+        },
+        {
+            "name": "control/Utils-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "control/Utils.js"
+        },
+        {
+            "name": "controller/base-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/base.controller.js"
+        },
+        {
+            "name": "controller/factory-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/factory.js"
+        },
+        {
+            "name": "controller/main/main-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/main/main.controller.js"
+        },
+        {
+            "name": "controller/main/sidebar-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/main/sidebar.controller.js"
+        },
+        {
+            "name": "controller/messageHelper-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/messageHelper.js"
+        },
+        {
+            "name": "controller/targets/analysis-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/targets/analysis.controller.js"
+        },
+        {
+            "name": "controller/targets/billingProcess-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/targets/billingProcess.controller.js"
+        },
+        {
+            "name": "controller/targets/dataExchange-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/targets/dataExchange.controller.js"
+        },
+        {
+            "name": "controller/targets/dataSet-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/targets/dataSet.controller.js"
+        },
+        {
+            "name": "controller/targets/detailView-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/targets/detailView.controller.js"
+        },
+        {
+            "name": "controller/targets/deviceManagement-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/targets/deviceManagement.controller.js"
+        },
+        {
+            "name": "controller/targets/parameters-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/targets/parameters.controller.js"
+        },
+        {
+            "name": "css/style-dbg.css",
+            "isDebug": true
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n_de.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_de"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/displayState.model.json"
+        },
+        {
+            "name": "model/mockdata.model.json"
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "resources/main_logo.png"
+        },
+        {
+            "name": "test/integration/AllJourneys-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "test/integration/AllJourneys.js"
+        },
+        {
+            "name": "test/integration/NavigationJourney-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "test/integration/NavigationJourney.js"
+        },
+        {
+            "name": "test/integration/arrangements/Startup-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "test/integration/arrangements/Startup.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "test/integration/opaTests.qunit.html"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.js"
+        },
+        {
+            "name": "test/integration/pages/main-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "test/integration/pages/main.js"
+        },
+        {
+            "name": "test/testsuite.qunit-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "test/testsuite.qunit.html"
+        },
+        {
+            "name": "test/testsuite.qunit.js"
+        },
+        {
+            "name": "test/unit/AllTests-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "test/unit/AllTests.js"
+        },
+        {
+            "name": "test/unit/controller/main-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "test/unit/controller/main.controller.js"
+        },
+        {
+            "name": "test/unit/unitTests.qunit-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "test/unit/unitTests.qunit.html"
+        },
+        {
+            "name": "test/unit/unitTests.qunit.js"
+        },
+        {
+            "name": "tmp/Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "tmp/Component.js"
+        },
+        {
+            "name": "tmp/control/Dialog.fragment.xml"
+        },
+        {
+            "name": "tmp/control/ExadTable.control.xml"
+        },
+        {
+            "name": "tmp/control/ExadTable.js"
+        },
+        {
+            "name": "tmp/control/Utils.js"
+        },
+        {
+            "name": "tmp/controller/base.controller.js"
+        },
+        {
+            "name": "tmp/controller/factory.js"
+        },
+        {
+            "name": "tmp/controller/main/main.controller.js"
+        },
+        {
+            "name": "tmp/controller/main/sidebar.controller.js"
+        },
+        {
+            "name": "tmp/controller/messageHelper.js"
+        },
+        {
+            "name": "tmp/controller/targets/analysis.controller.js"
+        },
+        {
+            "name": "tmp/controller/targets/billingProcess.controller.js"
+        },
+        {
+            "name": "tmp/controller/targets/dataExchange.controller.js"
+        },
+        {
+            "name": "tmp/controller/targets/dataSet.controller.js"
+        },
+        {
+            "name": "tmp/controller/targets/detailView.controller.js"
+        },
+        {
+            "name": "tmp/controller/targets/deviceManagement.controller.js"
+        },
+        {
+            "name": "tmp/controller/targets/parameters.controller.js"
+        },
+        {
+            "name": "tmp/css/style.css"
+        },
+        {
+            "name": "tmp/i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "tmp/i18n/i18n_de.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_de"
+        },
+        {
+            "name": "tmp/index.html"
+        },
+        {
+            "name": "tmp/manifest.json"
+        },
+        {
+            "name": "tmp/model/displayState.model.json"
+        },
+        {
+            "name": "tmp/model/mockdata.model.json"
+        },
+        {
+            "name": "tmp/model/models.js"
+        },
+        {
+            "name": "tmp/resources/main_logo.png"
+        },
+        {
+            "name": "tmp/test/integration/AllJourneys.js"
+        },
+        {
+            "name": "tmp/test/integration/NavigationJourney.js"
+        },
+        {
+            "name": "tmp/test/integration/arrangements/Startup.js"
+        },
+        {
+            "name": "tmp/test/integration/opaTests.qunit.html"
+        },
+        {
+            "name": "tmp/test/integration/opaTests.qunit.js"
+        },
+        {
+            "name": "tmp/test/integration/pages/main.js"
+        },
+        {
+            "name": "tmp/test/testsuite.qunit.html"
+        },
+        {
+            "name": "tmp/test/testsuite.qunit.js"
+        },
+        {
+            "name": "tmp/test/unit/AllTests.js"
+        },
+        {
+            "name": "tmp/test/unit/controller/main.controller.js"
+        },
+        {
+            "name": "tmp/test/unit/unitTests.qunit.html"
+        },
+        {
+            "name": "tmp/test/unit/unitTests.qunit.js"
+        },
+        {
+            "name": "tmp/view/main/functionsbar.fragment.xml"
+        },
+        {
+            "name": "tmp/view/main/main.view.xml"
+        },
+        {
+            "name": "tmp/view/main/shellbar.fragment.xml"
+        },
+        {
+            "name": "tmp/view/main/sidebar.view.xml"
+        },
+        {
+            "name": "tmp/view/targets/analysis.view.xml"
+        },
+        {
+            "name": "tmp/view/targets/billingProcess/billingProcess.view.xml"
+        },
+        {
+            "name": "tmp/view/targets/billingProcess/fragments/acounting.fragment.xml"
+        },
+        {
+            "name": "tmp/view/targets/billingProcess/fragments/archive.fragment.xml"
+        },
+        {
+            "name": "tmp/view/targets/billingProcess/fragments/costsAndFuels.fragment.xml"
+        },
+        {
+            "name": "tmp/view/targets/billingProcess/fragments/property.fragment.xml"
+        },
+        {
+            "name": "tmp/view/targets/billingProcess/fragments/results.fragment.xml"
+        },
+        {
+            "name": "tmp/view/targets/billingProcess/fragments/supplyStructure.fragment.xml"
+        },
+        {
+            "name": "tmp/view/targets/billingProcess/fragments/tenantStructure.fragment.xml"
+        },
+        {
+            "name": "tmp/view/targets/dataExchange.view.xml"
+        },
+        {
+            "name": "tmp/view/targets/dataSet.view.xml"
+        },
+        {
+            "name": "tmp/view/targets/detailView.view.xml"
+        },
+        {
+            "name": "tmp/view/targets/deviceManagement.view.xml"
+        },
+        {
+            "name": "tmp/view/targets/parameters.view.xml"
+        },
+        {
+            "name": "tmp-dbg/Component.js"
+        },
+        {
+            "name": "tmp-dbg/control/ExadTable.js"
+        },
+        {
+            "name": "tmp-dbg/control/Utils.js"
+        },
+        {
+            "name": "tmp-dbg/controller/base.controller.js"
+        },
+        {
+            "name": "tmp-dbg/controller/factory.js"
+        },
+        {
+            "name": "tmp-dbg/controller/main/main.controller.js"
+        },
+        {
+            "name": "tmp-dbg/controller/main/sidebar.controller.js"
+        },
+        {
+            "name": "tmp-dbg/controller/messageHelper.js"
+        },
+        {
+            "name": "tmp-dbg/controller/targets/analysis.controller.js"
+        },
+        {
+            "name": "tmp-dbg/controller/targets/billingProcess.controller.js"
+        },
+        {
+            "name": "tmp-dbg/controller/targets/dataExchange.controller.js"
+        },
+        {
+            "name": "tmp-dbg/controller/targets/dataSet.controller.js"
+        },
+        {
+            "name": "tmp-dbg/controller/targets/detailView.controller.js"
+        },
+        {
+            "name": "tmp-dbg/controller/targets/deviceManagement.controller.js"
+        },
+        {
+            "name": "tmp-dbg/controller/targets/parameters.controller.js"
+        },
+        {
+            "name": "tmp-dbg/css/style.css"
+        },
+        {
+            "name": "tmp-dbg/model/models.js"
+        },
+        {
+            "name": "tmp-dbg/test/integration/AllJourneys.js"
+        },
+        {
+            "name": "tmp-dbg/test/integration/NavigationJourney.js"
+        },
+        {
+            "name": "tmp-dbg/test/integration/arrangements/Startup.js"
+        },
+        {
+            "name": "tmp-dbg/test/integration/opaTests.qunit.js"
+        },
+        {
+            "name": "tmp-dbg/test/integration/pages/main.js"
+        },
+        {
+            "name": "tmp-dbg/test/testsuite.qunit.js"
+        },
+        {
+            "name": "tmp-dbg/test/unit/AllTests.js"
+        },
+        {
+            "name": "tmp-dbg/test/unit/controller/main.controller.js"
+        },
+        {
+            "name": "tmp-dbg/test/unit/unitTests.qunit.js"
+        },
+        {
+            "name": "view/main/functionsbar.fragment.xml"
+        },
+        {
+            "name": "view/main/main.view.xml"
+        },
+        {
+            "name": "view/main/shellbar.fragment.xml"
+        },
+        {
+            "name": "view/main/sidebar.view.xml"
+        },
+        {
+            "name": "view/targets/analysis.view.xml"
+        },
+        {
+            "name": "view/targets/billingProcess/billingProcess.view.xml"
+        },
+        {
+            "name": "view/targets/billingProcess/fragments/acounting.fragment.xml"
+        },
+        {
+            "name": "view/targets/billingProcess/fragments/archive.fragment.xml"
+        },
+        {
+            "name": "view/targets/billingProcess/fragments/costsAndFuels.fragment.xml"
+        },
+        {
+            "name": "view/targets/billingProcess/fragments/property.fragment.xml"
+        },
+        {
+            "name": "view/targets/billingProcess/fragments/results.fragment.xml"
+        },
+        {
+            "name": "view/targets/billingProcess/fragments/supplyStructure.fragment.xml"
+        },
+        {
+            "name": "view/targets/billingProcess/fragments/tenantStructure.fragment.xml"
+        },
+        {
+            "name": "view/targets/dataExchange.view.xml"
+        },
+        {
+            "name": "view/targets/dataSet.view.xml"
+        },
+        {
+            "name": "view/targets/detailView.view.xml"
+        },
+        {
+            "name": "view/targets/deviceManagement.view.xml"
+        },
+        {
+            "name": "view/targets/parameters.view.xml"
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap" xmlns:cust="promos.exad.EXAD2.control" xmlns:l="sap.ui.layout" height="100%">
+	<Panel id="pageBillingProcess_">
+	<uxap:ObjectPageLayout id="ObjectPageLayoutProperty"
+							showAnchorBarPopover="false" 
+						   upperCaseAnchorBar="false" 
+						   preserveHeaderStateOnScroll="true"
+						   enableLazyLoading="true"
+						   height="900px">
+		
+		<uxap:sections>
+			<uxap:ObjectPageSection title="Abrechnungsinformationen" id="Abrechnungsinformationen" showTitle="false">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<Panel width="100%">
+							<cust:ExadTable id="accountingInfo" title="Abrechnungsinformationen" endpoint="dto/agreementAndMediumRequest/"/>
+						</Panel>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection title="Abrechnungsstatus" showTitle="false">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<Panel width="100%">
+							<cust:ExadTable id="accountigStatus" title="Abrechnungsstatus" endpoint=""/>
+						</Panel>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection title="Kommentare" showTitle="false">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<Panel id="kommentare">
+							<Toolbar>
+								<Title text="Comments"/>
+								<ToolbarSpacer />
+								<Button text="Close" type="Transparent" press="handleSideContentHide" visible="{= !${media>/phone}}" />
+							</Toolbar>
+							<l:VerticalLayout 
+									width="100%">
+								<List
+										items="{/EntryCollection}" >
+									<FeedListItem
+											sender="{Author}"
+											icon="{AuthorPicUrl}"
+											iconDensityAware="false"
+											info="{Type}"
+											timestamp="{Date}"
+											text="{Text}" />
+								</List>
+								<FeedInput
+										showIcon="true"/>
+										<!--icon="http://upload.wikimedia.org/wikipedia/commons/2/25/George_Washington_as_CIC_of_the_Continental_Army_bust.jpg" />-->
+							</l:VerticalLayout>
+							<!--<Toolbar class="sapMTBHeader-CTX">-->
+							<!--	<Title text="Kommentare"/>-->
+							<!--	<Button text="Hinzufügen"/>-->
+							<!--</Toolbar>-->
+							<!--<TextArea width="100%"/>-->
+						</Panel>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+	</uxap:ObjectPageLayout>
+	</Panel>
+</core:FragmentDefinition>
