@@ -33,7 +33,7 @@ sap.ui.define([
 
 			// init axios instance
 			this.ExadRest = axios.create({
-				baseURL: "/destinations/hyjalExad/JExadCore/rest",
+				baseURL: "/JExadCore/rest",
 				timeout: 10000,
 				responseType: 'json'
 					// headers: {

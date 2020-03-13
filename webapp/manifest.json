@@ -15,7 +15,7 @@
 		},
 		"dataSources": {
 			"hyjalExad": {
-				"uri": "/destinations/hyjalExad",
+				"uri": "/JExadCore/rest/",
 				"type": "JSON",
 				"settings": {
 					"localUri": "localService/metadata.xml"
