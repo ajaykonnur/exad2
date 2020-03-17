@@ -1,6 +1,6 @@
 // EXAD2 Frontend
 // Version: 0.02
-// Built on: 2020-3-13 19:59:19
+// Built on: 2020-3-17 11:17:33
 sap.ui.define([
 	"promos/exad/EXAD2/controller/base.controller",
 	"sap/ui/model/json/JSONModel",
