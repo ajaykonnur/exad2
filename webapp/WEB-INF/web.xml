@@ -3,11 +3,6 @@
 	<display-name>Exad-Frontend</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
-		<!--		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>-->
 	</welcome-file-list>
 	<!-- SECURITY ROLES -->
 	<security-role>
@@ -25,4 +20,13 @@
 		</auth-constraint>
 	</security-constraint>
 	<deny-uncovered-http-methods/>
+	<!-- CACHE FILTER -->
+	<filter>
+		<filter-name>cache</filter-name>
+		<filter-class>com.example.CacheFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>cache</filter-name>
+		<url-pattern>*sap-ui-cachebuster-info.json</url-pattern>
+	</filter-mapping>
 </web-app>
