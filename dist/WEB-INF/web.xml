@@ -3,26 +3,14 @@
 	<display-name>Exad-Frontend</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
-		<!--		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>-->
 	</welcome-file-list>
-	<!-- SECURITY ROLES -->
-	<security-role>
-		<role-name>EX_EXAD</role-name>
-	</security-role>
-	<!-- SECURITY CONSTRAINTS -->
-	<security-constraint>
-		<web-resource-collection>
-			<web-resource-name>UserViewProperties</web-resource-name>
-			<url-pattern>/*</url-pattern>
-			<http-method>GET</http-method>
-		</web-resource-collection>
-		<auth-constraint>
-			<role-name>EX_EXAD</role-name>
-		</auth-constraint>
-	</security-constraint>
-	<deny-uncovered-http-methods/>
+	<!-- CACHE FILTER -->
+	<filter>
+		<filter-name>cache</filter-name>
+		<filter-class>de.promos.CacheFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>cache</filter-name>
+		<url-pattern>*sap-ui-cachebuster-info.json</url-pattern>
+	</filter-mapping>
 </web-app>
