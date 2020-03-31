@@ -8,6 +8,7 @@ sap.ui.define([
 		onInit: function () {
 			this.handleHash();
 			this.subscribeEventBus();
+		
 		},
 
 		subscribeEventBus: function (oEvent) {
@@ -52,22 +53,31 @@ sap.ui.define([
 		},
 
 		toggleFunctionsArea: function () {
-			var sActivePath = "/functionsbar/active";
-			var bActive = this.superGetModelProperty("displayState", sActivePath);
+			var oFunctionsBar = this.byIdView("idFunctionsBar");
 			var oToolPage = this.byIdView("idToolPage");
-			var oToggleButton = this.byIdView("idFunctionsToggleButton");
+			var bActive = oFunctionsBar.getExpanded();
+			
+			
+			oToolPage.setSideExpanded(!bActive);
+			oFunctionsBar.setExpanded(!bActive);
+			
+			// var sActivePath = "/functionsbar/active";
+			//  var bActive = this.superGetModelProperty("displayState", sActivePath);
+			// var oToolPage = this.byIdView("idToolPage");
+			// // var bActive = oToolPage.getSideExpanded();
+			// var oToggleButton = this.byIdView("idFunctionsToggleButton");
+			
+			// if (bActive) {
+			// 	oToolPage.setSideExpanded(false);
+			// 	oToggleButton.setPressed(false);
 
-			if (bActive) {
-				oToolPage.setSideExpanded(false);
-				oToggleButton.setPressed(false);
+			// 	this.superSetModelProperty("displayState", sActivePath, false);
+			// } else {
+			// 	oToolPage.setSideExpanded(true);
+			// 	oToggleButton.setPressed(true);
 
-				this.superSetModelProperty("displayState", sActivePath, false);
-			} else {
-				oToolPage.setSideExpanded(true);
-				oToggleButton.setPressed(true);
-
-				this.superSetModelProperty("displayState", sActivePath, true);
-			}
+			// 	this.superSetModelProperty("displayState", sActivePath, true);
+			// }
 		},
 
 		toggleSidebarArea: function () {
@@ -90,13 +100,13 @@ sap.ui.define([
 			if (bExpanded) {
 				oSidebarArea.getLayoutData().setResizable(true);
 				oSidebarArea.getLayoutData().setSize("20%");
-				oToggleButton.setPressed(true);
+			//	oToggleButton.setPressed(true);
 
 				this.superSetModelProperty("displayState", sActivePath, true);
 			} else {
 				oSidebarArea.getLayoutData().setResizable(false);
 				oSidebarArea.getLayoutData().setSize("5%");
-				oToggleButton.setPressed(false);
+			//	oToggleButton.setPressed(false);
 
 				this.superSetModelProperty("displayState", sActivePath, false);
 			}

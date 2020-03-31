@@ -1,0 +1,18 @@
+{
+	"mVersionDependency": {
+		"UI5.sap/ui/vk.sap_belize_plus": "1.75.0",
+		"UI5.sap/ui/vk": "1.75.0",
+		"UI5": "1.75.0"
+	},
+	"sEntity": "Theme",
+	"sId": "esqureexad2--Contrast",
+	"sVendor": "Housseyn Kaouane",
+	"oExtends": "UI5.sap/ui/vk.sap_belize_plus",
+	"aBundled": [
+		"esqureexad2"
+	],
+	"sBuildOptions": "SKIP",
+	"sType": "ABSTRACT",
+	"sThemability": "PRIVATE",
+	"sReleaseStage": "GENERAL_AVAILABILITY"
+}

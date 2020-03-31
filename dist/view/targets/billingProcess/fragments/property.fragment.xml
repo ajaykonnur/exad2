@@ -1,11 +1,13 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap" xmlns:cust="promos.exad.EXAD2.control" xmlns:l="sap.ui.layout" height="100%">
-	<Panel id="pageBillingProcess_">
+<core:FragmentDefinition 
+		xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap" xmlns:cust="promos.exad.EXAD2.control" xmlns:l="sap.ui.layout">
+
 	<uxap:ObjectPageLayout id="ObjectPageLayoutProperty"
 							showAnchorBarPopover="false" 
 						   upperCaseAnchorBar="false" 
 						   preserveHeaderStateOnScroll="true"
-						   enableLazyLoading="true"
-						   height="900px">
+						   backgroundDesignAnchorBar="Transparent"
+						   flexEnabled="true"
+						   >
 		
 		<uxap:sections>
 			<uxap:ObjectPageSection title="Abrechnungsinformationen" id="Abrechnungsinformationen" showTitle="false">
@@ -31,9 +33,9 @@
 					<uxap:ObjectPageSubSection>
 						<Panel id="kommentare">
 							<Toolbar>
-								<Title text="Comments"/>
+								<Title text="Kommentare"/>
 								<ToolbarSpacer />
-								<Button text="Close" type="Transparent" press="handleSideContentHide" visible="{= !${media>/phone}}" />
+							
 							</Toolbar>
 							<l:VerticalLayout 
 									width="100%">
@@ -62,5 +64,5 @@
 			</uxap:ObjectPageSection>
 		</uxap:sections>
 	</uxap:ObjectPageLayout>
-	</Panel>
+	
 </core:FragmentDefinition>

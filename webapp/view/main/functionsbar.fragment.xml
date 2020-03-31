@@ -1,6 +1,6 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core"
-	xmlns:cust="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-	<tnt:SideNavigation expanded="false" id="idFunctionsBar" itemSelect=".onSideNavigationItemSelect">
+<core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core">
+
+	<tnt:SideNavigation expanded="true" id="idFunctionsBar" itemSelect=".onSideNavigationItemSelect">
 		<tnt:NavigationList>
 			<tnt:NavigationListItem key="dataSet" text="{i18n>dataSet}" icon="sap-icon://building"/>
 			<tnt:NavigationListItem key="billingProcess" text="{i18n>billingProcess}" icon="sap-icon://checklist"/>

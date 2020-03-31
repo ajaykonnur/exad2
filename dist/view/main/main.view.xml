@@ -1,6 +1,6 @@
 <mvc:View controllerName="promos.exad.EXAD2.controller.main.main" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt"
-	height="100%" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
-	<tnt:ToolPage id="idToolPage" class="sapUiSizeCompact" sideExpanded="true">
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<tnt:ToolPage id="idToolPage"  sideExpanded="true">
 		<tnt:header>
 			<core:Fragment fragmentName="promos.exad.EXAD2.view.main.shellbar" type="XML"/>
 		</tnt:header>
@@ -8,7 +8,7 @@
 			<core:Fragment fragmentName="promos.exad.EXAD2.view.main.functionsbar" type="XML"/>
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<l:Splitter >
+			<l:Splitter>
 				<Shell id="shellContainer" appWidthLimited="false">
 					 <Button text="Zurück" type="Emphasized" press="onPress" />
 					<App id="appContainer"></App>

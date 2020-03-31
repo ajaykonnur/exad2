@@ -1,6 +1,6 @@
 // EXAD2 Frontend
 // Version: 0.02
-// Built on: 2020-3-13 19:59:19
+// Built on: 2020-3-30 22:53:45
 sap.ui.define([
 	"promos/exad/EXAD2/controller/base.controller",
 	"sap/ui/core/routing/HashChanger"
@@ -11,6 +11,7 @@ sap.ui.define([
 		onInit: function () {
 			this.handleHash();
 			this.subscribeEventBus();
+		
 		},
 
 		subscribeEventBus: function (oEvent) {

@@ -52,9 +52,9 @@ sap.ui.define([
 			this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint") + sParameter, "post")
 				.then(function (response) {
 					var oRes = response;
-					console.log(oRes);
+				//	console.log(oRes);
 				}).catch(function (error) {
-					console.log(error.toJSON());
+				//	console.log(error.toJSON());
 				});
 
 		},

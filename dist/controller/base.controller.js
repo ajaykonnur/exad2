@@ -1,7 +1,7 @@
 // EXAD2 Frontend
 // Version: 0.02
-// Built on: 2020-3-13 19:59:19
-// Version: 0.02, built on:2020-3-13
+// Built on: 2020-3-30 22:53:45
+// Version: 0.02, built on:2020-3-30
 
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
@@ -55,9 +55,9 @@ sap.ui.define([
 			this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint") + sParameter, "post")
 				.then(function (response) {
 					var oRes = response;
-					console.log(oRes);
+				//	console.log(oRes);
 				}).catch(function (error) {
-					console.log(error.toJSON());
+				//	console.log(error.toJSON());
 				});
 
 		},

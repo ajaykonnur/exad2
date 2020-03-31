@@ -1,0 +1,16 @@
+{
+	"mVersionDependency": {
+		"UI5.sap/ui/table.sap_belize_plus": "1.75.0",
+		"UI5.sap/ui/table": "1.75.0",
+		"UI5": "1.75.0"
+	},
+	"sEntity": "Theme",
+	"sId": "esqureexad2--Contrast",
+	"oExtends": "UI5.sap/ui/table.sap_belize_plus",
+	"aBundled": [
+		"esqureexad2"
+	],
+	"sType": "ABSTRACT",
+	"sThemability": "PRIVATE",
+	"sReleaseStage": "GENERAL_AVAILABILITY"
+}

@@ -1,20 +1,20 @@
 <mvc:View controllerName="promos.exad.EXAD2.controller.main.sidebar" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt"
-	height="100%" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:card="sap.f.cards">
+	 xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:card="sap.f.cards">
 	<VBox id="idSidebarContentNotExpanded" visible="false">
-		<Button id="idSidebarButtonSearch" icon="sap-icon://search" type="Back" width="100%" press=".onSidebarButtonPress"></Button>
+		<Button id="idSidebarButtonSearch" icon="sap-icon://search" text=" " type="Back" width="100%" press=".onSidebarButtonPress"></Button>
 		<Toolbar width="100%" height="1px"/>
 		<Button id="idSidebarButtonHints" icon="sap-icon://lightbulb" text="5" type="Back" width="100%" press=".onSidebarButtonPress"></Button>
 		<Toolbar width="100%" height="1px"/>
 		<Button id="idSidebarButtonNotes" icon="sap-icon://notes" text="3" type="Back" width="100%" press=".onSidebarButtonPress"></Button>
 	</VBox>
-	<VBox id="idSidebarContentExpanded">
+	<VBox id="idSidebarContentExpanded" class="myCustomSideClass">
 		<Panel id="idPanelSearch" width="100%" expandable="true">
 			<headerToolbar>
-				<Toolbar height="3rem">
+				<Toolbar height="3rem" class="myCustomSideClass">
 					<SearchField/>
 				</Toolbar>
 			</headerToolbar>
-			<content>
+			<content class="myCustomSideClass">
 				<ScrollContainer vertical="true">
 					<Tree id="Tree" items="{path: 'mockdata>/treeListItems'}" mode="SingleSelectMaster" includeItemInSelection="true">
 						<StandardTreeItem title="{mockdata>text}"/>
@@ -26,7 +26,7 @@
 			<headerToolbar>
 				<Toolbar height="3rem">
 					<core:Icon src="sap-icon://lightbulb"/>
-					<Title text="{i18n>hints}"/>
+					<Text text="{i18n>hints}"/>
 				</Toolbar>
 			</headerToolbar>
 			<content>
@@ -47,7 +47,7 @@
 			<headerToolbar>
 				<Toolbar height="3rem">
 					<core:Icon src="sap-icon://notes"/>
-					<Title text="Notizen"/>
+					<Text text="Notizen"/>
 				</Toolbar>
 			</headerToolbar>
 			<content>

@@ -1,6 +1,6 @@
 // EXAD2 Frontend
 // Version: 0.02
-// Built on: 2020-3-13 19:59:19
+// Built on: 2020-3-30 22:53:45
 // eslint-disable-next-line sap-no-global-define
 window.suite = function () {
 	"use strict";
