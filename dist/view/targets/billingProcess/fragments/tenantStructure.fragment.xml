@@ -5,12 +5,12 @@
 			<uxap:ObjectPageSection title="Mietobjekte" showTitle="false">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
-						<l:VerticalLayout width="100%">
-							<Panel width="100%">
+						<l:VerticalLayout>
+							<Panel>
 								<cust:ExadTable selectionMode="Single" id="Mietobjekte" title="Mietobjekte" endpoint="/entities/Mietobjekt"/>
 							</Panel>
-							<Panel width="100%">
-								<cust:ExadTable id="Mieter" title="Mietobjekte" endpoint="/entities/Mieter"/>
+							<Panel>
+								<cust:ExadTable id="Mieter" title="Mieter" endpoint="/entities/Mieter"/>
 							</Panel>
 						</l:VerticalLayout>
 					</uxap:ObjectPageSubSection>

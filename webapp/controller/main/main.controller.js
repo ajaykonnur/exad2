@@ -100,13 +100,13 @@ sap.ui.define([
 			if (bExpanded) {
 				oSidebarArea.getLayoutData().setResizable(true);
 				oSidebarArea.getLayoutData().setSize("20%");
-			//	oToggleButton.setPressed(true);
+				oToggleButton.setPressed(true);
 
 				this.superSetModelProperty("displayState", sActivePath, true);
 			} else {
 				oSidebarArea.getLayoutData().setResizable(false);
-				oSidebarArea.getLayoutData().setSize("5%");
-			//	oToggleButton.setPressed(false);
+				oSidebarArea.getLayoutData().setSize("7%");
+				oToggleButton.setPressed(false);
 
 				this.superSetModelProperty("displayState", sActivePath, false);
 			}

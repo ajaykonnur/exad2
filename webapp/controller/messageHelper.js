@@ -9,7 +9,7 @@ sap.ui.define([
 		messageToast: function (sMessage) {
 			MessageToast.show(this._getI18nMessage(sMessage));
 		},
-
+		
 		_getI18nMessage: function (sText) {
 			var sReturn = "";
 			if (sText && sText !== "") {
@@ -26,7 +26,8 @@ sap.ui.define([
 				Log.error("sText is undefined or empty String", "_getI18nMessage", this);
 			}
 			return sReturn;
-		}
-	};
+		},
+		
 
+	};
 });

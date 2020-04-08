@@ -10,7 +10,7 @@
 								<cust:ExadTable selectionMode="Single" id="Mietobjekte" title="Mietobjekte" endpoint="/entities/Mietobjekt"/>
 							</Panel>
 							<Panel>
-								<cust:ExadTable id="Mieter" title="Mietobjekte" endpoint="/entities/Mieter"/>
+								<cust:ExadTable id="Mieter" title="Mieter" endpoint="/entities/Mieter"/>
 							</Panel>
 						</l:VerticalLayout>
 					</uxap:ObjectPageSubSection>

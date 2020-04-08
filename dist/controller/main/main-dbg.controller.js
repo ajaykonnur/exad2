@@ -1,6 +1,6 @@
 // EXAD2 Frontend
 // Version: 0.02
-// Built on: 2020-3-30 22:53:45
+// Built on: 2020-4-8 10:23:55
 sap.ui.define([
 	"promos/exad/EXAD2/controller/base.controller",
 	"sap/ui/core/routing/HashChanger"
@@ -56,22 +56,31 @@ sap.ui.define([
 		},
 
 		toggleFunctionsArea: function () {
-			var sActivePath = "/functionsbar/active";
-			var bActive = this.superGetModelProperty("displayState", sActivePath);
+			var oFunctionsBar = this.byIdView("idFunctionsBar");
 			var oToolPage = this.byIdView("idToolPage");
-			var oToggleButton = this.byIdView("idFunctionsToggleButton");
+			var bActive = oFunctionsBar.getExpanded();
+			
+			
+			oToolPage.setSideExpanded(!bActive);
+			oFunctionsBar.setExpanded(!bActive);
+			
+			// var sActivePath = "/functionsbar/active";
+			//  var bActive = this.superGetModelProperty("displayState", sActivePath);
+			// var oToolPage = this.byIdView("idToolPage");
+			// // var bActive = oToolPage.getSideExpanded();
+			// var oToggleButton = this.byIdView("idFunctionsToggleButton");
+			
+			// if (bActive) {
+			// 	oToolPage.setSideExpanded(false);
+			// 	oToggleButton.setPressed(false);
 
-			if (bActive) {
-				oToolPage.setSideExpanded(false);
-				oToggleButton.setPressed(false);
+			// 	this.superSetModelProperty("displayState", sActivePath, false);
+			// } else {
+			// 	oToolPage.setSideExpanded(true);
+			// 	oToggleButton.setPressed(true);
 
-				this.superSetModelProperty("displayState", sActivePath, false);
-			} else {
-				oToolPage.setSideExpanded(true);
-				oToggleButton.setPressed(true);
-
-				this.superSetModelProperty("displayState", sActivePath, true);
-			}
+			// 	this.superSetModelProperty("displayState", sActivePath, true);
+			// }
 		},
 
 		toggleSidebarArea: function () {
@@ -99,7 +108,7 @@ sap.ui.define([
 				this.superSetModelProperty("displayState", sActivePath, true);
 			} else {
 				oSidebarArea.getLayoutData().setResizable(false);
-				oSidebarArea.getLayoutData().setSize("5%");
+				oSidebarArea.getLayoutData().setSize("7%");
 				oToggleButton.setPressed(false);
 
 				this.superSetModelProperty("displayState", sActivePath, false);

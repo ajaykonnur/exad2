@@ -2,19 +2,17 @@
 	 xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:card="sap.f.cards">
 	<VBox id="idSidebarContentNotExpanded" visible="false">
 		<Button id="idSidebarButtonSearch" icon="sap-icon://search" text=" " type="Back" width="100%" press=".onSidebarButtonPress"></Button>
-		<Toolbar width="100%" height="1px"/>
 		<Button id="idSidebarButtonHints" icon="sap-icon://lightbulb" text="5" type="Back" width="100%" press=".onSidebarButtonPress"></Button>
-		<Toolbar width="100%" height="1px"/>
 		<Button id="idSidebarButtonNotes" icon="sap-icon://notes" text="3" type="Back" width="100%" press=".onSidebarButtonPress"></Button>
 	</VBox>
-	<VBox id="idSidebarContentExpanded" class="myCustomSideClass">
+	<VBox id="idSidebarContentExpanded">
 		<Panel id="idPanelSearch" width="100%" expandable="true">
 			<headerToolbar>
-				<Toolbar height="3rem" class="myCustomSideClass">
+				<Toolbar height="3rem">
 					<SearchField/>
 				</Toolbar>
 			</headerToolbar>
-			<content class="myCustomSideClass">
+			<content>
 				<ScrollContainer vertical="true">
 					<Tree id="Tree" items="{path: 'mockdata>/treeListItems'}" mode="SingleSelectMaster" includeItemInSelection="true">
 						<StandardTreeItem title="{mockdata>text}"/>

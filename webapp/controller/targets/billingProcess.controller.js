@@ -19,12 +19,19 @@ sap.ui.define([
 	
 			var oModel = new JSONModel();
 			var aPath = "/entities/Kunde";
-			oModel = this.ExadRest(aPath, oModel);
-			this.byIdView("ClientSearch").setModel(oModel);
+			// oModel = this.ExadRest(aPath, oModel);
+			// this.byIdView("ClientSearch").setModel(oModel);
 			
-			_agreementAndMediumRequest = this.ExadRest ("models/agreementAndMediumRequest", _agreementAndMediumRequest);
 			_mietobjekt  = this.ExadRest ("models/Mietobjekt", _mietobjekt);
 			_mieter		=   this.ExadRest ("models/Mieter", _mieter);
+			_agreementAndMediumRequest = this.ExadRest ("models/agreementAndMediumRequest", _agreementAndMediumRequest);
+			var oTable = this.byIdView("accountingInfo");
+			this.getExadRest(_agreementAndMediumRequest, oTable);
+			 //var oTable = this.byIdView("Mietobjekte");
+				// 	this.getExadRest(_mietobjekt, oTable);
+			
+	/*		_agreementAndMediumRequest = this.ExadRest ("models/agreementAndMediumRequest", _agreementAndMediumRequest);
+			
 			
 			//var aModelData = [];
 			var oTable = this.byIdView("Mietobjekte");
@@ -32,8 +39,8 @@ sap.ui.define([
 			
 			// kommentare
 			 var oEntryCollection = this.getOwnerComponent().getModel("mockdata").getProperty("/EntryCollection");
-		//	 this.byIdView("kommentare").setModel(oEntryCollection);
-		
+			// this.byIdView("kommentare").setModel(oEntryCollection);
+	*/	
 			
 		},
 	
@@ -59,6 +66,27 @@ sap.ui.define([
 			// Ablesewerte
 		
 			
+		},
+		onTabSelcted: function(oEvent){
+			var oTable;
+			var oItem = oEvent.getParameter("item");
+			var sObject = oItem.getProperty("text");
+			
+			switch(sObject) {
+				  
+				  case "Mietstruktur":
+				  	oTable = this.byIdView("Mietobjekte");
+					this.getExadRest(_mietobjekt, oTable);
+					break;
+				  
+				  case "Liegenschaft":
+					  oTable = this.byIdView("accountingInfo");
+					  this.getExadRest(_agreementAndMediumRequest, oTable);
+					  break;
+				  
+				  default:
+				   
+				}
 		},
 		_saveTableData: function(oObject, oTable, sParameter){
 			
@@ -149,20 +177,7 @@ sap.ui.define([
 		
 		getRouter: function () {
 			return sap.ui.core.UIComponent.getRouterFor(this);
-		},
-	
-		ExadRest: function(sPath, oModel ){
-			this.getOwnerComponent().ExadRest(sPath)
-				.then(function (response) {
-										oModel.setData(response.data); 
-						}).catch(function (error) {
-										  //  console.log(error.toJSON());
-								});
-			return oModel;
 		}
-		
-		
-	
 		
 
 	});

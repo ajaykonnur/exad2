@@ -4,12 +4,29 @@
 	xmlns="sap.m" 
 	xmlns:core="sap.ui.core" 
 	xmlns:l="sap.ui.layout" 
+	xmlns:tnt="sap.tnt"
 	controllerName="promos.exad.EXAD2.controller.targets.billingProcess">
-	<Panel class="headerCustClass">
-		<VBox>
-			<Title text="Abrechnungsprozess" titleStyle ="H3"/>
-		</VBox>
-		<VBox>
+		<VBox class="padding-2">
+			<l:HorizontalLayout>
+				<Title text="Abrechnungsprozess" titleStyle ="H3"/>
+				<l:HorizontalLayout class="customClassHeader">
+					<Button type="Transparent" icon="sap-icon://add-employee">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="Low"/>
+						</layoutData>
+					</Button>
+					<Button type="Transparent" icon="sap-icon://add-product">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="Low"/>
+						</layoutData>
+					</Button>
+					<Button type="Transparent" icon="sap-icon://add-activity">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="Low"/>
+						</layoutData>
+					</Button>
+				 </l:HorizontalLayout>
+			</l:HorizontalLayout>
 			<l:HorizontalLayout allowWrapping="false">
 				<ComboBox id="ClientSearch" selectionChange="onClientSelected" 
 							showSecondaryValues= "true" tooltip="Kunde" 
@@ -19,16 +36,16 @@
 	            <ComboBox id="PropertySearch" showSecondaryValues= "true" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
 					<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
 				</ComboBox>
-	            <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" />
-	            <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="Search" />
+	            <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" class="customClassRangeSelection"/>
+	            <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="Search"/>
            </l:HorizontalLayout>
 		</VBox>
-	</Panel>
 	<IconTabBar
 		id="idIconTabBarNoIcons"
 		backgroundDesign="Transparent"
 		headerBackgroundDesign="Transparent"
-		expandable="false">
+		expandable="false"
+		select="onTabSelcted">
 		<items>
 			<IconTabFilter
 				text="Liegenschaft">

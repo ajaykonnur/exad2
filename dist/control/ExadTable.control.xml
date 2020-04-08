@@ -1,12 +1,20 @@
 <core:FragmentDefinition  xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table">
-	<t:Table selectionMode="{$this>selectionMode}" paste="onPaste" rowSelectionChange=".onRowSelectionChange" enableCellFilter="true" alternateRowColors="true" showColumnVisibilityMenu="true">
+	<t:Table	selectionMode="{$this>selectionMode}" 
+				paste="onPaste" 
+				rowSelectionChange=".onRowSelectionChange" 
+				enableCellFilter="true" 
+				alternateRowColors="true" 
+				showColumnVisibilityMenu="true">
+		<t:noData>
+			<Label text="Bitte laden Sie Ihre Auswahl" class="noDataClass" />
+		</t:noData>
 		<t:columns>
 			<t:Column></t:Column>
 		</t:columns>
 		<t:extension>
 			<Toolbar class="sapMTBHeader-CTX">
 				<Title text="{$this>title}"/>
-				<Label text="({$this>count})" />
+				<Label text="({$this>count})" class="customTitle" />
 				<ComboBox selectedKey="default">
 					<items>
 						<core:Item key="default" text="Standard"/>
@@ -18,7 +26,7 @@
 				<Button id="copyBtn" tooltip="{i18n>Btn.copy.tooltip}"  enabled="false" icon="sap-icon://copy" press=".onCopyRowPress"/>
 				<Button id="deleteBtn" tooltip="{i18n>Btn.delete.tooltip}" enabled="false" icon="sap-icon://delete" press=".onDeleteRowPress"/>
 				<Button id="editBtn" tooltip="{i18n>Btn.edit.tooltip}" icon="sap-icon://unlocked" press=".onEditChange"/>
-				<SearchField liveChange=".onSearchLiveChange" placeholder="{i18n>searchField.placeholder}" width="15%" />
+				<SearchField liveChange=".onSearchLiveChange" placeholder="{i18n>searchField.placeholder}" width="15%" class="customClassRangeSelection" />
 				<MenuButton icon="sap-icon://vertical-grip">
 					<menu>
 						<Menu>
@@ -41,5 +49,4 @@
 			</Toolbar>
 		</t:footer>
 	</t:Table>
-	
 </core:FragmentDefinition>

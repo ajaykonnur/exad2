@@ -1,13 +1,63 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core">
+<core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core" xmlns:control="promos.exad.EXAD2.control">
 
-	<tnt:SideNavigation expanded="true" id="idFunctionsBar" itemSelect=".onSideNavigationItemSelect">
+	<tnt:SideNavigation expanded="false" id="idFunctionsBar" itemSelect=".onSideNavigationItemSelect">
 		<tnt:NavigationList>
-			<tnt:NavigationListItem key="dataSet" text="{i18n>dataSet}" icon="sap-icon://building"/>
-			<tnt:NavigationListItem key="billingProcess" text="{i18n>billingProcess}" icon="sap-icon://checklist"/>
-			<tnt:NavigationListItem key="dataExchange" text="{i18n>dataExchange}" icon="sap-icon://sort"/>
-			<tnt:NavigationListItem key="analysis" text="{i18n>analysis}" icon="sap-icon://bar-chart"/>
-			<tnt:NavigationListItem key="deviceManagement" text="{i18n>deviceManagement}" icon="sap-icon://responsive"/>
-			<tnt:NavigationListItem key="parameters" text="{i18n>parameters}" icon="sap-icon://provision"/>
+			<control:enhancedNavigationListItem expanded="false" key="dataSet" text="{i18n>dataSet}" icon="sap-icon://building">
+				<control:enhancedNavigationListItem key="client" text="{i18n>client}"/>
+				<control:enhancedNavigationListItem key="properties" text="{i18n>properties}"/>
+				<control:enhancedNavigationListItem key="rentalProperties" text="{i18n>rentalProperties}"/>
+				<control:enhancedNavigationListItem key="tenant" text="{i18n>tenant}"/>
+				<control:enhancedNavigationListItem key="basicShares" text="{i18n>basicShares}"  />
+				<control:enhancedNavigationListItem key="supplyUnits" text="{i18n>supplyUnits}"  />
+				<control:enhancedNavigationListItem key="supplyCircles" text="{i18n>supplyCircles}"  />
+				<control:enhancedNavigationListItem key="terminals" text="{i18n>terminals}"  />
+				<control:enhancedNavigationListItem expanded="false" key="readings" text="{i18n>readings}"  >
+					<control:enhancedNavigationListItem expanded="false" key="keyDateValues" text="{i18n>keyDateValues}"  />
+					<control:enhancedNavigationListItem key="showValuesReadout" text="{i18n>showValuesReadout}"  />
+				</control:enhancedNavigationListItem>
+				<control:enhancedNavigationListItem key="costs" text="{i18n>costs}"  />
+				<control:enhancedNavigationListItem key="fuels" text="{i18n>fuels}"  />
+				<control:enhancedNavigationListItem key="billingStatus" text="{i18n>billingStatus}"  />
+			</control:enhancedNavigationListItem>
+			
+			<control:enhancedNavigationListItem key="billingProcess" text="{i18n>billingProcess}" icon="sap-icon://checklist"/>
+			
+			<control:enhancedNavigationListItem expanded="false" key="dataExchange" text="{i18n>dataExchange}" icon="sap-icon://sort">
+				<control:enhancedNavigationListItem key="import" text="{i18n>import}"  />
+				<control:enhancedNavigationListItem key="export" text="{i18n>export}"  />
+				<control:enhancedNavigationListItem expanded="false" key="dataBlocks" text="{i18n>dataBlocks}"  >
+					<control:enhancedNavigationListItem key="save" text="{i18n>save}"  />
+				</control:enhancedNavigationListItem>
+				<control:enhancedNavigationListItem key="configurationARGE" text="{i18n>configurationARGE}"  />
+			</control:enhancedNavigationListItem>
+			
+			<control:enhancedNavigationListItem expanded="false" key="analysis" text="{i18n>analysis}" icon="sap-icon://bar-chart">
+				<control:enhancedNavigationListItem key="keyFiguers" text="{i18n>keyFiguers}"  />
+				<control:enhancedNavigationListItem key="billingProgress" text="{i18n>billingProgress}"  />
+				<control:enhancedNavigationListItem key="grafics" text="{i18n>grafics}"  />
+			</control:enhancedNavigationListItem>
+			
+			<control:enhancedNavigationListItem expanded="false" key="deviceManagement" text="{i18n>deviceManagement}" icon="sap-icon://responsive">
+				<control:enhancedNavigationListItem expanded="false" key="orders" text="{i18n>orders}"  >
+					<control:enhancedNavigationListItem key="orderAssembly" text="{i18n>orderAssembly}"  />
+					<control:enhancedNavigationListItem key="managementHWKmodule" text="{i18n>managementHWKmodule}"  />
+					<control:enhancedNavigationListItem key="ProcessESQ" text="{i18n>ProcessESQ}"  />
+				</control:enhancedNavigationListItem>
+				<control:enhancedNavigationListItem key="radiatorRating" text="{i18n>radiatorRating}"  />
+				<control:enhancedNavigationListItem key="maintainRdioNetwork" text="{i18n>maintainRdioNetwork}"  />
+				<control:enhancedNavigationListItem key="calibrationCertificate" text="{i18n>calibrationCertificate}"  />
+				<control:enhancedNavigationListItem key="connectionSAP" text="{i18n>connectionSAP}"  />
+			</control:enhancedNavigationListItem>
+			
+			
+			<control:enhancedNavigationListItem expanded="false" key="parameters" text="{i18n>parameters}" icon="sap-icon://provision">
+				<control:enhancedNavigationListItem key="catalogTables" text="{i18n>catalogTables}"  />
+				<control:enhancedNavigationListItem key="limits" text="{i18n>limits}"  />
+				<control:enhancedNavigationListItem key="careRadiators" text="{i18n>careRadiators}"  />
+				<control:enhancedNavigationListItem key="maintainMeterFactors" text="{i18n>maintainMeterFactors}"  />
+			</control:enhancedNavigationListItem>
+		
 		</tnt:NavigationList>
 	</tnt:SideNavigation>
 </core:FragmentDefinition>
+
