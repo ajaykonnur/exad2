@@ -35,6 +35,13 @@
             "name": "control/Utils.js"
         },
         {
+            "name": "control/enhancedNavigationListItem-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "control/enhancedNavigationListItem.js"
+        },
+        {
             "name": "controller/base-dbg.controller.js",
             "isDebug": true
         },
@@ -157,7 +164,13 @@
             "name": "neo-app.json"
         },
         {
-            "name": "resources/main_logo.png"
+            "name": "resources/logo/left.png"
+        },
+        {
+            "name": "resources/logo/left2x.png"
+        },
+        {
+            "name": "resources/logo/left3x.png"
         },
         {
             "name": "tmp/Component-preload.js",
@@ -180,6 +193,9 @@
         },
         {
             "name": "tmp/control/Utils.js"
+        },
+        {
+            "name": "tmp/control/enhancedNavigationListItem.js"
         },
         {
             "name": "tmp/controller/base.controller.js"
@@ -245,7 +261,13 @@
             "name": "tmp/model/models.js"
         },
         {
-            "name": "tmp/resources/main_logo.png"
+            "name": "tmp/resources/logo/left.png"
+        },
+        {
+            "name": "tmp/resources/logo/left2x.png"
+        },
+        {
+            "name": "tmp/resources/logo/left3x.png"
         },
         {
             "name": "tmp/view/main/functionsbar.fragment.xml"
@@ -264,6 +286,9 @@
         },
         {
             "name": "tmp/view/targets/billingProcess/billingProcess.view.xml"
+        },
+        {
+            "name": "tmp/view/targets/billingProcess/billingProcess_.view.xml"
         },
         {
             "name": "tmp/view/targets/billingProcess/fragments/acounting.fragment.xml"
@@ -309,6 +334,9 @@
         },
         {
             "name": "tmp-dbg/control/Utils.js"
+        },
+        {
+            "name": "tmp-dbg/control/enhancedNavigationListItem.js"
         },
         {
             "name": "tmp-dbg/controller/base.controller.js"
@@ -369,6 +397,9 @@
         },
         {
             "name": "view/targets/billingProcess/billingProcess.view.xml"
+        },
+        {
+            "name": "view/targets/billingProcess/billingProcess_.view.xml"
         },
         {
             "name": "view/targets/billingProcess/fragments/acounting.fragment.xml"

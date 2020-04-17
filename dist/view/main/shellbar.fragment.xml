@@ -1,12 +1,12 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core">
-	<tnt:ToolHeader>
-		<ToggleButton id="idFunctionsToggleButton" icon="sap-icon://menu2" pressed="true" type="Transparent" press=".onFunctionsToggleButtonPress">
+	<tnt:ToolHeader class="myCustomClass" id="shellbar">
+		<ToggleButton id="idFunctionsToggleButton" icon="sap-icon://menu2" pressed="false" type="Transparent" press=".onFunctionsToggleButtonPress">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="NeverOverflow"/>
 			</layoutData>
 		</ToggleButton>
 		<ToolbarSeparator/>
-		<Image src="resources/main_logo.png" height="100%"/>
+		<Image src="resources/logo/left.png"/>
 		<ToolbarSpacer/>
 		<Button type="Transparent" icon="sap-icon://home">
 			<layoutData>
@@ -29,7 +29,7 @@
 			</layoutData>
 		</Button>
 		<ToolbarSeparator/>
-		<ToggleButton id="idSidebarToggleButton" icon="sap-icon://notes" pressed="true" type="Transparent" press=".onSidebarToggleButtonPress">
+		<ToggleButton id="idSidebarToggleButton" icon="sap-icon://vertical-grip" pressed="false" type="Transparent" press=".onSidebarToggleButtonPress">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="NeverOverflow"/>
 			</layoutData>

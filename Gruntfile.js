@@ -65,7 +65,7 @@ module.exports = function (grunt) {
 		var oCachebusterFile, t, src, dest, dir, prop;
 
 		oCachebusterFile = grunt.file.readJSON(oConfig.src + '/sap-ui-cachebuster-info.json');
-		console.log(oCachebusterFile);
+		//console.log(oCachebusterFile);
 		for (prop in oCachebusterFile) {
 			if (oCachebusterFile.hasOwnProperty(prop)) {
 				t = oCachebusterFile[prop];

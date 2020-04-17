@@ -2,16 +2,20 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>EXAD2</title>
-		<script id="sap-ui-bootstrap"
-			src="https://sapui5.hana.ondemand.com/1.71.6/resources/sap-ui-cachebuster/sap-ui-core.js"
-			data-sap-ui-theme="sap_fiori_3"
+	   	<title>EXAD2</title>
+	   	
+	   	<script id="sap-ui-bootstrap"
+			src="https://sapui5.hana.ondemand.com/1.75.0/resources/sap-ui-cachebuster/sap-ui-core.js"
+			data-sap-ui-versionedLibCss="true"
+			data-sap-ui-theme="esqexad2@/themes"
+			data-sap-ui-theme-roots='{"esqexad2":"/themes/UI5/"}'
 			data-sap-ui-resourceroots='{"promos.exad.EXAD2": "./"}'
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
 			data-sap-ui-async="true"
 			data-sap-ui-frameOptions="trusted"
+			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
 			data-sap-ui-libs='sap.ui.commons,sap.ui.table'
 			data-sap-ui-appCachebuster="./">
 		</script>
@@ -22,13 +26,16 @@
 	          height : "100%",
 	          name : "promos.exad.EXAD2",
 	          settings: {
+	          	autoPrefixId: true,
+				async: true,
 	            id: "promos.exad.EXAD2"
 	          }
 	        }).placeAt("content");
 	      });
-	    </script>
+	     </script>
+	        
 	</head>
-	<body class="sapUiBody" id="content">
-		<div data-sap-ui-component data-name="promos.exad.EXAD2" data-id="container" data-settings='{"id" : "EXAD2"}'></div>
+	<body class="sapUiBody exadUiBody" id="content">
+		<!--<div data-sap-ui-component data-name="promos.exad.EXAD2" data-id="container" data-settings='{"id" : "EXAD2"}'></div>-->
 	</body>
 </html>

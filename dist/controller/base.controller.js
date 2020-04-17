@@ -1,7 +1,12 @@
 // EXAD2 Frontend
 // Version: 0.02
+<<<<<<< HEAD
 // Built on: 2020-3-17 11:17:33
 // Version: 0.02, built on:2020-3-17
+=======
+// Built on: 2020-4-8 10:23:55
+// Version: 0.02, built on:2020-4-8
+>>>>>>> refs/remotes/origin/CustomControlTest
 
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
@@ -24,6 +29,15 @@ sap.ui.define([
 			}
 			return oModel;
 		},
+		ExadRest: function(sPath, oModel ){
+			this.getOwnerComponent().ExadRest(sPath)
+				.then(function (response) {
+										oModel.setData(response.data); 
+						}).catch(function (error) {
+										oModel.setData(null);
+								});
+			return oModel;
+		},
 
 		getExadRest: function (oObject, oTable, sParameters) {
 			var aModelData = [];
@@ -35,7 +49,7 @@ sap.ui.define([
 						oTable._bindColumns(aModelData);
 						oTable.setCount(aModelData.RowData.length);
 					}).catch(function (error) {
-						//  console.log(error.toJSON());
+						  console.log(error.toJSON());
 					});
 			} else {
 				this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint"))
@@ -45,7 +59,10 @@ sap.ui.define([
 						oTable._bindColumns(aModelData);
 						oTable.setCount(aModelData.RowData.length);
 					}).catch(function (error) {
-						//  console.log(error.toJSON());
+						 aModelData.RowData = null ;
+						aModelData.ColumnData = oObject.getData();
+						oTable._bindColumns(aModelData);
+						//oTable.setCount(aModelData.RowData.length);
 					});
 			}
 
@@ -55,9 +72,9 @@ sap.ui.define([
 			this.getOwnerComponent().ExadRest(oTable.getProperty("endpoint") + sParameter, "post")
 				.then(function (response) {
 					var oRes = response;
-					console.log(oRes);
+				//	console.log(oRes);
 				}).catch(function (error) {
-					console.log(error.toJSON());
+				//	console.log(error.toJSON());
 				});
 
 		},

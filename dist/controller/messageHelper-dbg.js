@@ -1,6 +1,10 @@
 // EXAD2 Frontend
 // Version: 0.02
+<<<<<<< HEAD
 // Built on: 2020-3-17 11:17:33
+=======
+// Built on: 2020-4-8 10:23:55
+>>>>>>> refs/remotes/origin/CustomControlTest
 sap.ui.define([
 	"sap/base/Log",
 	"sap/m/MessageToast"
@@ -12,7 +16,7 @@ sap.ui.define([
 		messageToast: function (sMessage) {
 			MessageToast.show(this._getI18nMessage(sMessage));
 		},
-
+		
 		_getI18nMessage: function (sText) {
 			var sReturn = "";
 			if (sText && sText !== "") {
@@ -29,7 +33,8 @@ sap.ui.define([
 				Log.error("sText is undefined or empty String", "_getI18nMessage", this);
 			}
 			return sReturn;
-		}
-	};
+		},
+		
 
+	};
 });

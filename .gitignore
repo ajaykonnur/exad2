@@ -15,4 +15,8 @@ APIExternalProducer.js
 .*/APIExternalProducer.js
 /mta_archives/
 /node_modules/
+<<<<<<< HEAD
 sap-ui-cachebuster-info.json
+=======
+/dist/
+>>>>>>> refs/remotes/origin/CustomControlTest

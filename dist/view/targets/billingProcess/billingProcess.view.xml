@@ -1,103 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table" xmlns:tnt="sap.tnt" xmlns:uxap="sap.uxap" controllerName="promos.exad.EXAD2.controller.targets.billingProcess">
- <Page id="pageBillingProcess" enableScrolling="false">
-  	  <uxap:ObjectPageLayout id="ObjectPageLayout_" showTitleInHeaderContent="true" useIconTabBar="true">
-         <uxap:headerTitle>
-            <uxap:ObjectPageDynamicHeaderTitle>
-               <uxap:expandedHeading>
-                  <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-                     <Title text="Abrechnungsprozess" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
-                  </FlexBox>
-               </uxap:expandedHeading>
-               <uxap:snappedHeading>
-                  <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-                     <FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd" width="50px">
-                        <Title text="Abrechnungsprozess" wrapping="true" class="sapUiTinyMarginEnd" />
-                     </FlexBox>
-                  </FlexBox>
-               </uxap:snappedHeading>
-               <uxap:expandedContent>
-               	<ComboBox id="ClientSearch" selectionChange="onClientSelected" showSecondaryValues= "true" width="20%" tooltip="Kunde" placeholder="Kunde" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
-						<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
+<mvc:View 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:tnt="sap.tnt"
+	controllerName="promos.exad.EXAD2.controller.targets.billingProcess">
+		<VBox class="padding-2">
+			<l:HorizontalLayout>
+				<Title text="Abrechnungsprozess" titleStyle ="H3"/>
+				<l:HorizontalLayout class="customClassHeader">
+					<Button type="Transparent" icon="sap-icon://add-employee">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="Low"/>
+						</layoutData>
+					</Button>
+					<Button type="Transparent" icon="sap-icon://add-product">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="Low"/>
+						</layoutData>
+					</Button>
+					<Button type="Transparent" icon="sap-icon://add-activity">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="Low"/>
+						</layoutData>
+					</Button>
+				 </l:HorizontalLayout>
+			</l:HorizontalLayout>
+			<l:HorizontalLayout allowWrapping="false">
+				<ComboBox id="ClientSearch" selectionChange="onClientSelected" 
+							showSecondaryValues= "true" tooltip="Kunde" 
+							placeholder="Kunde" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
+					<core:ListItem key="{id}" text="{bezeichnung}"  additionalText = "{id}"/>
 				</ComboBox>
-                <ComboBox id="PropertySearch" showSecondaryValues= "true" width="20%" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
-						<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
+	            <ComboBox id="PropertySearch" showSecondaryValues= "true" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
+					<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
 				</ComboBox>
-                  <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" width="20%" />
-                  <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="Search" />
-               </uxap:expandedContent>
-               	<uxap:actions>
-					<OverflowToolbarButton id="detailView" type="Transparent" icon="sap-icon://add-employee" tooltip="Kunde Anlegen" press="onDetailNavigation"/>
-				</uxap:actions>
-               
-            </uxap:ObjectPageDynamicHeaderTitle>
-         </uxap:headerTitle>
-
-         <uxap:sections>
-            <uxap:ObjectPageSection id="Liegenschaft" title="Liegenschaft">
-               <uxap:subSections>
-                  <uxap:ObjectPageSubSection id="LiegenschaftSS" title=" ">
-                     <uxap:blocks>
-                        <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.property" type="XML" />
-                     </uxap:blocks>
-                  </uxap:ObjectPageSubSection>
-               </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection id="Mietstruktur" title="Mietstruktur">
-               <uxap:subSections>
-                  <uxap:ObjectPageSubSection id="MietstrukturSS" title=" ">
-                     <uxap:blocks>
-                        <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.tenantStructure" type="XML" />
-                     </uxap:blocks>
-                  </uxap:ObjectPageSubSection>
-               </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection id="Versorgungsstruktur" title="Versorgungsstruktur">
-               <uxap:subSections>
-                  <uxap:ObjectPageSubSection id="VersorgungsstrukturSS" title=" ">
-                     <uxap:blocks>
-                        <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.supplyStructure" type="XML" />
-                     </uxap:blocks>
-                  </uxap:ObjectPageSubSection>
-               </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection id="Kosten_Brennstoffe" title="Kosten und Brennstoffe">
-               <uxap:subSections>
-                  <uxap:ObjectPageSubSection id="Kosten_BrennstoffeSS" title=" ">
-                     <uxap:blocks>
-                        <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.costsAndFuels" type="XML" />
-                     </uxap:blocks>
-                  </uxap:ObjectPageSubSection>
-               </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection id="Abrechnung" title="Abrechnung">
-               <uxap:subSections>
-                  <uxap:ObjectPageSubSection id="AbrechnungSS" title=" ">
-                     <uxap:blocks>
-                        <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.acounting" type="XML" />
-                     </uxap:blocks>
-                  </uxap:ObjectPageSubSection>
-               </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection id="Ergebnisse" title="Ergebnisse">
-               <uxap:subSections>
-                  <uxap:ObjectPageSubSection id="ErgebnisseSS" title=" ">
-                     <uxap:blocks>
-                        <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.results" type="XML" />
-                     </uxap:blocks>
-                  </uxap:ObjectPageSubSection>
-               </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection id="Archiv" title="Archiv">
-               <uxap:subSections>
-                  <uxap:ObjectPageSubSection id="ArchivSS" title=" ">
-                     <uxap:blocks>
-                        <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.archive" type="XML" />
-                     </uxap:blocks>
-                  </uxap:ObjectPageSubSection>
-               </uxap:subSections>
-            </uxap:ObjectPageSection>
-         </uxap:sections>
-      </uxap:ObjectPageLayout>
-	</Page>
+	            <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" class="customClassRangeSelection"/>
+	            <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="Search"/>
+           </l:HorizontalLayout>
+		</VBox>
+	<IconTabBar
+		id="idIconTabBarNoIcons"
+		backgroundDesign="Transparent"
+		headerBackgroundDesign="Transparent"
+		expandable="false"
+		select="onTabSelcted">
+		<items>
+			<IconTabFilter
+				text="Liegenschaft">
+				<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.property" type="XML" />
+			</IconTabFilter>
+			<IconTabFilter
+				text="Mietstruktur">
+				<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.tenantStructure" type="XML" />
+			</IconTabFilter>
+			<IconTabFilter
+				text="Versorgungsstruktur">
+				<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.supplyStructure" type="XML" />
+			</IconTabFilter>
+			<IconTabFilter
+				text="Kosten und Brennstoffe">
+				<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.costsAndFuels" type="XML" />
+			</IconTabFilter>
+			<IconTabFilter
+				text="Abrechnung">
+				 <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.acounting" type="XML" />
+			</IconTabFilter>
+			<IconTabFilter
+				text="Ergebnisse">
+				<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.results" type="XML" />
+			</IconTabFilter>
+			<IconTabFilter
+				text="Archiv">
+				<core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.archive" type="XML" />
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
 </mvc:View>
