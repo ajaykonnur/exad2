@@ -45,15 +45,6 @@
         "entryPath": "/JExadCore/rest/"
       },
       "description": "hyjalExad"
-    },
-    {
-      "path": "/themes",
-      "target": {
-        "type": "service",
-        "name": "theming",
-        "entryPath": "/themes"
-      },
-      "description": "Theming Service"
     }
   ],
   "sendWelcomeFileRedirect": true

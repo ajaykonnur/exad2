@@ -1,0 +1,61 @@
+<mvc:View controllerName="promos.exad.EXAD2.controller.main.sidebar" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt"
+	 xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:card="sap.f.cards">
+	<VBox id="idSidebarContentNotExpanded" visible="false">
+		<Button id="idSidebarButtonSearch" icon="sap-icon://search" text=" " type="Back" width="100%" press=".onSidebarButtonPress"></Button>
+		<Button id="idSidebarButtonHints" icon="sap-icon://lightbulb" text="5" type="Back" width="100%" press=".onSidebarButtonPress"></Button>
+		<Button id="idSidebarButtonNotes" icon="sap-icon://notes" text="3" type="Back" width="100%" press=".onSidebarButtonPress"></Button>
+	</VBox>
+	<VBox id="idSidebarContentExpanded">
+		<Panel id="idPanelSearch" width="100%" expandable="true">
+			<headerToolbar>
+				<Toolbar height="3rem">
+					<SearchField/>
+				</Toolbar>
+			</headerToolbar>
+			<content>
+				<ScrollContainer vertical="true">
+					<Tree id="Tree" items="{path: 'mockdata>/treeListItems'}" mode="SingleSelectMaster" includeItemInSelection="true">
+						<StandardTreeItem title="{mockdata>text}"/>
+					</Tree>
+				</ScrollContainer>
+			</content>
+		</Panel>
+		<Panel id="idPanelHints" width="100%" expandable="true">
+			<headerToolbar>
+				<Toolbar height="3rem">
+					<core:Icon src="sap-icon://lightbulb"/>
+					<Text text="{i18n>hints}"/>
+				</Toolbar>
+			</headerToolbar>
+			<content>
+				<ScrollContainer vertical="true" content="{ path: 'mockdata>/hintItems', factory: '.factory.createHintItem'}">
+					<!--<f:Card>
+						<f:header>
+							<card:Header title="Test"></card:Header>
+						</f:header>
+						<f:content>
+							<Text
+								text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat"/>
+						</f:content>
+					</f:Card>-->
+				</ScrollContainer>
+			</content>
+		</Panel>
+		<Panel id="idPanelNotes" width="100%" expandable="true">
+			<headerToolbar>
+				<Toolbar height="3rem">
+					<core:Icon src="sap-icon://notes"/>
+					<Text text="Notizen"/>
+				</Toolbar>
+			</headerToolbar>
+			<content>
+				<ScrollContainer vertical="true">
+					<List items="{mockdata>/noteItems}">
+						<FeedListItem text="{mockdata>text}" sender="{mockdata>author}" timestamp="{mockdata>date}" showIcon="false"/>
+					</List>
+					<FeedInput showIcon="false"/>
+				</ScrollContainer>
+			</content>
+		</Panel>
+	</VBox>
+</mvc:View>
