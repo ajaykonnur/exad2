@@ -5,12 +5,22 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	   	<title>EXAD2</title>
-	   	<!--data-sap-ui-theme="esqexad2@/themes"-->
+	   	<!--data-sap-ui-theme="esqexad2@/themes"
+	   			data-sap-ui-theme-roots='{"esqexad2":"/themes/UI5/"}'
+	   	goes to new-app : 
+	   		},{
+        "path": "/themes",
+        "target": {
+            "type": "service",
+            "name": "theming",
+            "entryPath": "/themes"
+        },
+        "description": "Theming Service"
+	   			-->
 	   	<script id="sap-ui-bootstrap"
 			src="https://sapui5.hana.ondemand.com/1.75.0/resources/sap-ui-cachebuster/sap-ui-core.js"
 			data-sap-ui-versionedLibCss="true"
 			data-sap-ui-theme="sap_fiori_3"
-			data-sap-ui-theme-roots='{"esqexad2":"/themes/UI5/"}'
 			data-sap-ui-resourceroots='{"promos.exad.EXAD2": "./"}'
 			data-sap-ui-compatVersion="edge"
 			data-sap-ui-async="true"
