@@ -11,6 +11,6 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>cache</filter-name>
-		<url-pattern>*sap-ui-cachebuster-info.json</url-pattern>
+		<url-pattern>/sap-ui-cachebuster-info.json</url-pattern>
 	</filter-mapping>
 </web-app>
