@@ -19,8 +19,8 @@ sap.ui.define([
 	
 			var oModel = new JSONModel();
 			var aPath = "/entities/Kunde";
-			// oModel = this.ExadRest(aPath, oModel);
-			// this.byIdView("ClientSearch").setModel(oModel);
+			oModel = this.ExadRest(aPath, oModel);
+			this.byIdView("ClientSearch").setModel(oModel);
 			
 			_mietobjekt  = this.ExadRest ("models/Mietobjekt", _mietobjekt);
 			_mieter		=   this.ExadRest ("models/Mieter", _mieter);
@@ -79,10 +79,10 @@ sap.ui.define([
 					this.getExadRest(_mietobjekt, oTable);
 					break;
 				  
-				  case "Liegenschaft":
-					  oTable = this.byIdView("accountingInfo");
-					  this.getExadRest(_agreementAndMediumRequest, oTable);
-					  break;
+				  //case "Liegenschaft":
+					 // oTable = this.byIdView("accountingInfo");
+					 // this.getExadRest(_agreementAndMediumRequest, oTable);
+					 // break;
 				  
 				  default:
 				   
