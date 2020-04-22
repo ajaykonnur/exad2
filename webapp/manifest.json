@@ -65,6 +65,15 @@
 				"settings": {
 					"bundleName": "promos.exad.EXAD2.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "hyjalExad",
+				"settings": {
+					"disableHeadRequestForToken": true,
+					"useBatch": false,
+					"defaultCountMode": "InlineRepeat",
+					"defaultUpdateMethod": "Put"
+				}
 			}
 		},
 		"resources": {
@@ -121,14 +130,14 @@
 					"target": "parameters"
 				},
 				{
-					"pattern": "detail",
+					"pattern": "detail/{entity}",
 					"name": "detailViewRoute",
 					"target": "detailView"
 				}
 			],
 			"targets": {
 				"billingProcess": {
-					"viewName": "targets/billingProcess/billingProcess",
+					"viewName": "targets/billingProcess/billingProcess_",
 					"viewId": "billingProcess"
 				},
 				"dataSet": {

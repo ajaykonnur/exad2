@@ -6,6 +6,7 @@ sap.ui.define([
 
 	return baseController.extend("promos.exad.EXAD2.controller.main.main", {
 		onInit: function () {
+			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			this.handleHash();
 			this.subscribeEventBus();
 		

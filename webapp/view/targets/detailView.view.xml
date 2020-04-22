@@ -1,94 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mvc:View 
-xmlns:mvc="sap.ui.core.mvc" 
-xmlns="sap.m" 
-xmlns:core="sap.ui.core" 
-xmlns:l="sap.ui.layout"
-xmlns:t="sap.ui.table"
-xmlns:tnt="sap.tnt" 
-xmlns:uxap="sap.uxap" 
-controllerName="promos.exad.EXAD2.controller.targets.detailView">
-	  <Page id="detailAnsicht" enableScrolling="false" >
-	  	 <Button id="btnBackButton" type="Default" icon="sap-icon://slim-arrow-left" class="customClass back colorBlue" press="onNavBack" />
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table" xmlns:tnt="sap.tnt" 
+xmlns:uxap="sap.uxap"  xmlns:cust="promos.exad.EXAD2.control" controllerName="promos.exad.EXAD2.controller.targets.detailView">
+
+	<Button id="btnBackButton" type="Default" icon="sap-icon://slim-arrow-left" class="customClass back colorBlue" press="onNavBack" />
 	<uxap:ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true">
 	<uxap:headerTitle>
 		<uxap:ObjectPageDynamicHeaderTitle>
 			<uxap:expandedHeading>
-                <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+				</uxap:expandedHeading>
+                <!--<FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">-->
                    	<!--<Button id="btnBackButton" type="Default" icon="sap-icon://slim-arrow-left" class="customClass back colorBlue" />-->
-                   	 <Button text="Zurück" type="Emphasized" press="onPress" />
-                  </FlexBox>
-            </uxap:expandedHeading>
-			<uxap:breadcrumbs>
-				<Breadcrumbs>
-					<Link text='Hierarchieebene 1'/>
+                <!--   	 <Button text="Zurück" type="Emphasized" press="onPress" />-->
+                <!--  </FlexBox>-->
+               
+            <uxap:breadcrumbs>
+            	  
+				<Breadcrumbs id="detailBreadcrumbs">
+					<Link text="{/lItem}"/>
 					<Link text='Hierarchieebene 2'/>
 					<Link text='Hierarchieebene 3'/>
 					<Link text='Hierarchieebene 4'/>
 				</Breadcrumbs>
 			</uxap:breadcrumbs>
-			<uxap:expandedHeading>
-                <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-                    <Title text="Entität bearbeiten" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
-                  </FlexBox>
-            </uxap:expandedHeading>
-	        <uxap:expandedContent>
-	        	<Button text="Speichern + Schließen" press="onPress" />
-	            <Button text="Speichern" press="onPress" />
-	    		<Button text="Abbrechen" press="onPress" />
-	        	<Button text="Als Kopie speichern" press="onPress" />
-	        	<Button text="Löschen" press="onPress" />
-	        </uxap:expandedContent>
+		<uxap:expandedContent>
+				<HBox>
+			 	<VBox id="ClientSearch" >
+			 	<!--<Panel   width="35em">-->
+			 	<Label text="Kunde" class="labelClass"/>
+				<!--<ComboBox  selectionChange="onClientSelected" showSecondaryValues= "true" tooltip="Kunde" placeholder="Kunde" items="{ path: '/', sorter: { path: 'bezeichnung' }}">-->
+				<!--	<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>-->
+				<!--</ComboBox>-->
+				<!--</Panel>-->
+				</VBox>
+				<VBox id="PropertySearch" >
+					<Label text="Liegenschaft" class="labelClass" />
+    <!--            <ComboBox id="PropertySearch" showSecondaryValues= "true" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">-->
+				<!--		<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>-->
+				<!--</ComboBox>-->
+				</VBox>
+				<VBox  id="DateRangeSearch">
+					<Label text="Zeitraum" class="labelClass" />
+                  <!--<DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" />-->
+                 </VBox>
+                 <VBox>
+					<Label text="gelöschte Sätze anzeigen" />
+                  <Switch state="false">
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</Switch>
+                 </VBox>
+                  </HBox>
+                   <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="setView" class="customClassHeader" />
+            
+               </uxap:expandedContent>
         </uxap:ObjectPageDynamicHeaderTitle>
     </uxap:headerTitle>
     <uxap:headerContent>
     </uxap:headerContent>
-    <uxap:sections>
-    	<uxap:ObjectPageSection id="Section_1" title="Section 1">
+   <uxap:sections>
+    	<uxap:ObjectPageSection id="Section_1">
         	<uxap:subSections>
             	<uxap:ObjectPageSubSection id="SectionSS1" title=" ">
-                	<uxap:blocks>
-                    	<Label text="Kundennummer" />
-                    	<Input id="Kundennummer" />
-                    		<Label text="Liegenschaftsnummer" />
-                    	<Input id="Liegenschaftsnummer" />
-                    		<Label text="Bezeichner" />
-                    	<Input id="Bezeichner" />
-                    		<Label text="Straße" />
-                    	<Input id="Strasse" />
-                    		<Label text="Postleitzahl" />
-                    	<Input id="Postleitzahl" />
-                    		<Label text="Ort" />
-                    	<Input id="Ort" />
-                    </uxap:blocks>
-                </uxap:ObjectPageSubSection>
-            </uxap:subSections>
-        </uxap:ObjectPageSection>
-    	<uxap:ObjectPageSection id="Section_2" title="Section 2">
-        	<uxap:subSections>
-            	<uxap:ObjectPageSubSection id="SectionSS2" title=" ">
-                	<uxap:blocks>
-                    		<Label text="Postleitzahl" />
-                    	<Input id="Postleitzahl_" />
-                    		<Label text="Ort" />
-                    	<Input id="Ort_" />
-                    </uxap:blocks>
-                </uxap:ObjectPageSubSection>
-            </uxap:subSections>
-        </uxap:ObjectPageSection>
-        <uxap:ObjectPageSection id="Section_3" title="Section 3">
-        	<uxap:subSections>
-            	<uxap:ObjectPageSubSection id="SectionSS3" title=" ">
-                	<uxap:blocks>
-                    		<Label text="Postleitzahl" />
-                    	<Input id="Postleitzahl__" />
-                    		<Label text="Ort" />
-                    	<Input id="Ort__" />
-                    </uxap:blocks>
+            			<Panel id="fullScreenPanel">
+							<!--<cust:ExadTable id="accountingInfo" title="Abrechnungsinformationen" endpoint="dto/agreementAndMediumRequest/"/>-->
+						</Panel>
                 </uxap:ObjectPageSubSection>
             </uxap:subSections>
         </uxap:ObjectPageSection>
     </uxap:sections>
     </uxap:ObjectPageLayout>
-    </Page>
 </mvc:View>

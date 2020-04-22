@@ -1,5 +1,7 @@
 <core:FragmentDefinition 
 		xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:uxap="sap.uxap" xmlns:cust="promos.exad.EXAD2.control" xmlns:l="sap.ui.layout">
+	<!--<Page id="pageBillingProcess" enableScrolling="false">-->
+	<Panel height="700px" >
 	<uxap:ObjectPageLayout id="ObjectPageLayoutProperty"
 							showAnchorBarPopover="false" 
 						   upperCaseAnchorBar="false" 
@@ -64,4 +66,6 @@
 			</uxap:ObjectPageSection>
 		</uxap:sections>
 	</uxap:ObjectPageLayout>
+	<!--</Page>-->
+	</Panel>
 </core:FragmentDefinition>

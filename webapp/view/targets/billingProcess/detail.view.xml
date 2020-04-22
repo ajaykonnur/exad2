@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" 
+xmlns:core="sap.ui.core" 
+xmlns:l="sap.ui.layout"
+xmlns:t="sap.ui.table"
+xmlns:tnt="sap.tnt" 
+xmlns:uxap="sap.uxap" 
+controllerName="promos.exad.EXAD2.controller.targets.detail">
+	  <Page id="detailAnsicht" enableScrolling="false" >
+	  	 <Button id="btnBackButton" type="Default" icon="sap-icon://slim-arrow-left" class="customClass back colorBlue" press="onNavBack" />
+	<uxap:ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true">
+	<uxap:headerTitle>
+		<uxap:ObjectPageDynamicHeaderTitle>
+			<uxap:expandedHeading>
+                <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+                   	<!--<Button id="btnBackButton" type="Default" icon="sap-icon://slim-arrow-left" class="customClass back colorBlue" />-->
+                   	 <Button text="Zurück" type="Emphasized" press="onPress" />
+                  </FlexBox>
+            </uxap:expandedHeading>
+			<uxap:breadcrumbs>
+				<Breadcrumbs>
+					<Link text='Hierarchieebene 1'/>
+					<Link text='Hierarchieebene 2'/>
+					<Link text='Hierarchieebene 3'/>
+					<Link text='Hierarchieebene 4'/>
+				</Breadcrumbs>
+			</uxap:breadcrumbs>
+			<uxap:expandedHeading>
+                <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+                    <Title text="Entität bearbeiten" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
+                  </FlexBox>
+            </uxap:expandedHeading>
+	        <uxap:expandedContent>
+	        	<Button text="Speichern + Schließen" press="onPress" />
+	            <Button text="Speichern" press="onPress" />
+	    		<Button text="Abbrechen" press="onPress" />
+	        	<Button text="Als Kopie speichern" press="onPress" />
+	        	<Button text="Löschen" press="onPress" />
+	        </uxap:expandedContent>
+        </uxap:ObjectPageDynamicHeaderTitle>
+    </uxap:headerTitle>
+    <uxap:headerContent>
+    </uxap:headerContent>
+    <uxap:sections>
+    	<uxap:ObjectPageSection id="Section_1" title="Section 1">
+        	<uxap:subSections>
+            	<uxap:ObjectPageSubSection id="SectionSS1" title=" ">
+                	<uxap:blocks>
+                    	<Label text="Kundennummer" />
+                    	<Input id="Kundennummer" />
+                    		<Label text="Liegenschaftsnummer" />
+                    	<Input id="Liegenschaftsnummer" />
+                    		<Label text="Bezeichner" />
+                    	<Input id="Bezeichner" />
+                    		<Label text="Straße" />
+                    	<Input id="Strasse" />
+                    		<Label text="Postleitzahl" />
+                    	<Input id="Postleitzahl" />
+                    		<Label text="Ort" />
+                    	<Input id="Ort" />
+                    </uxap:blocks>
+                </uxap:ObjectPageSubSection>
+            </uxap:subSections>
+        </uxap:ObjectPageSection>
+    	<uxap:ObjectPageSection id="Section_2" title="Section 2">
+        	<uxap:subSections>
+            	<uxap:ObjectPageSubSection id="SectionSS2" title=" ">
+                	<uxap:blocks>
+                    		<Label text="Postleitzahl" />
+                    	<Input id="Postleitzahl_" />
+                    		<Label text="Ort" />
+                    	<Input id="Ort_" />
+                    </uxap:blocks>
+                </uxap:ObjectPageSubSection>
+            </uxap:subSections>
+        </uxap:ObjectPageSection>
+        <uxap:ObjectPageSection id="Section_3" title="Section 3">
+        	<uxap:subSections>
+            	<uxap:ObjectPageSubSection id="SectionSS3" title=" ">
+                	<uxap:blocks>
+                    		<Label text="Postleitzahl" />
+                    	<Input id="Postleitzahl__" />
+                    		<Label text="Ort" />
+                    	<Input id="Ort__" />
+                    </uxap:blocks>
+                </uxap:ObjectPageSubSection>
+            </uxap:subSections>
+        </uxap:ObjectPageSection>
+    </uxap:sections>
+    </uxap:ObjectPageLayout>
+    </Page>
+</mvc:View>

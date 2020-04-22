@@ -12,6 +12,12 @@
 							<Panel>
 								<cust:ExadTable id="Mieter" title="Mieter" endpoint="/entities/Mieter"/>
 							</Panel>
+							<Panel>
+								<cust:ExadTable id="Grundanteil" title="Grundanteil" endpoint="/entities/Grundanteil"/>
+							</Panel>
+							<Panel>
+								<cust:ExadTable id="Geraet" title="Gerät" endpoint="/entities/Geraet"/>
+							</Panel>
 						</l:VerticalLayout>
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>

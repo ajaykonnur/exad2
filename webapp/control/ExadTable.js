@@ -3,13 +3,15 @@ sap.ui.define([
 	"sap/base/Log",
 	"sap/ui/model/json/JSONModel",
 	"promos/exad/EXAD2/controller/messageHelper",
+	"promos/exad/EXAD2/controller/main/main.controller",
+	"promos/exad/EXAD2/controller/base.controller",
 	"sap/ui/core/util/Export",
 	"sap/ui/core/util/ExportTypeCSV",
 	"promos/exad/EXAD2/control/Utils",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	"sap/ui/core/Fragment"
-], function (XMLComposite, Log, JSONModel, messageHelper, Export, ExportTypeCSV, Utils, Filter, FilterOperator, Fragment ) {
+], function (XMLComposite, Log, JSONModel, messageHelper, mainController, base, Export, ExportTypeCSV, Utils, Filter, FilterOperator, Fragment ) {
 	"use strict";
 	
 	var _oJSONModel;
@@ -663,9 +665,9 @@ sap.ui.define([
 		 */
 		_fireInternalErrorOccurred: function(err) {
 			this._logError(err);
-			this.fireInternalErrorOccurred({
-				err: err
-			});
+			// this.fireInternalErrorOccurred({
+			// 	err: err
+			// });
 		},
 		
 		/**
@@ -1199,6 +1201,19 @@ sap.ui.define([
 			_oJSONModel.setProperty("/ColumnData", oEvent.getParameter("items"));
 			_oJSONModel.setProperty("/ShowResetEnabled", this._isChangedColumnsItems());
 		},
+		
+		toggleFullScreen: function(oEvent){
+			var sKey = oEvent.getSource().getId();
+			var temp = [];
+			temp = sKey.split("--");
+			sKey = temp[temp.length -1] ;
+			if (sKey === undefined) {
+				this.superLogError("Route not defined");
+			}else{
+				var sParentId = temp[temp.length -2];
+				sap.ui.controller("promos.exad.EXAD2.controller.base").superNavtoFullScreen(sKey + "Route", sParentId );
+			}
+		},
 		/* 
 		 ****************************************************************
 		 ************			table.Table 			****************
@@ -1240,6 +1255,10 @@ sap.ui.define([
 			
 			this._setVisibleRowCount();
 		},
+		_setData:function(oTable, oData){
+			
+		},
+		
 		_getVisibleColumns : function() {
 			return this._getTable()._getVisibleColumns();
 		},
@@ -1259,14 +1278,22 @@ sap.ui.define([
 						iRowCount = 10;
 					}
 				}
-				var oView = this._getView().byId("inputChangeVisibleRowCount");
-				if (!oView){
-					aId = this.getId().split("--");
-					var sFragmentId = this._getView().createId(aId[2]);
-					var oView = sap.ui.core.Fragment.byId(sFragmentId, "inputChangeVisibleRowCount"); // works
-				}
+				
+				var sId= this.getId() + "--inputChangeVisibleRowCount";
+				var oTest = sap.ui.getCore().byId(sId);
+				if (!oTest){
+					var oView = this._getView().byId("inputChangeVisibleRowCount");
+					if (!oView){
+						aId = this.getId().split("--");
+						var sFragmentId = this._getView().createId(aId[2]);
+						var oView = sap.ui.core.Fragment.byId(sFragmentId, "inputChangeVisibleRowCount"); // works
+					}
+					oTable.setVisibleRowCount(iRowCount);
+					oView.setValue(iRowCount);
+				}else{
 				oTable.setVisibleRowCount(iRowCount);
-				oView.setValue(iRowCount);
+				oTest.setValue(iRowCount);
+				}
 			} catch (err) {
 				this._fireInternalErrorOccurred(err);
 			}

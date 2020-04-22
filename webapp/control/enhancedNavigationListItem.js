@@ -1,4 +1,4 @@
-// Provides control sap.demo.controls.enhancedNavigationListItem.
+// Provides control sap.controls.enhancedNavigationListItem.
 sap.ui.define(["jquery.sap.global", "sap/ui/core/Item",
 		'sap/ui/core/Icon', 'sap/tnt/NavigationList', 'sap/ui/core/Renderer', 'sap/ui/core/IconPool', 'sap/tnt/NavigationListItem',
 		"sap/m/MessageToast"

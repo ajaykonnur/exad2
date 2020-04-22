@@ -11,36 +11,33 @@ sap.ui.define([
 	var _agreementAndMediumRequest = new JSONModel();
 	var _mietobjekt = new JSONModel();
 	var _mieter = new JSONModel();
+	var _grundanteil = new JSONModel();
+	var _geraet = new JSONModel();
 
 	return baseController.extend("promos.exad.EXAD2.controller.targets.billingProcess", {
 		
 		
 		onInit: function () {
-	
+			
+			this.getInitClientList();
+			this.initMetaData();
+			
+		
+		},
+		
+		getInitClientList: function(){
 			var oModel = new JSONModel();
 			var aPath = "/entities/Kunde";
-			// oModel = this.ExadRest(aPath, oModel);
-			// this.byIdView("ClientSearch").setModel(oModel);
-			
-			_mietobjekt  = this.ExadRest ("models/Mietobjekt", _mietobjekt);
-			_mieter		=   this.ExadRest ("models/Mieter", _mieter);
+			oModel = this.ExadRest(aPath, oModel);
+			this.byIdView("ClientSearch").setModel(oModel);
+		},
+		
+		initMetaData: function(){
 			_agreementAndMediumRequest = this.ExadRest ("models/agreementAndMediumRequest", _agreementAndMediumRequest);
-			var oTable = this.byIdView("accountingInfo");
-			this.getExadRest(_agreementAndMediumRequest, oTable);
-			 //var oTable = this.byIdView("Mietobjekte");
-				// 	this.getExadRest(_mietobjekt, oTable);
-			
-	/*		_agreementAndMediumRequest = this.ExadRest ("models/agreementAndMediumRequest", _agreementAndMediumRequest);
-			
-			
-			//var aModelData = [];
-			var oTable = this.byIdView("Mietobjekte");
-			this.getExadRest(_mietobjekt, oTable);
-			
-			// kommentare
-			 var oEntryCollection = this.getOwnerComponent().getModel("mockdata").getProperty("/EntryCollection");
-			// this.byIdView("kommentare").setModel(oEntryCollection);
-	*/	
+			_mietobjekt  = this.ExadRest ("models/Mietobjekt", _mietobjekt);
+			_mieter		 = this.ExadRest ("models/Mieter", _mieter);
+			_grundanteil = this.ExadRest ("models/Grundanteil", _grundanteil);
+			_geraet 	 = this.ExadRest ("models/_geraet", _geraet);
 			
 		},
 	
@@ -61,7 +58,15 @@ sap.ui.define([
 			
 			// Grundanteile
 			
+			var oTableGrnd = this.byIdView("Grundanteil");
+			var sParamGrnd = "?mietobjekt=" + sId;
+			this.getExadRest(_grundanteil, oTableGrnd, sParamGrnd);
+			
 			// Endgeräte
+			var oTableGrt = this.byIdView("Geraet");
+			var sParamGrt = "?mietobjekt=" + sId;
+			this.getExadRest(_geraet, oTableGrt, sParamGrt);
+			
 			
 			// Ablesewerte
 		
@@ -69,9 +74,10 @@ sap.ui.define([
 		},
 		onTabSelcted: function(oEvent){
 			var oTable;
-			var oItem = oEvent.getParameter("item");
-			var sObject = oItem.getProperty("text");
-			
+			// var oItem = oEvent.getParameter("item");
+			// var sObject = oItem.getProperty("text");
+			var oItem = oEvent.getParameter("section");
+			var sObject = oItem.getProperty("title");
 			switch(sObject) {
 				  
 				  case "Mietstruktur":
@@ -79,14 +85,14 @@ sap.ui.define([
 					this.getExadRest(_mietobjekt, oTable);
 					break;
 				  
-				  case "Liegenschaft":
-					  oTable = this.byIdView("accountingInfo");
-					  this.getExadRest(_agreementAndMediumRequest, oTable);
-					  break;
+				  //case "Versorgungsstruktur":
+					 // oTable = this.byIdView("accountingInfo");
+					 // this.getExadRest(_agreementAndMediumRequest, oTable);
+					 // break;
 				  
-				  default:
+			 	  default:
 				   
-				}
+			 	}
 		},
 		_saveTableData: function(oObject, oTable, sParameter){
 			
@@ -121,6 +127,7 @@ sap.ui.define([
 							aModelData.RowData = response.data;
 							aModelData.ColumnData = _agreementAndMediumRequest.getData();
 							oTable1._bindColumns(aModelData);
+							oTable1.setModel(aModelData);
 							oTable1.setCount(aModelData.RowData.length);
 							}).catch(function (error) {
 											  //  console.log(error.toJSON());
@@ -133,6 +140,7 @@ sap.ui.define([
 								aModelData.RowData = response.data;
 								aModelData.ColumnData = _agreementAndMediumRequest.getData();
 								oTable1._bindColumns(aModelData);
+								oTable1.setModel(aModelData);
 								oTable1.setCount(aModelData.RowData.length);
 								}).catch(function (error) {
 												  //  console.log(error.toJSON());

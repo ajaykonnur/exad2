@@ -6,40 +6,42 @@
 	xmlns:l="sap.ui.layout" 
 	xmlns:tnt="sap.tnt"
 	controllerName="promos.exad.EXAD2.controller.targets.billingProcess">
-		<VBox class="padding-2">
-			<l:HorizontalLayout>
-				<Title text="Abrechnungsprozess" titleStyle ="H3"/>
-				<l:HorizontalLayout class="customClassHeader">
-					<Button type="Transparent" icon="sap-icon://add-employee">
-						<layoutData>
-							<OverflowToolbarLayoutData priority="Low"/>
-						</layoutData>
-					</Button>
-					<Button type="Transparent" icon="sap-icon://add-product">
-						<layoutData>
-							<OverflowToolbarLayoutData priority="Low"/>
-						</layoutData>
-					</Button>
-					<Button type="Transparent" icon="sap-icon://add-activity">
-						<layoutData>
-							<OverflowToolbarLayoutData priority="Low"/>
-						</layoutData>
-					</Button>
-				 </l:HorizontalLayout>
-			</l:HorizontalLayout>
-			<l:HorizontalLayout allowWrapping="false">
-				<ComboBox id="ClientSearch" selectionChange="onClientSelected" 
-							showSecondaryValues= "true" tooltip="Kunde" 
-							placeholder="Kunde" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
-					<core:ListItem key="{id}" text="{bezeichnung}"  additionalText = "{id}"/>
-				</ComboBox>
-	            <ComboBox id="PropertySearch" showSecondaryValues= "true" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
-					<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
-				</ComboBox>
-	            <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" class="customClassRangeSelection"/>
-	            <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="Search"/>
-           </l:HorizontalLayout>
-		</VBox>
+	 <!--<Page id="pageBillingProcess" enableScrolling="true">-->
+		<!--<VBox class="padding-2">-->
+		<!--	<l:HorizontalLayout>-->
+		<!--		<Title text="Abrechnungsprozess" titleStyle ="H3" visible="true"/>-->
+		<!--		<l:HorizontalLayout class="customClassHeader">-->
+		<!--			<Button id="detailView" type="Transparent" icon="sap-icon://add-employee" press="onDetailNavigation">-->
+		<!--				<layoutData>-->
+		<!--					<OverflowToolbarLayoutData priority="Low"/>-->
+		<!--				</layoutData>-->
+		<!--			</Button> -->
+		<!--			<Button type="Transparent" icon="sap-icon://add-product">-->
+		<!--				<layoutData>-->
+		<!--					<OverflowToolbarLayoutData priority="Low"/>-->
+		<!--				</layoutData>-->
+		<!--			</Button>-->
+		<!--			<Button type="Transparent" icon="sap-icon://add-activity">-->
+		<!--				<layoutData>-->
+		<!--					<OverflowToolbarLayoutData priority="Low"/>-->
+		<!--				</layoutData>-->
+		<!--			</Button>-->
+		<!--		 </l:HorizontalLayout>-->
+		<!--	</l:HorizontalLayout>-->
+		<!--	<l:HorizontalLayout allowWrapping="false">-->
+		<!--		<ComboBox id="ClientSearch" selectionChange="onClientSelected" -->
+		<!--					showSecondaryValues= "true" tooltip="Kunde" -->
+		<!--					placeholder="Kunde" items="{ path: '/', sorter: { path: 'bezeichnung' }}">-->
+		<!--			<core:ListItem key="{id}" text="{bezeichnung}"  additionalText = "{id}"/>-->
+		<!--		</ComboBox>-->
+	 <!--           <ComboBox id="PropertySearch" showSecondaryValues= "true" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">-->
+		<!--			<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>-->
+		<!--		</ComboBox>-->
+	 <!--           <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" class="customClassRangeSelection"/>-->
+	 <!--           <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="Search"/>-->
+  <!--         </l:HorizontalLayout>-->
+		<!--</VBox>-->
+		 <core:Fragment fragmentName="promos.exad.EXAD2.view.targets.billingProcess.fragments.header" type="XML" />
 	<IconTabBar
 		id="idIconTabBarNoIcons"
 		backgroundDesign="Transparent"
@@ -77,4 +79,5 @@
 			</IconTabFilter>
 		</items>
 	</IconTabBar>
+	<!--</Page>-->
 </mvc:View>

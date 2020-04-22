@@ -14,7 +14,7 @@
 		<t:extension>
 			<Toolbar class="sapMTBHeader-CTX">
 				<Title text="{$this>title}"/>
-				<Label text="({$this>count})" class="customTitle" />
+				<Label text="({$this>count})" class="customTitle" /> 
 				<ComboBox selectedKey="default">
 					<items>
 						<core:Item key="default" text="Standard"/>
@@ -22,6 +22,8 @@
 				</ComboBox>
 				<Button text="Funktion"/>
 				<ToolbarSpacer/>
+				<Button id="detailView" tooltip="{i18n>Btn.fullScreen.tooltip}" enabled="true" icon="sap-icon://full-screen" press=".toggleFullScreen"/>
+				<ToolbarSeparator/>
 				<Button id="addBtn" tooltip="{i18n>Btn.add.tooltip}" enabled="false" icon="sap-icon://add" press=".onAddRowPress" />
 				<Button id="copyBtn" tooltip="{i18n>Btn.copy.tooltip}"  enabled="false" icon="sap-icon://copy" press=".onCopyRowPress"/>
 				<Button id="deleteBtn" tooltip="{i18n>Btn.delete.tooltip}" enabled="false" icon="sap-icon://delete" press=".onDeleteRowPress"/>
