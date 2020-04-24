@@ -1,6 +1,3 @@
-// EXAD2 Frontend
-// Version: 0.02
-// Built on: 2020-4-17 12:59:10
 // Provides control sap.demo.controls.enhancedNavigationListItem.
 sap.ui.define(["jquery.sap.global", "sap/ui/core/Item",
 		'sap/ui/core/Icon', 'sap/tnt/NavigationList', 'sap/ui/core/Renderer', 'sap/ui/core/IconPool', 'sap/tnt/NavigationListItem',

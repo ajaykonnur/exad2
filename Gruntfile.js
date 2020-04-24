@@ -42,13 +42,22 @@ module.exports = function (grunt) {
 					dest: sTargetDir
 				}]
 			}
-		}
-
+		}, copy: {
+            main: {
+                files: [{
+                    expand: true,
+                    cwd: 'webapp/WEB-INF/classes/de/promos', // 'Current Working Directory'
+                    src: '**', // Read everything inside the cwd
+                    dest: 'dist/WEB-INF/classes/de/promos/' // Destination folder
+                    }]
+                }
+            }
 	};
 
 	grunt.loadNpmTasks("@sap/grunt-sapui5-bestpractice-build");
 	grunt.loadNpmTasks("grunt-text-replace");
 	grunt.loadNpmTasks("grunt-add-comment");
+	grunt.loadNpmTasks("grunt-contrib-copy");
 
 	grunt.config.merge(config);
 	grunt.config.merge({
@@ -86,7 +95,8 @@ module.exports = function (grunt) {
 		"build",
 		"add_comment:dist",
 		"replace:dist",
-		"cachebuster"
+		"cachebuster",
+		"copy"
 
 	]);
 

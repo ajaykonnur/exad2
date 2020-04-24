@@ -1,7 +1,4 @@
-// EXAD2 Frontend
-// Version: 0.02
-// Built on: 2020-4-17 12:59:10
-// Version: 0.02, built on:2020-4-17
+// Version: @@version
 
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
