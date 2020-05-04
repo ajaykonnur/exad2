@@ -23,7 +23,7 @@
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<Panel>
-							<cust:ExadTable id="accountigStatus" title="Abrechnungsstatus" endpoint=""/>
+							<cust:ExadTable id="accountigStatus" title="Abrechnungsstatus" endpoint="dto/billingPeriods"/>
 						</Panel>
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>

@@ -1214,6 +1214,18 @@ sap.ui.define([
 				sap.ui.controller("promos.exad.EXAD2.controller.base").superNavtoFullScreen(sKey + "Route", sParentId );
 			}
 		},
+		detailView: function(oEvent){
+				var sKey = oEvent.getSource().getId();
+			var temp = [];
+			temp = sKey.split("--");
+			sKey = temp[temp.length -1] ;
+			if (sKey === undefined) {
+				this.superLogError("Route not defined");
+			}else{
+				var sParentId = temp[temp.length -2];
+				sap.ui.controller("promos.exad.EXAD2.controller.base").superNavtoFullScreen(sKey + "Route", sParentId );
+			}
+		},
 		/* 
 		 ****************************************************************
 		 ************			table.Table 			****************
@@ -1222,6 +1234,8 @@ sap.ui.define([
 
 		_bindColumns: function (aModelData) {
 			var oTable = this._getTable();
+			//var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
+			var that = this;
 			if (this.UseTablePersonalisation){
 				aModelData.ColumnData = this.UseTablePersonalisation;
 			}
@@ -1233,29 +1247,57 @@ sap.ui.define([
 				var columnLabel = context.getProperty().label;
 				var columnName = context.getProperty().name;
 				var bVisible = context.getProperty("column-visible");
+				if (!bVisible) { bVisible = false; }
+				var sLink = context.getProperty("column-link-page");
+				
+				
+				// var sUri = window.location.href;
+				// sUri.replace("/detailView/Mietobjekte", "/billingProcess");
+		//		sUri = sUri + '/detailView/Mietobjekte';
+	// "column-editable": true,
+ //   "column-link-id-attribute": "id",
+ //   "detail-visible": true,
+ //   "column-link-page": "Detail_Mietobjekt",  /detailView/Mietobjekte
+ 
 			//	var bEditabled = context.getProperty("detail-editable");
+			if(!sLink){
 				return new sap.ui.table.Column({
 					label: columnLabel,
 					visible: bVisible,
-				//	editable: bEditabled,
 					filterProperty: columnName,
 					sortProperty: columnName,
 					template: columnName
-				//	template: new sap.ui.commons.TextField({ editable: bEditabled, value: columnName })
-					// 	value: columnName,
-					// 	// {
-					// 	// 	path: "/TableDetails" + "/" + index.slice(-1) + "/" + columnName
-					// 	// },
-					// 	editable: false
-					// })
+					 });
+				}else{
+					return new sap.ui.table.Column({
+						label: columnLabel,
+						visible: bVisible,
+						filterProperty: columnName,
+						sortProperty: columnName,
+					//	template: columnName
+					 	template: new sap.m.Link({
+						//	text: columnName
+						text:
+						{
+							path: "/RowData" + "/" + index.slice(-1) + "/" + columnName
+						}
+						// //press: that.linkPress()
+						// //press: onLinkPressed()
+						 })
+					 });
+				}
 				});
-			});
+			// });
 
 			oTable.bindRows("/RowData");
 			
 			this._setVisibleRowCount();
 		},
 		_setData:function(oTable, oData){
+			
+		},
+		linkPress: function(){
+			console.log(" linkPress triggered");
 			
 		},
 		
@@ -1325,19 +1367,25 @@ sap.ui.define([
 		onRowSelectionChange: function(oEvent) {
 			var oTable = oEvent.getSource();
 			var sParentId = oTable.getParent().getId() ;
+			var aIndices = [];
 			if( sParentId.includes("Mietobjekte") ){
-					var iRowIndex = oEvent.getParameter("rowIndex");
-					if (iRowIndex === -1) {
-						return;
-					}
+					// var iRowIndex = oEvent.getParameter("rowIndex");
+					// if (iRowIndex === -1) {
+					// 	return;
+					// }
 					var aSelIndices = oTable.getSelectedIndices();
-					if (aSelIndices.length > 0 && jQuery.inArray(iRowIndex, aSelIndices) !== -1) {
-						var oRowContext = oEvent.getParameter("rowContext");
-						var sId = oRowContext.getProperty("id");
-						this._getView().getController().onTenantRowSelectionChange(sId);
-					} else if (aSelIndices.length === 0) {
+				//	if (aSelIndices.length > 0 && jQuery.inArray(iRowIndex, aSelIndices) !== -1) {
+						for (var i = 0; i < aSelIndices.length ; i++){
+							var oRowContext = oEvent.getParameter("rowContext");
+							var oData = oRowContext.getModel().getData();
+							var sId = oData.RowData[i].id;
+						//	var sId = oRowContext.getProperty("id");	
+							aIndices.push(sId);
+						}
+						this._getView().getController().onTenantRowSelectionChange(aIndices);
+				//	} else if (aSelIndices.length === 0) {
 						// throw error
-					}
+				//	}
 				
 				
 			}

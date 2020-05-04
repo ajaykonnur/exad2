@@ -4,72 +4,74 @@ sap.ui.define([
 	"promos/exad/EXAD2/controller/messageHelper",
 	"promos/exad/EXAD2/controller/factory",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
-], function (baseController, JSONModel, messageHelper, factory, Filter, FilterOperator) {
+	"sap/ui/model/FilterOperator",
+	"promos/exad/EXAD2/control/Utils"
+], function (baseController, JSONModel, messageHelper, factory, Filter, FilterOperator, Utils) {
 	"use strict";
 	
 	var _agreementAndMediumRequest = new JSONModel();
+	var _billingPeriods = new JSONModel();
 	var _mietobjekt = new JSONModel();
 	var _mieter = new JSONModel();
 	var _grundanteil = new JSONModel();
 	var _geraet = new JSONModel();
+	var _ablesewertes = new JSONModel();
+	var _Versorgungsstruktur = new JSONModel();
 
 	return baseController.extend("promos.exad.EXAD2.controller.targets.billingProcess", {
 		
 		
 		onInit: function () {
 			
-			this.getInitClientList();
+			this.initializeClientList();
 			this.initMetaData();
-			
-		
-		},
-		
-		getInitClientList: function(){
-			var oModel = new JSONModel();
-			var aPath = "/entities/Kunde";
-			oModel = this.ExadRest(aPath, oModel);
-			this.byIdView("ClientSearch").setModel(oModel);
 		},
 		
 		initMetaData: function(){
 			_agreementAndMediumRequest = this.ExadRest ("models/agreementAndMediumRequest", _agreementAndMediumRequest);
+		//	_billingPeriods = this.ExadRest ("models/billingPeriods", _billingPeriods);
 			_mietobjekt  = this.ExadRest ("models/Mietobjekt", _mietobjekt);
 			_mieter		 = this.ExadRest ("models/Mieter", _mieter);
 			_grundanteil = this.ExadRest ("models/Grundanteil", _grundanteil);
-			_geraet 	 = this.ExadRest ("models/_geraet", _geraet);
-			
+			_geraet 	 = this.ExadRest ("models/Geraet", _geraet);
+			_ablesewertes 	 = this.ExadRest ("models/Ablesewert", _ablesewertes);
+			_Versorgungsstruktur = this.ExadRest("models/Versorgungseinheit",_Versorgungsstruktur);
 		},
 	
 		onClientSelected: function(oEvent) {
-			var oSelectItemKey = oEvent.getParameter("selectedItem").getKey();
-			if (oSelectItemKey) {
-				var oModel = new JSONModel();
-				var sPath = "/entities/liegenschaft?kunde=" + oSelectItemKey;
-				oModel = this.ExadRest(sPath, oModel);
-				this.byIdView("PropertySearch").setModel(oModel);
-			}
+			this.getProperties(oEvent);
 		},
-		onTenantRowSelectionChange: function(sId){
+		
+		onTenantRowSelectionChange: function(aSelIndices){
+			// Prepare request Parameter
+			var sParam;
+			if(aSelIndices.length === 0){
+				sParam = "?mietobjekt=0" ;
+			}else if(aSelIndices.length ===1){
+				 sParam = "?mietobjekt=" + aSelIndices[0];
+			}else{
+				sParam = "?";
+				for (var i = 0 ; i < aSelIndices.length ; i++){
+					 sParam = sParam + "mietobjekt-IN=" + aSelIndices[i] + "&";  // &mietobjekt-IN=102 + aSelIndices[0];	
+				}
+				sParam = sParam.slice(0, -1);
+			}
+			
 			// Mieter
 			var oTable = this.byIdView("Mieter");
-			var sParam = "?mietobjekt=" + sId;
 			this.getExadRest(_mieter, oTable, sParam);
 			
 			// Grundanteile
-			
 			var oTableGrnd = this.byIdView("Grundanteil");
-			var sParamGrnd = "?mietobjekt=" + sId;
-			this.getExadRest(_grundanteil, oTableGrnd, sParamGrnd);
+			this.getExadRest(_grundanteil, oTableGrnd, sParam);
 			
 			// Endgeräte
 			var oTableGrt = this.byIdView("Geraet");
-			var sParamGrt = "?mietobjekt=" + sId;
-			this.getExadRest(_geraet, oTableGrt, sParamGrt);
-			
+			this.getExadRest(_geraet, oTableGrt);
 			
 			// Ablesewerte
-		
+			var oTableAbw = this.byIdView("Ablesewerte");
+			this.getExadRest(_ablesewertes, oTableAbw);
 			
 		},
 		onTabSelcted: function(oEvent){
@@ -85,10 +87,10 @@ sap.ui.define([
 					this.getExadRest(_mietobjekt, oTable);
 					break;
 				  
-				  //case "Versorgungsstruktur":
-					 // oTable = this.byIdView("accountingInfo");
-					 // this.getExadRest(_agreementAndMediumRequest, oTable);
-					 // break;
+				  case "Versorgungsstruktur":
+					  oTable = this.byIdView("Versorgungseinheiten");
+					  this.getExadRest(_Versorgungsstruktur, oTable);
+					  break;
 				  
 			 	  default:
 				   
@@ -103,6 +105,52 @@ sap.ui.define([
 			
 			
 		},
+		_search: function(oEvent){
+			var sEndpoint = this.prepareSearchCriteria(this);
+			var oTable = this.byIdView("accountingInfo");
+			this.getData(sEndpoint, oTable);
+			oEvent.getSource().setText(messageHelper._getI18nMessage("SearchButton"));
+			oEvent.getSource().setType("Default");
+		},
+		prepareSearchCriteria: function(that){
+			var oClient = that.byIdView("ClientSearch");
+			var sSelectedClient = oClient.getProperty("selectedKey");
+			if (sSelectedClient) {
+				var oProperty = that.byIdView("PropertySearch");
+				var sSelectedLiegenschaft = oProperty.getProperty("selectedKey");
+				if(sSelectedLiegenschaft){
+					var sEndpoint = sSelectedLiegenschaft;
+					var oDatum	= that.byIdView("DateRangeSearch");
+					var sDateRange = oDatum.getProperty("value");
+					if (sDateRange){
+						sDateRange = factory.DateFormatter(sDateRange);
+						var	aDateRange = that.dateRangeSelection(sDateRange);
+						sDateRange = "?BETWEEN_DATE=" + "gueltigVon-" + aDateRange[0] + "-gueltigBis-" + aDateRange[1];
+						sEndpoint = sEndpoint + sDateRange;
+					}
+					return sEndpoint;
+				}else{
+					messageHelper.messageToast("PropertySelectionError");
+				}
+			}else{
+				messageHelper.messageToast("ClientSelectionError");
+			}
+		},
+		getData: function(sEndpoint, oTable){
+			var oModel = new JSONModel();
+			var aModelData = [];
+			sEndpoint = oTable.getProperty("endpoint") + sEndpoint;
+			this.getOwnerComponent().ExadRest(sEndpoint)
+					.then(function (response) {
+						aModelData.RowData = response.data;
+						aModelData.ColumnData = _agreementAndMediumRequest.getData();
+						oTable._bindColumns(aModelData);
+						oTable.setModel(aModelData);
+						oTable.setCount(aModelData.RowData.length);
+						}).catch(function (error) {
+							console.log(error.toJSON());
+						});
+		},
 		Search : function(oEvent){
 			
 			var oClient = this.byIdView("ClientSearch");
@@ -113,29 +161,19 @@ sap.ui.define([
 				if(sSelectedLiegenschaft){
 					var oModel = new JSONModel();
 					var aModelData = [];
-				//	var	aFilters = this.getFilters();
 					var oTable1 = this.byIdView("accountingInfo");
+					var sEndpoint = oTable1.getProperty("endpoint") + sSelectedLiegenschaft;
 					
 					var oDatum	= this.byIdView("DateRangeSearch");
 					var sDateRange = oDatum.getProperty("value");
 					if (sDateRange){
 						sDateRange = factory.DateFormatter(sDateRange);
-						var	aDateRange = sDateRange.split("-");
-						sDateRange = "gueltigVon-" + aDateRange[0] + "-gueltigBis-" + aDateRange[1] + ")";
-						this.getOwnerComponent().ExadRest(oTable1.getProperty("endpoint")+ sSelectedLiegenschaft + "?BETWEEN_DATE(" + sDateRange )
-						.then(function (response) {
-							aModelData.RowData = response.data;
-							aModelData.ColumnData = _agreementAndMediumRequest.getData();
-							oTable1._bindColumns(aModelData);
-							oTable1.setModel(aModelData);
-							oTable1.setCount(aModelData.RowData.length);
-							}).catch(function (error) {
-											  //  console.log(error.toJSON());
-							});
-						oEvent.getSource().setText(messageHelper._getI18nMessage("SearchButton"));
-						oEvent.getSource().setType("Default");
-					}else{
-						this.getOwnerComponent().ExadRest(oTable1.getProperty("endpoint")+ sSelectedLiegenschaft)
+						var	aDateRange = this.dateRangeSelection(sDateRange);
+						sDateRange = "?BETWEEN_DATE=" + "gueltigVon-" + aDateRange[0] + "-gueltigBis-" + aDateRange[1];
+						
+						sEndpoint = sEndpoint + sDateRange;
+					}	
+						this.getOwnerComponent().ExadRest(sEndpoint)
 							.then(function (response) {
 								aModelData.RowData = response.data;
 								aModelData.ColumnData = _agreementAndMediumRequest.getData();
@@ -143,11 +181,22 @@ sap.ui.define([
 								oTable1.setModel(aModelData);
 								oTable1.setCount(aModelData.RowData.length);
 								}).catch(function (error) {
-												  //  console.log(error.toJSON());
+									console.log(error.toJSON());
 								});
+					// var oTable2 = this.byIdView("accountigStatus");
+					// var sEndpoint2 = oTable2.getProperty("endpoint") + sSelectedLiegenschaft;
+					// this.getOwnerComponent().ExadRest(sEndpoint2)
+					// 		.then(function (response) {
+					// 			aModelData.RowData = response.data;
+					// 			aModelData.ColumnData = _billingPeriods.getData();
+					// 			oTable2._bindColumns(aModelData);
+					// 			oTable2.setModel(aModelData);
+					// 			oTable2.setCount(aModelData.RowData.length);
+					// 			}).catch(function (error) {
+					// 				console.log(error.toJSON());
+					// 			});
 							oEvent.getSource().setText(messageHelper._getI18nMessage("SearchButton"));
 							oEvent.getSource().setType("Default");
-					}
 				}else{
 					messageHelper.messageToast("PropertySelectionError");
 				}

@@ -3,11 +3,13 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/base/Log",
-	"sap/ui/core/routing/History"
-], function (Controller, Log, History) {
+	"sap/ui/core/routing/History",
+	"sap/ui/model/json/JSONModel"
+], function (Controller, Log, History, JSONModel) {
 	"use strict";
 
 	return Controller.extend("promos.exad.EXAD2.controller.base", {
+		
 		byIdView: function (sId) {
 			var oView = this.getView();
 			return oView.byId(sId);
@@ -82,6 +84,51 @@ sap.ui.define([
 				});
 
 		},
+		
+		getProperties: function(oEvent){
+			
+		var oSelectItemKey = oEvent.getParameter("selectedItem").getKey();
+			if (oSelectItemKey) {
+				var oModel = new JSONModel();
+				var sPath = "/entities/liegenschaft?kunde=" + oSelectItemKey;
+				oModel = this.ExadRest(sPath, oModel);
+				this.byIdView("PropertySearch").setModel(oModel);
+			}	
+			
+		},
+		
+		initializeClientList: function(){
+			var oModel = new JSONModel();
+			var aPath = "/entities/Kunde";
+			oModel = this.ExadRest(aPath, oModel);
+			this.byIdView("ClientSearch").setModel(oModel);
+		},
+		
+/**************************************************************************/
+
+		dateRangeSelection: function(sDateRange){
+			var aReturn = [];
+			var sDay, sMonth, sYear;
+			try {
+				if(sDateRange){
+					var	aDateRange = sDateRange.split("-");
+						aDateRange[0] = aDateRange[0].substr(0,8);
+						aDateRange[1] = aDateRange[1].substr(1,8);
+					for(var i = 0; i < aDateRange.length; i++){
+						aDateRange[i].trim();
+						sDay = aDateRange[i].substr(0,2);
+						sMonth = aDateRange[i].substr(2,2);
+						sYear = aDateRange[i].substr(4,4);
+						aReturn[i] = sYear + sMonth + sDay;
+					}
+				}
+				
+			} catch (err) {
+			}
+			
+			return aReturn;
+		},
+
 		superGetModelProperty: function (sModelname, sPropertypath) {
 			var oModel = this.getModelView(sModelname);
 			var oProperty = oModel.getProperty(sPropertypath);
@@ -107,6 +154,7 @@ sap.ui.define([
 				entity: sEntity
 			});
 		},
+		
 		superNavTo: function (sRoute) {
 			this.getOwnerComponent().getRouter().navTo(sRoute, {});
 		},
@@ -135,6 +183,14 @@ sap.ui.define([
 			// 	window.history.go(-1);
 			// }
 			
+		},
+		getHashParameter: function(){
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			var sHash = oRouter.oHashChanger.hash ;
+			
+			var temp = sHash.split("/");
+			sHash = temp[temp.length -1] ;
+			return sHash;
 		},
 		getRouter: function() {
 			return sap.ui.core.UIComponent.getRouterFor(this);

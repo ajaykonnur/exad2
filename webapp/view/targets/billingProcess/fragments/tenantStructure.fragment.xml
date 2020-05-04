@@ -7,7 +7,7 @@
 					<uxap:ObjectPageSubSection>
 						<l:VerticalLayout>
 							<Panel>
-								<cust:ExadTable selectionMode="Single" id="Mietobjekte" title="Mietobjekte" endpoint="/entities/Mietobjekt"/>
+								<cust:ExadTable id="Mietobjekte" title="Mietobjekte" endpoint="/entities/Mietobjekt"/>
 							</Panel>
 							<Panel>
 								<cust:ExadTable id="Mieter" title="Mieter" endpoint="/entities/Mieter"/>
@@ -17,6 +17,9 @@
 							</Panel>
 							<Panel>
 								<cust:ExadTable id="Geraet" title="Gerät" endpoint="/entities/Geraet"/>
+							</Panel>
+							<Panel>
+								<cust:ExadTable id="Ablesewerte" title="Ablesewerte" endpoint="/entities/Ablesewert"/>
 							</Panel>
 						</l:VerticalLayout>
 					</uxap:ObjectPageSubSection>

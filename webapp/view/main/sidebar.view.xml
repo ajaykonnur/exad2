@@ -28,39 +28,71 @@
 		</Panel>
 		<Panel id="idPanelHints" width="100%" expandable="true">
 			<headerToolbar>
-				<Toolbar height="3rem">
+				<Toolbar>
 					<core:Icon src="sap-icon://lightbulb"/>
 					<Text text="{i18n>hints}"/>
 				</Toolbar>
 			</headerToolbar>
 			<content>
-				<ScrollContainer vertical="true" content="{ path: 'mockdata>/hintItems', factory: '.factory.createHintItem'}">
-					<!--<f:Card>
+				<ScrollContainer id="hintsContainer" vertical="true" content="{ path: '/', factory: '.factory.createHintItem'}">
+					<f:Card>
 						<f:header>
-							<card:Header title="Test"></card:Header>
+							<card:Header title="{bezeichnung}"></card:Header>
 						</f:header>
 						<f:content>
 							<Text
-								text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat"/>
+								text="{nummer}"/>
 						</f:content>
-					</f:Card>-->
+					</f:Card>
 				</ScrollContainer>
 			</content>
 		</Panel>
 		<Panel id="idPanelNotes" width="100%" expandable="true">
 			<headerToolbar>
-				<Toolbar height="3rem">
+				<Toolbar>
 					<core:Icon src="sap-icon://notes"/>
-					<Text text="Notizen"/>
+					<Text text="{i18n>notes}"/>
 				</Toolbar>
 			</headerToolbar>
 			<content>
-				<ScrollContainer vertical="true">
-					<List items="{mockdata>/noteItems}">
-						<FeedListItem text="{mockdata>text}" sender="{mockdata>author}" timestamp="{mockdata>date}" showIcon="false"/>
-					</List>
-					<FeedInput showIcon="false"/>
-				</ScrollContainer>
+				<HBox>
+				<Input id="noteInput" placeholder="{i18n>addNote}"></Input>
+				<Button id="noteAddBtn" tooltip="{i18n>Btn.add.tooltip}" icon="sap-icon://add" press=".onAddNotePress" />
+				</HBox>
+				<List id="notizList" items="{/}" >
+					<items>
+						<ObjectListItem 
+							title="{nummer}">
+							<attributes>
+								<ObjectAttribute id="bezeichnung" text="{bezeichnung}" />
+								<!--<core:Icon src="sap-icon://history"/>-->
+								<ObjectAttribute id="gueltigVon" text="{gueltigVon} - {creationUser}" />
+								<!--<core:Icon src="sap-icon://person-placeholder"/>-->
+								<!--<ObjectAttribute id="creationUser" text="{creationUser}" />-->
+							</attributes>
+						</ObjectListItem>
+					</items>
+				
+				</List>
+				<!--<VBox id="notizList" items="{/}" >-->
+					
+				<!--	<Title text="{nummer}" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />-->
+				<!--	<Text  text="{bezeichnung}"/>-->
+				<!--	<HBox>-->
+				<!--		<core:Icon src="sap-icon://history"/>-->
+				<!--		<Text  text="{gueltigVon}"/>-->
+				<!--		<ToolbarSpacer/>-->
+				<!--		<core:Icon src="sap-icon://person-placeholder"/>-->
+				<!--		<Text  text="{creationUser}"/>-->
+				<!--	</HBox>-->
+				<!--</VBox>-->
+				<!--<ScrollContainer vertical="true">-->
+				<!--	<FeedInput showIcon="false"/>-->
+				<!--	<List id="notizList" items="{/}">-->
+						<!--<FeedListItem text="{text}" sender="{author}" timestamp="{date}" showIcon="false"/>	-->
+				<!--		<FeedListItem text="{nummer}" sender="{bezeichnung}" timestamp="{gueltigVon}" showIcon="false"/>-->
+				<!--	</List>-->
+				<!--</ScrollContainer>-->
 			</content>
 		</Panel>
 	</VBox>

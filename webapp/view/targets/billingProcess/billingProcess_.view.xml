@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table" xmlns:tnt="sap.tnt" xmlns:uxap="sap.uxap" controllerName="promos.exad.EXAD2.controller.targets.billingProcess">
  <Page id="pageBillingProcess" enableScrolling="false">
-  	  <uxap:ObjectPageLayout id="ObjectPageLayout_" useIconTabBar="true" sectionChange="onTabSelcted">
+  	  <uxap:ObjectPageLayout id="ObjectPageLayout_" useIconTabBar="true" sectionChange="onTabSelcted" preserveHeaderStateOnScroll="true">
          <uxap:headerTitle>
             <uxap:ObjectPageDynamicHeaderTitle>
             	<uxap:expandedHeading>
@@ -24,12 +24,12 @@
                 <ComboBox id="PropertySearch" showSecondaryValues= "true" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
 						<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
 				</ComboBox>
-                  <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" />
-                  <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="Search" />
+                <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" />
+                <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="_search" />
                </HBox>
                </uxap:expandedContent>
                	<uxap:actions>
-					<OverflowToolbarButton id="detailView" type="Transparent" icon="sap-icon://add-employee" tooltip="Kunde Anlegen" press="onDetailNavigation"/>
+					<OverflowToolbarButton id="detail" type="Transparent" icon="sap-icon://add-employee" tooltip="Kunde Anlegen" press="onDetailNavigation"/>
 				</uxap:actions>
                
             </uxap:ObjectPageDynamicHeaderTitle>

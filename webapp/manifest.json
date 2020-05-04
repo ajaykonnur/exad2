@@ -131,6 +131,11 @@
 				},
 				{
 					"pattern": "detail/{entity}",
+					"name": "fullScreenTableRoute",
+					"target": "fullScreenTable"
+				},
+				{
+					"pattern": "detailView/{entity}",
 					"name": "detailViewRoute",
 					"target": "detailView"
 				}
@@ -160,9 +165,13 @@
 					"viewName": "targets/parameters",
 					"viewId": "parameters"
 				},
+				"fullScreenTable": {
+					"viewName": "targets/billingProcess/detail/fullScreenTable",
+					"viewId": "fullScreenTable"
+				},
 				"detailView": {
-					"viewName": "targets/detailView",
-					"viewId": "detailView"
+					"viewName":  "targets/billingProcess/detail/detailView",
+					"viewId" : "detailView"
 				}
 			}
 		}

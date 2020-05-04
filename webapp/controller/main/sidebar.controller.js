@@ -1,7 +1,8 @@
 sap.ui.define([
 	"promos/exad/EXAD2/controller/base.controller",
-	"promos/exad/EXAD2/controller/factory"
-], function (baseController, factory) {
+	"promos/exad/EXAD2/controller/factory",
+		"sap/ui/model/json/JSONModel"
+], function (baseController, factory, JSONModel) {
 	"use strict";
 
 	return baseController.extend("promos.exad.EXAD2.controller.sidebar", {
@@ -11,6 +12,8 @@ sap.ui.define([
 		onInit: function () {
 			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			this.subscribeEventBus();
+			this.initNotiz();
+			this.initHints();
 		},
 
 		subscribeEventBus: function (oEvent) {
@@ -26,7 +29,21 @@ sap.ui.define([
 				break;
 			}
 		},
-
+		
+		initNotiz: function(){
+				var oModel = new JSONModel();
+			//	var sPath =  "entities/AnwenderNotiz"
+				var sPath = "entities/liegenschaft";
+				oModel = this.ExadRest(sPath, oModel);
+				this.byIdView("notizList").setModel(oModel);
+		},
+		initHints: function(){
+				var oModel = new JSONModel();
+			//	var sPath = "entites/AnwenderTipp"
+				var sPath = "entities/liegenschaft";
+				oModel = this.ExadRest(sPath, oModel);
+				this.byIdView("hintsContainer").setModel(oModel);
+		},
 		onSidebarButtonPress: function (oEvent) {
 			var sIdButton = oEvent.getSource().getId();
 			this.expandSidebarPanelByButton(sIdButton);

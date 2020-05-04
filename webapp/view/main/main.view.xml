@@ -1,6 +1,7 @@
 <mvc:View controllerName="promos.exad.EXAD2.controller.main.main" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt"
 	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
-	<tnt:ToolPage id="idToolPage"  sideExpanded="true">
+	<!--<Page enableScrolling="false">-->
+	<tnt:ToolPage id="idToolPage" sideExpanded="true">
 		<tnt:header>
 			<core:Fragment fragmentName="promos.exad.EXAD2.view.main.shellbar" type="XML"/>
 		</tnt:header>
@@ -21,4 +22,5 @@
 			</l:Splitter>
 		</tnt:mainContents>
 	</tnt:ToolPage>
+	<!--</Page>-->
 </mvc:View>

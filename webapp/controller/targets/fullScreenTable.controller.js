@@ -1,9 +1,13 @@
 sap.ui.define([
 	"promos/exad/EXAD2/controller/base.controller",
-	"promos/exad/EXAD2/control/ExadTable"
-], function (baseController, ExadTable) {
+	"promos/exad/EXAD2/controller/messageHelper",
+	"promos/exad/EXAD2/control/ExadTable",
+	"promos/exad/EXAD2/controller/factory",
+	"sap/ui/model/json/JSONModel"
+], function (baseController, messageHelper, ExadTable, factory, JSONModel) {
 	"use strict";
 
+	var 	_Table = new ExadTable();
 
 	return baseController.extend("promos.exad.EXAD2.controller.targets.detailView", {
 		onInit: function () {
@@ -15,14 +19,32 @@ sap.ui.define([
 		handleRouteMatched:function() {
 			this.setView();
 			this.getFullScreenTable();
+			this.getInitClientList();
 			this.getSearchCriteria();
 			this.getBreadcrumbsItem();
+		},
+		
+		onClientSelected:function(oEvent){
+			this.getProperties(oEvent);                     	
 		},
 	
 		setView: function(){
 			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---main").getController();
 			oController.toggleFunctionsArea();
 			oController.toggleSidebarArea();
+		},
+		
+		search: function(oEvent){
+			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
+			var sEndpoint = oController.prepareSearchCriteria(this);
+			if(_Table) {
+				try {
+					oController.getData(sEndpoint, _Table);	
+					_Table._setVisibleRowCount(15);
+					} catch (err) {
+						this._fireInternalErrorOccurred(err);
+						}
+			}
 		},
 		
 		getFullScreenTable: function(){
@@ -35,21 +57,51 @@ sap.ui.define([
 				var oTable = oController.byIdView(sTableName);
 				var oData = oTable.getModel();
 				
-				var oTableClone = new ExadTable();
-				oTableClone = oTable.clone();
-				oTableClone._bindColumns(oData);
-				
-				oTableClone._setVisibleRowCount(20);
+				_Table = oTable.clone();
+				_Table._bindColumns(oData);
+				_Table._setVisibleRowCount(15);
+		
 				var oPanel = this.byIdView("fullScreenPanel");
 				oPanel.destroyContent();	
-				oPanel.addContent(oTableClone);
-				
+				oPanel.addContent(_Table);
+		
 			} catch (err) {
 				this._fireInternalErrorOccurred(err);
 			}
 		},
 		
+		getInitClientList:function(){
+			this.initializeClientList();
+		},
+		
 		getSearchCriteria:function(){
+			// get Client data from Master View
+			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
+			var oClientInit = oController.byIdView("ClientSearch");
+			var oClientControl = this.byIdView("ClientSearch");
+		
+			var oSelectedItem = oClientInit.getProperty("selectedKey");
+			oClientControl.setSelectedKey(oSelectedItem);
+			
+			// get Property data from Master View
+			var oPropInit = oController.byIdView("PropertySearch");
+			var oPropControl = this.byIdView("PropertySearch");
+			oPropControl.setModel(oPropInit.getModel()); // = oPropInit.clone();
+		
+			oSelectedItem = oPropInit.getProperty("selectedKey");
+			oPropControl.setSelectedKey(oSelectedItem);
+			
+			// get DateRange data from Master View
+			var oDateRangeInit = oController.byIdView("DateRangeSearch");
+			var oDateRangeControl = this.byIdView("DateRangeSearch");
+		
+			var sSelectedValue = oDateRangeInit.getProperty("value");
+			oDateRangeControl.setValue(sSelectedValue);
+			
+			
+		},
+		 
+		_getInitClientList:function(){
 			try {
 				// get controller
 				var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
@@ -91,33 +143,48 @@ sap.ui.define([
 			
 		},
 		getBreadcrumbsItem: function(){
-			var lItem = [];
-			
+			var aItem = [];
 			var sTableName = this.getHashParameter();
-			
 			
 			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
 			var oTabsView = oController.byIdView("ObjectPageLayout_");
 			var sId = oTabsView.getScrollingSectionId();
 			
-			lItem = sId.split("--");
-			lItem.push(sTableName);
-			
-			var oBreadcrumbs = this.byIdView("detailBreadcrumbs");
-			for (var i = 1 ; i < lItem.length ; i++){
-				 oBreadcrumbs.setCurrentLocationText(lItem[i]);	
-				//oBreadcrumbs.addLink(lItem);
+			aItem = sId.split("---");
+			aItem = aItem[1].split("--");
+			aItem.push(sTableName);
+			for(var i = 0; i < aItem.length ; i++){
+				aItem[i].replace(/[^a-zA-Z ]/g, "");
+				aItem[i] = messageHelper._getI18nMessage(aItem[i]);
 			}
-			
+			var oBreadcrumbs = this.byIdView("detailBreadcrumbs");
+			var oModel = new JSONModel();
+			oModel.setData(aItem);
+			oBreadcrumbs.setModel(oModel);
 		},
 		
-		getHashParameter: function(){
-			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			var sHash = oRouter.oHashChanger.hash ;
+		onBreadcrumbsPress: function(oEvent){
+			var	sText = oEvent.getSource().getText();
+			if( sText !== "Abrechnungsinformationen" ){
+				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.navTo("billingProcessRoute", true);	
+			}
 			
-			var temp = sHash.split("/");
-			sHash = temp[temp.length -1] ;
-			return sHash;
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	});
 });

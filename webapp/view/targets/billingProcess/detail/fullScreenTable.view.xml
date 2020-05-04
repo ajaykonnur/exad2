@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table" xmlns:tnt="sap.tnt" 
-xmlns:uxap="sap.uxap"  xmlns:cust="promos.exad.EXAD2.control" controllerName="promos.exad.EXAD2.controller.targets.detailView">
+xmlns:uxap="sap.uxap"  xmlns:cust="promos.exad.EXAD2.control" controllerName="promos.exad.EXAD2.controller.targets.fullScreenTable">
 
 	<Button id="btnBackButton" type="Default" icon="sap-icon://slim-arrow-left" class="customClass back colorBlue" press="onNavBack" />
 	<uxap:ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true">
@@ -15,32 +15,27 @@ xmlns:uxap="sap.uxap"  xmlns:cust="promos.exad.EXAD2.control" controllerName="pr
                
             <uxap:breadcrumbs>
             	  
-				<Breadcrumbs id="detailBreadcrumbs">
-					<Link text="{/lItem}"/>
-					<Link text='Hierarchieebene 2'/>
-					<Link text='Hierarchieebene 3'/>
-					<Link text='Hierarchieebene 4'/>
+				<Breadcrumbs id="detailBreadcrumbs" links="{/}" >
+					<Link press="onBreadcrumbsPress" text="{}"/>
 				</Breadcrumbs>
 			</uxap:breadcrumbs>
 		<uxap:expandedContent>
 				<HBox>
-			 	<VBox id="ClientSearch" >
-			 	<!--<Panel   width="35em">-->
+			 	<VBox>
 			 	<Label text="Kunde" class="labelClass"/>
-				<!--<ComboBox  selectionChange="onClientSelected" showSecondaryValues= "true" tooltip="Kunde" placeholder="Kunde" items="{ path: '/', sorter: { path: 'bezeichnung' }}">-->
-				<!--	<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>-->
-				<!--</ComboBox>-->
-				<!--</Panel>-->
+				<ComboBox id="ClientSearch"  selectionChange="onClientSelected" showSecondaryValues= "true" tooltip="Kunde" placeholder="Kunde" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
+					<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
+				</ComboBox>
 				</VBox>
-				<VBox id="PropertySearch" >
+				<VBox>
 					<Label text="Liegenschaft" class="labelClass" />
-    <!--            <ComboBox id="PropertySearch" showSecondaryValues= "true" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">-->
-				<!--		<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>-->
-				<!--</ComboBox>-->
+                <ComboBox id="PropertySearch" showSecondaryValues= "true" tooltip="Liegenschaft" placeholder="Liegenschaft" items="{ path: '/', sorter: { path: 'bezeichnung' }}">
+						<core:ListItem key="{id}" text="{bezeichnung}" additionalText = "{id}"/>
+				</ComboBox>
 				</VBox>
-				<VBox  id="DateRangeSearch">
+				<VBox>
 					<Label text="Zeitraum" class="labelClass" />
-                  <!--<DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" />-->
+                  <DateRangeSelection id="DateRangeSearch" change="onDateRangeSearchChange" />
                  </VBox>
                  <VBox>
 					<Label text="gelöschte Sätze anzeigen" />
@@ -51,7 +46,7 @@ xmlns:uxap="sap.uxap"  xmlns:cust="promos.exad.EXAD2.control" controllerName="pr
 					</Switch>
                  </VBox>
                   </HBox>
-                   <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="setView" class="customClassHeader" />
+                   <Button id="SearchButton" text="{i18n>SearchButtonInitial}" type="Emphasized" press="search" class="customClassHeader" />
             
                </uxap:expandedContent>
         </uxap:ObjectPageDynamicHeaderTitle>

@@ -1,8 +1,22 @@
 <core:FragmentDefinition 
 	xmlns="sap.m" 
 	xmlns:core="sap.ui.core"
+	xmlns:uxap="sap.uxap" 
+	xmlns:l="sap.ui.layout"
 	xmlns:cust="promos.exad.EXAD2.control">
-    
-    	<cust:ExadTable id="SupplyStructure" title="Versorgungsstruktur" endpoint="/entities/liegenschaftMedium"/>
-    	
+    	<uxap:ObjectPageLayout id="VersorgungsPageLayout" showAnchorBarPopover="false" upperCaseAnchorBar="false">
+		<uxap:sections>
+			<uxap:ObjectPageSection title="Versorgungsstruktur" showTitle="false">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<l:VerticalLayout>
+							<Panel>
+								<cust:ExadTable id="Versorgungseinheiten" title="Versorgungsstruktur" endpoint="/entities/Versorgungseinheit"/>
+							</Panel>
+						</l:VerticalLayout>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+	</uxap:ObjectPageLayout>
 </core:FragmentDefinition>

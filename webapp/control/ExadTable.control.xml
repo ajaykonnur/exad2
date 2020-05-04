@@ -21,8 +21,9 @@
 					</items>
 				</ComboBox>
 				<Button text="Funktion"/>
+				<Button id="detailView" tooltip="{i18n>Btn.fullScreen.tooltip}" enabled="true" icon="sap-icon://display" press=".detailView"/>
 				<ToolbarSpacer/>
-				<Button id="detailView" tooltip="{i18n>Btn.fullScreen.tooltip}" enabled="true" icon="sap-icon://full-screen" press=".toggleFullScreen"/>
+				<Button id="fullScreenTable" tooltip="{i18n>Btn.fullScreen.tooltip}" enabled="true" icon="sap-icon://full-screen" press=".toggleFullScreen"/>
 				<ToolbarSeparator/>
 				<Button id="addBtn" tooltip="{i18n>Btn.add.tooltip}" enabled="false" icon="sap-icon://add" press=".onAddRowPress" />
 				<Button id="copyBtn" tooltip="{i18n>Btn.copy.tooltip}"  enabled="false" icon="sap-icon://copy" press=".onCopyRowPress"/>

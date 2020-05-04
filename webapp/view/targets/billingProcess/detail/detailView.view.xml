@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" 
+xmlns:core="sap.ui.core" 
+xmlns:l="sap.ui.layout"
+xmlns:tnt="sap.tnt" 
+xmlns:uxap="sap.uxap" 
+xmlns:semantic="sap.f.semantic"
+controllerName="promos.exad.EXAD2.controller.targets.detail">
+	<l:Splitter>
+  		<Panel>
+	  		<Button id="btnBackButton" type="Default" icon="sap-icon://slim-arrow-left" class="customClass back colorBlue" press="onNavBack" />
+	  		<Breadcrumbs id="detailBreadcrumbs" links="{/}" >
+						<Link press="onBreadcrumbsPress" text="{}"/>
+					</Breadcrumbs>
+			<Title text="Abrechnungsprozess" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
+		 	<List id="list"	width="auto" items="{path: '/', templateShareable:false}" class="sapFDynamicPageAlignContent" growing="true" growingScrollToLoad="true">
+				<infoToolbar>
+					<Toolbar active="true"	id="filterBar">
+						<Title id="filterBarLabel"	text="toolbar Title" />
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar>
+					<OverflowToolbar>
+						<SearchField id="searchField" showRefreshButton="true"	tooltip="{i18n>masterSearchTooltip}" width="100%" search=".onSearch">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="150px"	maxWidth="240px" shrinkable="true" priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+						<ToolbarSpacer/>
+						<Button id="filterButton" press=".onOpenViewSettings" icon="sap-icon://filter"	type="Transparent"/>
+						<Button id="groupButton" press=".onOpenViewSettings" icon="sap-icon://group-2"	type="Transparent"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem 
+						title="{mietobjektId}">
+						<attributes>
+							<ObjectAttribute id="lage" text="{lage}" />
+							<ObjectAttribute id="strasse" text="{strasse}" />
+							<ObjectAttribute id="gueltigVon" text="Gültig von {gueltigVon}" />
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+  		</Panel>
+  		<mvc:XMLView viewName="promos.exad.EXAD2.view.targets.billingProcess.detail.detailArea" id="idSideBarArea">
+			<mvc:layoutData>
+				<l:SplitterLayoutData minSize="200" size="75%" resizable="true"/>
+			</mvc:layoutData>
+		</mvc:XMLView>
+		</l:Splitter>
+</mvc:View>

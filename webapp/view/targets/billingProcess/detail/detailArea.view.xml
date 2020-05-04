@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+xmlns:forms="sap.ui.layout.form" xmlns:uxap="sap.uxap"
+controllerName="promos.exad.EXAD2.controller.targets.detailArea">
+	<uxap:ObjectPageLayout id="detailAreaPageLayout" showTitleInHeaderContent="true" preserveHeaderStateOnScroll="true">
+	<uxap:headerTitle>
+		<uxap:ObjectPageDynamicHeaderTitle>
+			<uxap:expandedHeading>
+                <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+                  </FlexBox>
+            </uxap:expandedHeading>
+			<uxap:expandedHeading>
+                <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+                    <Title text="Entität bearbeiten" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
+                    <Button text="Speichern + Schließen" press="onPress" />
+		            <Button text="Speichern" press="onPress" />
+		    		<Button text="Abbrechen" press="onPress" />
+		        	<Button text="Als Kopie speichern" press="onPress" />
+		        	<Button text="Löschen" press="onPress" />
+                  </FlexBox>
+            </uxap:expandedHeading>
+	        <uxap:expandedContent>
+	        	
+	        </uxap:expandedContent>
+        </uxap:ObjectPageDynamicHeaderTitle>
+    </uxap:headerTitle>
+    <uxap:headerContent>
+    </uxap:headerContent>
+    <uxap:sections>
+    	<uxap:ObjectPageSection id="Stammdaten" title="Stammdaten">
+        	<uxap:subSections>
+            	<uxap:ObjectPageSubSection id="SectionSS1" title=" ">
+                	<uxap:blocks>
+                			<forms:Form id="detailForm"
+                					editable="false">
+									
+									<forms:layout>
+										<forms:ResponsiveGridLayout
+											labelSpanXL="4"
+											labelSpanL="3"
+											labelSpanM="4"
+											labelSpanS="12"
+											adjustLabelSpan="false"
+											emptySpanXL="0"
+											emptySpanL="4"
+											emptySpanM="0"
+											emptySpanS="0"
+											columnsXL="2"
+											columnsL="1"
+											columnsM="1"
+											singleContainerFullSize="false" />
+									</forms:layout>
+									<forms:formContainers>
+										<forms:FormContainer formElements="{/}" title="{detail-group}" >
+											<forms:formElements>
+												<forms:FormElement label="{label}"  visible="{detail-visible}">
+													<forms:fields>
+														<!--<Text text="{value}" id="nameText"  />-->
+														<Input type="Text" value="{value}" visible="{detail-visible}" />
+													</forms:fields>
+												</forms:FormElement>
+											</forms:formElements>
+										</forms:FormContainer>
+									</forms:formContainers>
+						</forms:Form>
+    			<!--	<forms:SimpleForm id="detailForm"  content="{/}"-->
+    			<!--					editable="true"-->
+							<!--		layout="ResponsiveGridLayout"-->
+									
+							<!--		labelSpanXL="4"-->
+							<!--		labelSpanL="3"-->
+							<!--		labelSpanM="4"-->
+							<!--		labelSpanS="12"-->
+							<!--		adjustLabelSpan="false"-->
+							<!--		emptySpanXL="0"-->
+							<!--		emptySpanL="4"-->
+							<!--		emptySpanM="0"-->
+							<!--		emptySpanS="0"-->
+							<!--		columnsXL="2"-->
+							<!--		columnsL="1"-->
+							<!--		columnsM="1"-->
+							<!--		singleContainerFullSize="false" >-->
+							<!--<forms:content>-->
+								<!--<core:Title text="Stammdaten"/>-->
+							<!--	<Label text="{name}" visible="{detail-visible}" />-->
+								<!--<Text text="{value}" visible="{detail-visible}" />-->
+							<!--	<Input type="Text" value="{value}" visible="{detail-visible}" />-->
+							<!--</forms:content>-->
+						<!--</forms:SimpleForm>-->
+                    </uxap:blocks>
+                </uxap:ObjectPageSubSection>
+            </uxap:subSections>
+        </uxap:ObjectPageSection>
+    </uxap:sections>
+    </uxap:ObjectPageLayout>
+</mvc:View>
