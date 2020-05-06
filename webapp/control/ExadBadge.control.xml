@@ -1,0 +1,6 @@
+<core:FragmentDefinition  xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Panel class="BadgePanel" >
+		<core:Icon class="BadgeIcon" src="sap-icon://lightbulb" />
+		<Button class="BadgeBTN" text="5" ></Button>
+	</Panel>
+</core:FragmentDefinition>

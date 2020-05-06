@@ -10,8 +10,9 @@ controllerName="promos.exad.EXAD2.controller.targets.detailArea">
                   </FlexBox>
             </uxap:expandedHeading>
 			<uxap:expandedHeading>
-                <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-                    <Title text="Entität bearbeiten" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
+                <FlexBox id="headerBox" wrap="Wrap" fitContainer="true" alignItems="Center">
+                    <Title id="title" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
+                    <ToolbarSpacer/>
                     <Button text="Speichern + Schließen" press="onPress" />
 		            <Button text="Speichern" press="onPress" />
 		    		<Button text="Abbrechen" press="onPress" />

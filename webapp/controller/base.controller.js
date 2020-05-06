@@ -86,22 +86,28 @@ sap.ui.define([
 		},
 		
 		getProperties: function(oEvent){
-			
-		var oSelectItemKey = oEvent.getParameter("selectedItem").getKey();
-			if (oSelectItemKey) {
-				var oModel = new JSONModel();
-				var sPath = "/entities/liegenschaft?kunde=" + oSelectItemKey;
-				oModel = this.ExadRest(sPath, oModel);
-				this.byIdView("PropertySearch").setModel(oModel);
-			}	
-			
+			try{	
+				var oSelectItemKey = oEvent.getParameter("selectedItem").getKey();
+				if (oSelectItemKey) {
+					var oModel = new JSONModel();
+					var sPath = "/entities/liegenschaft?kunde=" + oSelectItemKey;
+					oModel = this.ExadRest(sPath, oModel);
+					this.byIdView("PropertySearch").setModel(oModel);
+				}	
+			} catch (err) {
+					this._fireInternalErrorOccurred(err);
+				}
 		},
 		
 		initializeClientList: function(){
-			var oModel = new JSONModel();
-			var aPath = "/entities/Kunde";
-			oModel = this.ExadRest(aPath, oModel);
-			this.byIdView("ClientSearch").setModel(oModel);
+			try{	
+				var oModel = new JSONModel();
+				var aPath = "/entities/Kunde";
+				oModel = this.ExadRest(aPath, oModel);
+				this.byIdView("ClientSearch").setModel(oModel);
+			} catch (err) {
+					this._fireInternalErrorOccurred(err);
+			}
 		},
 		
 /**************************************************************************/

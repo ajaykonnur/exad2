@@ -3,13 +3,17 @@
 	 xmlns:core="sap.ui.core" 
 	 xmlns:f="sap.f" 
 	 xmlns:card="sap.f.cards"
-	 xmlns:control="promos.exad.EXAD2.control">
-	<VBox id="idSidebarContentNotExpanded"  width="100%"  visible="false">
-		<Button id="idSidebarButtonSearch" icon="sap-icon://search" text=" " type="Back" width="100%" press=".onSidebarButtonPress"></Button>
-		<Button id="idSidebarButtonHints" icon="sap-icon://lightbulb" text="5" type="Back" width="100%" press=".onSidebarButtonPress"></Button>
-		<Button id="idSidebarButtonNotes" icon="sap-icon://notes" text="3" type="Back" width="100%" press=".onSidebarButtonPress"></Button>
-		<!--<control:customButton id="idSidebarButtonNotes" icon="sap-icon://lightbulb" value="100" color="green">-->
-		<!--</control:customButton>-->
+	 xmlns:cust="promos.exad.EXAD2.control">
+	<VBox id="idSidebarContentNotExpanded" visible="false">
+		<Button id="idSidebarButtonSearch" icon="sap-icon://search" type="Back"  press=".onSidebarButtonPress"></Button>
+		<Button id="idSidebarButtonHints" icon="sap-icon://lightbulb" type="Back"  press=".onSidebarButtonPress"></Button>
+		<Button id="idSidebarButtonNotes" icon="sap-icon://notes" type="Back" press=".onSidebarButtonPress"></Button>
+		<!--<cust:customButton id="idSidebarButtonNotes_" icon="sap-icon://lightbulb" value="100" color="green">-->
+		<!--</cust:customButton>-->
+		<!--<Panel class="BadgePanel" >-->
+		<!--	<core:Icon size="1em" class="BadgeIcon" src="sap-icon://lightbulb" />-->
+		<!--	<Label class="BadgeBTN" text="5"></Label>-->
+		<!--</Panel>-->
 	</VBox>
 	<VBox id="idSidebarContentExpanded">
 		<Panel id="idPanelSearch" width="100%" expandable="true">
@@ -64,9 +68,10 @@
 						<ObjectListItem 
 							title="{nummer}">
 							<attributes>
-								<ObjectAttribute id="bezeichnung" text="{bezeichnung}" />
+								<ObjectAttribute id="maske" text="{maske}" />
+								<ObjectAttribute id="bezeichnung_" text="{notiz}" />
 								<!--<core:Icon src="sap-icon://history"/>-->
-								<ObjectAttribute id="gueltigVon" text="{gueltigVon} - {creationUser}" />
+								<ObjectAttribute id="gueltigVon" text="{creationDateTime} - {creationUser}" />
 								<!--<core:Icon src="sap-icon://person-placeholder"/>-->
 								<!--<ObjectAttribute id="creationUser" text="{creationUser}" />-->
 							</attributes>

@@ -32,14 +32,15 @@ sap.ui.define([
 		
 		initNotiz: function(){
 				var oModel = new JSONModel();
-			//	var sPath =  "entities/AnwenderNotiz"
-				var sPath = "entities/liegenschaft";
+				var sPath =  "entities/anwenderNotiz";
+			//	var sPath = "entities/liegenschaft";
 				oModel = this.ExadRest(sPath, oModel);
+				factory.dateTimeForamt(oModel);
 				this.byIdView("notizList").setModel(oModel);
 		},
 		initHints: function(){
 				var oModel = new JSONModel();
-			//	var sPath = "entites/AnwenderTipp"
+			//	var sPath = "entites/anwenderTipp"
 				var sPath = "entities/liegenschaft";
 				oModel = this.ExadRest(sPath, oModel);
 				this.byIdView("hintsContainer").setModel(oModel);

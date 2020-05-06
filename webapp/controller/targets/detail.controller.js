@@ -1,12 +1,13 @@
 sap.ui.define([
 	"promos/exad/EXAD2/controller/base.controller",
+	"promos/exad/EXAD2/controller/targets/detailArea.controller",
 	"sap/ui/model/json/JSONModel",
 	"promos/exad/EXAD2/controller/messageHelper"
-], function(BaseController, JSONModel, messageHelper) {
+], function(BaseController, detailArea, JSONModel, messageHelper) {
 	
 	"use strict";
 
-	return BaseController.extend("sap.ui.demo.orderbrowser.controller.Detail", {
+	return BaseController.extend("promos.exad.EXAD2.controller.targets.detail", {
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -22,11 +23,17 @@ sap.ui.define([
 			this.setView();
 			this.getListData();
 			this.getBreadcrumbsItem();
+			// this.initFormData();
 		},
 		setView: function(){
-			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---main").getController();
-			oController.toggleFunctionsArea();
-			oController.toggleSidebarArea();
+			try{
+				var oController = sap.ui.getCore().byId("promos.exad.EXAD2---main").getController();
+				oController.toggleFunctionsArea();
+				oController.toggleSidebarArea();	
+			}catch(err){
+				this._fireInternalErrorOccurred(err);
+			}
+			
 		},
 		getListData: function(){
 			
@@ -90,6 +97,23 @@ sap.ui.define([
 			this.getOwnerComponent().oListSelector.clearMasterListSelection();
 			this.getRouter().navTo("master");
 		},
+		
+		// initFormData: function(){
+		// 	var sTableName = this.getHashParameter();
+		// 	var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
+		// 	var oTable = oController.byIdView(sTableName);
+		// 	var aRowData = oTable.getModel().RowData[0];
+		// 	var oMetaData = oTable.getModel().ColumnData;
+		// 	var sVar, sVal ;
+		// 	for( var i = 0 ; i< oMetaData.length ; i++){
+		// 		sVar = oMetaData[i].name;
+		// 		sVal = aRowData[sVar];
+		// 		oMetaData[i].value = sVal;
+		// 	}
+		// 	var oModel = new JSONModel();
+		// 	oModel.setData(oMetaData);
+		// 	this.byIdView("detailForm").setModel(oModel);
+		// },
 
 		/**
 		 * Toggle between full and non full screen mode.
@@ -107,25 +131,36 @@ sap.ui.define([
 			}
 
 		},
+		
+		handleSelectChange: function(oEvent){
+			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---detailView--idSideBarArea").getController();
+			oController.handelItemSelction(oEvent);
+		},
+		
+		
+		
 		getBreadcrumbsItem: function(){
 			var aItem = [];
 			var sTableName = this.getHashParameter();
-			
-			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
-			var oTabsView = oController.byIdView("ObjectPageLayout_");
-			var sId = oTabsView.getScrollingSectionId();
-			
-			aItem = sId.split("---");
-			aItem = aItem[1].split("--");
-			aItem.push(sTableName);
-			for(var i = 0; i < aItem.length ; i++){
-				aItem[i].replace(/[^a-zA-Z ]/g, "");
-				aItem[i] = messageHelper._getI18nMessage(aItem[i]);
+			try{
+				var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
+				var oTabsView = oController.byIdView("ObjectPageLayout_");
+				var sId = oTabsView.getScrollingSectionId();
+				
+				aItem = sId.split("---");
+				aItem = aItem[1].split("--");
+				aItem.push(sTableName);
+				for(var i = 0; i < aItem.length ; i++){
+					aItem[i].replace(/[^a-zA-Z ]/g, "");
+					aItem[i] = messageHelper._getI18nMessage(aItem[i]);
+				}
+				var oBreadcrumbs = this.byIdView("detailBreadcrumbs");
+				var oModel = new JSONModel();
+				oModel.setData(aItem);
+				oBreadcrumbs.setModel(oModel);
+			}catch(err){
+				this._fireInternalErrorOccurred(err);				
 			}
-			var oBreadcrumbs = this.byIdView("detailBreadcrumbs");
-			var oModel = new JSONModel();
-			oModel.setData(aItem);
-			oBreadcrumbs.setModel(oModel);
 		},
 		onBreadcrumbsPress: function(oEvent){
 			var	sText = oEvent.getSource().getText();

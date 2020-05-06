@@ -1,11 +1,9 @@
-sap.ui.define(["jquery.sap.global", "sap/ui/core/Item",
-		'sap/ui/core/Icon', 'sap/tnt/NavigationList', 'sap/ui/core/Renderer', 'sap/ui/core/IconPool', 'sap/tnt/NavigationListItem',
-		"sap/m/MessageToast"
-	],
-	function(jQuery, Item, Icon, NavigationList, Renderer, IconPool, NavigationListItem, MessageToast) {
+sap.ui.define(["jquery.sap.global", "sap/ui/core/Item",	'sap/ui/core/Icon', 'sap/ui/core/Renderer'],
+	function(jQuery, Item, Icon, Renderer) {
 		"use strict";
 		
 	var CustomButton = sap.ui.core.Control.extend('promos.exad.EXAD2.control.CustomButton', {
+		
     metadata: {
       properties: {
         icon: {type:'sap.ui.core.Icon'},

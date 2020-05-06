@@ -73,8 +73,37 @@
 .exadUiBody #promos.exad.EXAD2---billingProcess--ObjectPageLayoutProperty-spacer{
 	height:1px;
 }
+/*********************** Links *****************************/
+.exadUiBody .sapMLnk{
+	color: #46882a; 
+}
+.exadUiBody .sapMLnk :hover{
+	color: #46882a; 
+}
 
 /********************* Badges *********************************/
+.BadgePanel{
+	height: 30px;
+	width: 15px;
+}
+.BadgePanel .BadgeIcon{
+	background-color: white;
+	height: 25px;
+	width: 10px;
+}
+.BadgePanel .BadgeBTN{
+	height: 15px;
+	width: 15px;
+	background-color: green;
+	color: white;
+	position: absolute;
+	text-align: center;
+	margin-right:-5;
+	margin-top:-8;
+	border-radius: 50%;
+}
+
+
 .sap-dennisseah-badge {
   margin: 2px;
   display: flex;

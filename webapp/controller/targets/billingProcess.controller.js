@@ -30,12 +30,12 @@ sap.ui.define([
 		initMetaData: function(){
 			_agreementAndMediumRequest = this.ExadRest ("models/agreementAndMediumRequest", _agreementAndMediumRequest);
 		//	_billingPeriods = this.ExadRest ("models/billingPeriods", _billingPeriods);
-			_mietobjekt  = this.ExadRest ("models/Mietobjekt", _mietobjekt);
-			_mieter		 = this.ExadRest ("models/Mieter", _mieter);
-			_grundanteil = this.ExadRest ("models/Grundanteil", _grundanteil);
-			_geraet 	 = this.ExadRest ("models/Geraet", _geraet);
-			_ablesewertes 	 = this.ExadRest ("models/Ablesewert", _ablesewertes);
-			_Versorgungsstruktur = this.ExadRest("models/Versorgungseinheit",_Versorgungsstruktur);
+			_mietobjekt  = this.ExadRest ("models/mietobjekt", _mietobjekt);
+			_mieter		 = this.ExadRest ("models/mieter", _mieter);
+			_grundanteil = this.ExadRest ("models/grundanteil", _grundanteil);
+			_geraet 	 = this.ExadRest ("models/geraet", _geraet);
+			_ablesewertes 	 = this.ExadRest ("models/ablesewert", _ablesewertes);
+			_Versorgungsstruktur = this.ExadRest("models/versorgungseinheit",_Versorgungsstruktur);
 		},
 	
 		onClientSelected: function(oEvent) {
@@ -88,9 +88,17 @@ sap.ui.define([
 					break;
 				  
 				  case "Versorgungsstruktur":
-					  oTable = this.byIdView("Versorgungseinheiten");
-					  this.getExadRest(_Versorgungsstruktur, oTable);
-					  break;
+				  	oTable = this.byIdView("Versorgungseinheiten");
+					this.getExadRest(_Versorgungsstruktur, oTable);
+					
+					// Endgeräte
+					var oTableGrt = this.byIdView("Geraet_");
+					this.getExadRest(_geraet, oTableGrt);
+						
+					// Ablesewerte
+					var oTableAbw = this.byIdView("Ablesewerte_");
+					this.getExadRest(_ablesewertes, oTableAbw);
+				 break;
 				  
 			 	  default:
 				   

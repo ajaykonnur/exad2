@@ -11,7 +11,13 @@
 					<uxap:ObjectPageSubSection>
 						<l:VerticalLayout>
 							<Panel>
-								<cust:ExadTable id="Versorgungseinheiten" title="Versorgungsstruktur" endpoint="/entities/Versorgungseinheit"/>
+								<cust:ExadTable id="Versorgungseinheiten" title="Versorgungsstruktur" endpoint="/entities/versorgungseinheit"/>
+							</Panel>
+							<Panel>
+								<cust:ExadTable id="Geraet_" title="Gerät" endpoint="/entities/geraet"/>
+							</Panel>
+							<Panel>
+								<cust:ExadTable id="Ablesewerte_" title="Ablesewerte" endpoint="/entities/ablesewert"/>
 							</Panel>
 						</l:VerticalLayout>
 					</uxap:ObjectPageSubSection>

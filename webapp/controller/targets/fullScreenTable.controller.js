@@ -29,9 +29,17 @@ sap.ui.define([
 		},
 	
 		setView: function(){
-			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---main").getController();
-			oController.toggleFunctionsArea();
-			oController.toggleSidebarArea();
+			try{
+				var oController = sap.ui.getCore().byId("promos.exad.EXAD2---main").getController();
+				oController.toggleFunctionsArea();
+				oController.toggleSidebarArea();
+				//oController.setSidebarExpanded();
+				
+				
+			}
+			catch(err){
+				this._fireInternalErrorOccurred(err);
+			}
 		},
 		
 		search: function(oEvent){
@@ -75,30 +83,32 @@ sap.ui.define([
 		},
 		
 		getSearchCriteria:function(){
-			// get Client data from Master View
-			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
-			var oClientInit = oController.byIdView("ClientSearch");
-			var oClientControl = this.byIdView("ClientSearch");
-		
-			var oSelectedItem = oClientInit.getProperty("selectedKey");
-			oClientControl.setSelectedKey(oSelectedItem);
+			try{
+				// get Client data from Master View
+				var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
+				var oClientInit = oController.byIdView("ClientSearch");
+				var oClientControl = this.byIdView("ClientSearch");
 			
-			// get Property data from Master View
-			var oPropInit = oController.byIdView("PropertySearch");
-			var oPropControl = this.byIdView("PropertySearch");
-			oPropControl.setModel(oPropInit.getModel()); // = oPropInit.clone();
-		
-			oSelectedItem = oPropInit.getProperty("selectedKey");
-			oPropControl.setSelectedKey(oSelectedItem);
+				var oSelectedItem = oClientInit.getProperty("selectedKey");
+				oClientControl.setSelectedKey(oSelectedItem);
+				
+				// get Property data from Master View
+				var oPropInit = oController.byIdView("PropertySearch");
+				var oPropControl = this.byIdView("PropertySearch");
+				oPropControl.setModel(oPropInit.getModel()); // = oPropInit.clone();
 			
-			// get DateRange data from Master View
-			var oDateRangeInit = oController.byIdView("DateRangeSearch");
-			var oDateRangeControl = this.byIdView("DateRangeSearch");
-		
-			var sSelectedValue = oDateRangeInit.getProperty("value");
-			oDateRangeControl.setValue(sSelectedValue);
+				oSelectedItem = oPropInit.getProperty("selectedKey");
+				oPropControl.setSelectedKey(oSelectedItem);
+				
+				// get DateRange data from Master View
+				var oDateRangeInit = oController.byIdView("DateRangeSearch");
+				var oDateRangeControl = this.byIdView("DateRangeSearch");
 			
-			
+				var sSelectedValue = oDateRangeInit.getProperty("value");
+				oDateRangeControl.setValue(sSelectedValue);
+			} catch (err) {
+				this._fireInternalErrorOccurred(err);
+			}
 		},
 		 
 		_getInitClientList:function(){
@@ -143,24 +153,28 @@ sap.ui.define([
 			
 		},
 		getBreadcrumbsItem: function(){
-			var aItem = [];
-			var sTableName = this.getHashParameter();
-			
-			var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
-			var oTabsView = oController.byIdView("ObjectPageLayout_");
-			var sId = oTabsView.getScrollingSectionId();
-			
-			aItem = sId.split("---");
-			aItem = aItem[1].split("--");
-			aItem.push(sTableName);
-			for(var i = 0; i < aItem.length ; i++){
-				aItem[i].replace(/[^a-zA-Z ]/g, "");
-				aItem[i] = messageHelper._getI18nMessage(aItem[i]);
+			try{	
+				var aItem = [];
+				var sTableName = this.getHashParameter();
+				
+				var oController = sap.ui.getCore().byId("promos.exad.EXAD2---billingProcess").getController();
+				var oTabsView = oController.byIdView("ObjectPageLayout_");
+				var sId = oTabsView.getScrollingSectionId();
+				
+				aItem = sId.split("---");
+				aItem = aItem[1].split("--");
+				aItem.push(sTableName);
+				for(var i = 0; i < aItem.length ; i++){
+					aItem[i].replace(/[^a-zA-Z ]/g, "");
+					aItem[i] = messageHelper._getI18nMessage(aItem[i]);
+				}
+				var oBreadcrumbs = this.byIdView("detailBreadcrumbs");
+				var oModel = new JSONModel();
+				oModel.setData(aItem);
+				oBreadcrumbs.setModel(oModel);
+			} catch (err) {
+				this._fireInternalErrorOccurred(err);
 			}
-			var oBreadcrumbs = this.byIdView("detailBreadcrumbs");
-			var oModel = new JSONModel();
-			oModel.setData(aItem);
-			oBreadcrumbs.setModel(oModel);
 		},
 		
 		onBreadcrumbsPress: function(oEvent){

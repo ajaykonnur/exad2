@@ -38,6 +38,11 @@ sap.ui.define([
 			
 			var sResult = aDateFrom[0] + aDateFrom[1] + aDateFrom[2] + "-" + aDateTo[0] + aDateTo[1] + aDateTo[2] ;
 			return sResult;
+		},
+		dateTimeForamt: function(oModel){
+			if(oModel){
+				var oData = oModel.getData();	
+			}
 		}
 	};
 

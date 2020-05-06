@@ -3,6 +3,7 @@
 xmlns="sap.m" 
 xmlns:core="sap.ui.core" 
 xmlns:l="sap.ui.layout"
+xmlns:forms="sap.ui.layout.form"
 xmlns:tnt="sap.tnt" 
 xmlns:uxap="sap.uxap" 
 xmlns:semantic="sap.f.semantic"
@@ -14,7 +15,8 @@ controllerName="promos.exad.EXAD2.controller.targets.detail">
 						<Link press="onBreadcrumbsPress" text="{}"/>
 					</Breadcrumbs>
 			<Title text="Abrechnungsprozess" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop" />
-		 	<List id="list"	width="auto" items="{path: '/', templateShareable:false}" class="sapFDynamicPageAlignContent" growing="true" growingScrollToLoad="true">
+		 	<List id="list" mode="SingleSelect"	width="auto" items="{path: '/', templateShareable:false}" class="sapFDynamicPageAlignContent" 
+		 			growing="true" growingScrollToLoad="true" 	selectionChange=".handleSelectChange">
 				<infoToolbar>
 					<Toolbar active="true"	id="filterBar">
 						<Title id="filterBarLabel"	text="toolbar Title" />
@@ -32,9 +34,8 @@ controllerName="promos.exad.EXAD2.controller.targets.detail">
 						<Button id="groupButton" press=".onOpenViewSettings" icon="sap-icon://group-2"	type="Transparent"/>
 					</OverflowToolbar>
 				</headerToolbar>
-				<items>
-					<ObjectListItem 
-						title="{mietobjektId}">
+				<items navigated="true">
+					<ObjectListItem  title="{mietobjektId}">
 						<attributes>
 							<ObjectAttribute id="lage" text="{lage}" />
 							<ObjectAttribute id="strasse" text="{strasse}" />
